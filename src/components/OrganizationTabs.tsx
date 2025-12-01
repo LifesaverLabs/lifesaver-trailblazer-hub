@@ -3,46 +3,64 @@ import ProjectCard from "./ProjectCard";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
-    { name: "Neighbor SOS", logo: "🆘", url: "#", description: "Community-driven emergency response network", status: "Alpha" },
+    {
+      name: "Neighbor SOS",
+      logo: "🆘",
+      url: "#",
+      description: "Community-driven emergency response network",
+      status: "Alpha",
+    },
     {
       name: "CPR Calmunity Programs",
       logo: "❤️",
       url: "#",
       description: "Global CPR training and life-saving education",
-      status: "Beta"
+      status: "Beta",
     },
     {
       name: "Emergency Accessibility",
       logo: "♿",
       url: "#",
       description: "Making emergency services accessible worldwide",
-      status: "POC"
+      status: "POC",
     },
     {
       name: "Public Health Education",
       logo: "📚",
       url: "#",
       description: "Preventive health and safety education initiatives",
-      status: "Planning"
+      status: "Planning",
     },
   ];
 
   const pbcProjects = [
-    { name: "Safeword", logo: "🔒", url: "#", description: "Privacy-first emergency communication tools", status: "Beta" },
-    { name: "Quick Consent", logo: "✅", url: "#", description: "Clear consent protocols and safety verification", status: "Alpha" },
+    {
+      name: "Safeword",
+      logo: "🔒",
+      url: "#",
+      description: "Privacy-first emergency communication tools",
+      status: "Beta",
+    },
+    {
+      name: "Quick Consent",
+      logo: "✅",
+      url: "#",
+      description: "Clear consent protocols and safety verification",
+      status: "Alpha",
+    },
     {
       name: "Wake-Word Monitoring",
       logo: "🎙️",
       url: "#",
       description: "On-device privacy protection and emergency detection",
-      status: "POC"
+      status: "POC",
     },
     {
       name: "Encrypted Emergency Systems",
       logo: "🔐",
       url: "#",
       description: "Secure, end-to-end encrypted safety technology",
-      status: "Alpha"
+      status: "Alpha",
     },
   ];
 
@@ -52,28 +70,28 @@ const OrganizationTabs = () => {
       logo: "🗳️",
       url: "#",
       description: "Raising ethical standards in representative democracy",
-      status: "Planning"
+      status: "Planning",
     },
     {
       name: "Suffrage Access",
       logo: "🏛️",
       url: "#",
       description: "Improving citizen access to voting and civic participation",
-      status: "Research"
+      status: "Research",
     },
     {
       name: "Civic Safety Integration",
       logo: "🤝",
       url: "#",
       description: "Integrating humane public safety into governance",
-      status: "POC"
+      status: "POC",
     },
     {
       name: "Policy Framework",
       logo: "📋",
       url: "#",
       description: "Evidence-based policy proposals for safer communities",
-      status: "Draft"
+      status: "Draft",
     },
   ];
 
@@ -137,7 +155,7 @@ const OrganizationTabs = () => {
 
         <TabsContent value="usa" className="mt-12 animate-fade-in">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Lifesaver Labs USA</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Lifesaver Labs US</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
               The civic-reform and democracy-innovation initiative focused on raising the ethical standard of
               representative democracy, improving citizen suffrage access, and integrating humane public safety values
