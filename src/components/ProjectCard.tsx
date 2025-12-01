@@ -1,13 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
   name: string;
   logo: string;
   url: string;
   description?: string;
+  status?: string;
 }
 
-const ProjectCard = ({ name, logo, url, description }: ProjectCardProps) => {
+const ProjectCard = ({ name, logo, url, description, status }: ProjectCardProps) => {
   return (
     <a 
       href={url} 
@@ -20,10 +22,17 @@ const ProjectCard = ({ name, logo, url, description }: ProjectCardProps) => {
           <div className="w-24 h-24 flex items-center justify-center bg-muted rounded-lg p-4 group-hover:bg-primary/10 transition-colors">
             <span className="text-4xl font-bold text-primary">{logo}</span>
           </div>
-          <div>
-            <h3 className="font-semibold text-lg text-card-foreground group-hover:text-primary transition-colors">
-              {name}
-            </h3>
+          <div className="space-y-2">
+            <div className="flex items-center justify-center gap-2">
+              <h3 className="font-semibold text-lg text-card-foreground group-hover:text-primary transition-colors">
+                {name}
+              </h3>
+              {status && (
+                <Badge variant="secondary" className="text-xs">
+                  {status}
+                </Badge>
+              )}
+            </div>
             {description && (
               <p className="text-sm text-muted-foreground mt-2">{description}</p>
             )}
