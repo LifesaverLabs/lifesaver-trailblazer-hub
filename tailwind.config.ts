@@ -97,8 +97,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Playfair Display", "serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        display: ["Georgia", "Cambria", "Times New Roman", "serif"],
       },
     },
   },
