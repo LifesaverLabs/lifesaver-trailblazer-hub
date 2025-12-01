@@ -115,7 +115,7 @@ const OrganizationTabs = () => {
             value="usa"
             className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-4 text-sm md:text-base"
           >
-            USA (Campaign Committees)
+            US (Civics Campaign Committees)
           </TabsTrigger>
         </TabsList>
 
