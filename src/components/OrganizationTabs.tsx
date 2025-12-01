@@ -3,41 +3,46 @@ import ProjectCard from "./ProjectCard";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
-    { name: "Neighbor SOS", logo: "🆘", url: "#", description: "Community-driven emergency response network" },
+    { name: "Neighbor SOS", logo: "🆘", url: "#", description: "Community-driven emergency response network", status: "Alpha" },
     {
       name: "CPR Calmunity Programs",
       logo: "❤️",
       url: "#",
       description: "Global CPR training and life-saving education",
+      status: "Beta"
     },
     {
       name: "Emergency Accessibility",
       logo: "♿",
       url: "#",
       description: "Making emergency services accessible worldwide",
+      status: "POC"
     },
     {
       name: "Public Health Education",
       logo: "📚",
       url: "#",
       description: "Preventive health and safety education initiatives",
+      status: "Planning"
     },
   ];
 
   const pbcProjects = [
-    { name: "Safeword", logo: "🔒", url: "#", description: "Privacy-first emergency communication tools" },
-    { name: "Quick Consent", logo: "✅", url: "#", description: "Clear consent protocols and safety verification" },
+    { name: "Safeword", logo: "🔒", url: "#", description: "Privacy-first emergency communication tools", status: "Beta" },
+    { name: "Quick Consent", logo: "✅", url: "#", description: "Clear consent protocols and safety verification", status: "Alpha" },
     {
       name: "Wake-Word Monitoring",
       logo: "🎙️",
       url: "#",
       description: "On-device privacy protection and emergency detection",
+      status: "POC"
     },
     {
       name: "Encrypted Emergency Systems",
       logo: "🔐",
       url: "#",
       description: "Secure, end-to-end encrypted safety technology",
+      status: "Alpha"
     },
   ];
 
@@ -47,24 +52,28 @@ const OrganizationTabs = () => {
       logo: "🗳️",
       url: "#",
       description: "Raising ethical standards in representative democracy",
+      status: "Planning"
     },
     {
       name: "Suffrage Access",
       logo: "🏛️",
       url: "#",
       description: "Improving citizen access to voting and civic participation",
+      status: "Research"
     },
     {
       name: "Civic Safety Integration",
       logo: "🤝",
       url: "#",
       description: "Integrating humane public safety into governance",
+      status: "POC"
     },
     {
       name: "Policy Framework",
       logo: "📋",
       url: "#",
       description: "Evidence-based policy proposals for safer communities",
+      status: "Draft"
     },
   ];
 
