@@ -64,8 +64,8 @@ const Footer = () => {
 
         <div className="border-t border-secondary-foreground/20 pt-8 text-center text-sm text-secondary-foreground/70">
           <p className="mb-2">
-            © {new Date().getFullYear()} Lifesaver Labs Coalition & PBC. A public benefit organization committed to
-            life-saving innovation.
+            © {new Date().getFullYear()} Lifesaver Labs Coalition & PBC. Public benefit organizations committed to
+            life-saving, liberty⁵-building innovation.
           </p>
           <p className="italic">"First, do no harm. Then, save lives."</p>
         </div>
