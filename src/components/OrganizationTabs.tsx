@@ -17,7 +17,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: unifySosLogo,
       url: "https://www.unifysos.org",
-      description: "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
+      description:
+        "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
       status: "Concept",
     },
     {
@@ -25,7 +26,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: nayborsosLogo,
       url: "https://www.nayborsos.org",
-      description: "Global initiative unifying emergency numbers and Good Samaritan protections to empower community-based emergency response",
+      description:
+        "Global initiative unifying emergency numbers and Good Samaritan protections to empower community-based emergency response",
       status: "Alpha",
     },
     {
@@ -50,7 +52,7 @@ const OrganizationTabs = () => {
       logoImage: nayborlyLogo,
       url: "https://www.nayborly.org",
       description:
-        "Calmunity⁵ portal for naybors to learn about, revise, and coordinate on health and safety best practices",
+        "Calmunity⁵ portal for naybors to learn about, revise, and coordinate on health and safety best practices to harvest healthy⁵ centuries together",
       status: "Concept",
     },
     {
