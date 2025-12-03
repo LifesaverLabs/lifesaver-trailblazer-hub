@@ -87,7 +87,7 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: safewordLogo,
       url: "https://www.safeword.us",
-      description: "Your safety net before saying 'yes!' - consent verification and safety communication tools",
+      description: "Helping couples build stronger, safer relationships through consent tools, check-ins, and privacy-first communication",
       status: "Beta",
     },
     {
