@@ -49,14 +49,6 @@ const OrganizationTabs = () => {
       status: "POC",
     },
     {
-      name: "#SaveUsFromSlog",
-      logo: "",
-      logoImage: saveUsFromSlogLogo,
-      url: "https://www.saveusfromslog.us",
-      description: "Nonpartisan push to limit campaign seasons to a humane fraction of each term",
-      status: "POC",
-    },
-    {
       name: "CPR Calmunity Programs",
       logo: "❤️",
       url: "#",
@@ -111,6 +103,14 @@ const OrganizationTabs = () => {
   ];
 
   const usaProjects = [
+    {
+      name: "#SaveUsFromSlog",
+      logo: "",
+      logoImage: saveUsFromSlogLogo,
+      url: "https://www.saveusfromslog.us",
+      description: "Nonpartisan push to limit campaign seasons to a humane fraction of each term",
+      status: "POC",
+    },
     {
       name: "Democracy Innovation",
       logo: "🗳️",
