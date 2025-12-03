@@ -14,6 +14,7 @@ import take10Logo from "@/assets/take10-logo.jpeg";
 import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
 import calmunismLogo from "@/assets/calmunism-logo.jpeg";
 import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
+import krashlessKarLogo from "@/assets/krashless-kar-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -69,6 +70,15 @@ const OrganizationTabs = () => {
       url: "https://www.unifysos.org",
       description:
         "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
+      status: "Concept",
+    },
+    {
+      name: "Krashless Kar",
+      logo: "",
+      logoImage: krashlessKarLogo,
+      url: "https://www.krashlesskar.org",
+      description:
+        "Coming soon: A certification standards body granting safety levels measured in percentiles beyond typical human performance—Level 1 exceeds the 80th percentile of defensive driving, with all certifications requiring zero driver attention or supervision",
       status: "Concept",
     },
     {
