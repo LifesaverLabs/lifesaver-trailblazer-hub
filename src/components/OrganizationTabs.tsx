@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "./ProjectCard";
 import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
+import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -17,6 +18,14 @@ const OrganizationTabs = () => {
       logoImage: enoughIsEnufLogo,
       url: "https://www.EnoughIsEnuf.org",
       description: "Simplified American spelling and counting reform for global accessibility",
+      status: "POC",
+    },
+    {
+      name: "BLED⁵/Blessed Dialect",
+      logo: "",
+      logoImage: bledLogo,
+      url: "https://www.BlessedDialect.org",
+      description: "The flexible future of English language evolution",
       status: "POC",
     },
     {
