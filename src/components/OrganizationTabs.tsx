@@ -213,9 +213,10 @@ const OrganizationTabs = () => {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">Lifesaver Labs PBC</h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-              The product-building and technology-executing arm of the Lifesaver ecosystem—developing apps, safety
-              protocols, emergency tools, and public-benefit technology. We build privacy-first, life-saving technology
-              with ethical design at the core.
+              The calmplex product-building and technology-executing arm of the Lifesaver ecosystem—developing apps,
+              safety protocols, emergency tools, and public-benefit technology. We build privacy-first, life-saving
+              technology⁵ with ethical design at the core. These PBC projects will pursue calmunity⁵ dividends with
+              cost-conscious care.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
