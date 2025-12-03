@@ -1,22 +1,22 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "./ProjectCard";
-import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
-import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
-import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
+import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.jpg";
+import bledLogo from "@/assets/bled-blessed-dialect-logo.jpg";
+import nayborlyLogo from "@/assets/nayborly-logo.jpg";
 import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
 import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
-import heartclotLogo from "@/assets/heartclot-logo.jpeg";
+import heartclotLogo from "@/assets/heartclot-logo.jpg";
 import safewordLogo from "@/assets/safeword-logo.png";
-import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
+import nayborsosLogo from "@/assets/nayborsos-logo.jpg";
 import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
-import civigionLogo from "@/assets/civigion-logo.png";
+import civigionLogo from "@/assets/civigion-logo.jpg";
 import take10Logo from "@/assets/take10-logo.jpeg";
 import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
-import calmunismLogo from "@/assets/calmunism-logo.jpeg";
+import calmunismLogo from "@/assets/calmunism-logo.jpg";
 import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
-import krashlessKarLogo from "@/assets/krashless-kar-logo.png";
+import krashlessKarLogo from "@/assets/krashless-kar-logo.jpg";
 import religiousRcvLogo from "@/assets/religious-rcv-logo.png";
-import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.png";
+import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
