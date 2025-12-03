@@ -165,34 +165,6 @@ const OrganizationTabs = () => {
         "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
       status: "Concept",
     },
-    {
-      name: "Democracy Innovation",
-      logo: "🗳️",
-      url: "#",
-      description: "Raising ethical standards in representative democracy",
-      status: "Planning",
-    },
-    {
-      name: "Suffrage Access",
-      logo: "🏛️",
-      url: "#",
-      description: "Improving citizen access to voting and civic participation",
-      status: "Research",
-    },
-    {
-      name: "Civic Safety Integration",
-      logo: "🤝",
-      url: "#",
-      description: "Integrating humane public safety into governance",
-      status: "POC",
-    },
-    {
-      name: "Policy Framework",
-      logo: "📋",
-      url: "#",
-      description: "Evidence-based policy proposals for safer communities",
-      status: "Draft",
-    },
   ];
 
   return (
