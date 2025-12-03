@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero-lifesaver.jpg";
-import lifesaverLabsLogo from "@/assets/lifesaver-labs-logo.png";
+import lifesaverLabsLogo from "@/assets/lifesaver-labs-logo.webp";
 
 const Hero = () => {
   return (
