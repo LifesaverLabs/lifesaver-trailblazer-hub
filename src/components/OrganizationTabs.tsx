@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "./ProjectCard";
+import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -9,6 +10,14 @@ const OrganizationTabs = () => {
       url: "#",
       description: "Community-driven emergency response network",
       status: "Alpha",
+    },
+    {
+      name: "Enough Is Enuf: English for Humans",
+      logo: "",
+      logoImage: enoughIsEnufLogo,
+      url: "https://www.EnoughIsEnuf.org",
+      description: "Simplified English spelling reform for global accessibility",
+      status: "POC",
     },
     {
       name: "CPR Calmunity Programs",
