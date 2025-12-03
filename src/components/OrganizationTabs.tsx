@@ -102,7 +102,7 @@ const OrganizationTabs = () => {
       logoImage: ribbreakersLogo,
       url: "https://www.ribbreakersunited.org",
       description:
-        "Uniting the CPR community to normalize life-saving chest compressions  overcome bystander hesitation",
+        "Uniting the CPR community to normalize life-saving chest compressions, overcome bystander hesitation, and secure national free emergency training globally⁵",
       status: "POC",
     },
     {
