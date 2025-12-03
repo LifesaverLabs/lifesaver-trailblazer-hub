@@ -10,6 +10,7 @@ import safewordLogo from "@/assets/safeword-logo.png";
 import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
 import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
 import civigionLogo from "@/assets/civigion-logo.png";
+import take10Logo from "@/assets/take10-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -21,6 +22,15 @@ const OrganizationTabs = () => {
       description:
         "Civigion (Civic Religion): Recognizing our shared faith in democratic values, natural rights, and human dignity—compatible with all spiritual traditions",
       status: "Beta",
+    },
+    {
+      name: "Take 10?",
+      logo: "",
+      logoImage: take10Logo,
+      url: "https://www.take10.us",
+      description:
+        "#take10? A simple de-escalation phrase inviting reflection—whether 10 seconds, 10 minutes, or 10 hours—to create space for calm, conciliation, and face-saving gestures",
+      status: "Concept",
     },
     {
       name: "UNify SOS",
