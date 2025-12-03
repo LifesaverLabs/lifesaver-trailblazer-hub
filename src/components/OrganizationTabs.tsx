@@ -16,6 +16,7 @@ import calmunismLogo from "@/assets/calmunism-logo.jpeg";
 import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
 import krashlessKarLogo from "@/assets/krashless-kar-logo.png";
 import religiousRcvLogo from "@/assets/religious-rcv-logo.png";
+import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
