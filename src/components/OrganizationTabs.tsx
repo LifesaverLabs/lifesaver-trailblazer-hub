@@ -16,7 +16,7 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: enoughIsEnufLogo,
       url: "https://www.EnoughIsEnuf.org",
-      description: "Simplified English spelling and counting reform for global accessibility",
+      description: "Simplified American and English spelling and counting reform for global accessibility",
       status: "POC",
     },
     {
