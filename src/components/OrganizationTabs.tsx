@@ -3,19 +3,19 @@ import ProjectCard from "./ProjectCard";
 import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.jpg";
 import bledLogo from "@/assets/bled-blessed-dialect-logo.jpg";
 import nayborlyLogo from "@/assets/nayborly-logo.jpg";
-import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
-import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
+import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpg";
+import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpg";
 import heartclotLogo from "@/assets/heartclot-logo.jpg";
 import safewordLogo from "@/assets/safeword-logo.png";
 import nayborsosLogo from "@/assets/nayborsos-logo.jpg";
-import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
+import unifySosLogo from "@/assets/unify-sos-logo.jpg";
 import civigionLogo from "@/assets/civigion-logo.jpg";
-import take10Logo from "@/assets/take10-logo.jpeg";
-import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
+import take10Logo from "@/assets/take10-logo.jpg";
+import raisingRightsLogo from "@/assets/raising-rights-logo.jpg";
 import calmunismLogo from "@/assets/calmunism-logo.jpg";
-import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
+import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpg";
 import krashlessKarLogo from "@/assets/krashless-kar-logo.jpg";
-import religiousRcvLogo from "@/assets/religious-rcv-logo.png";
+import religiousRcvLogo from "@/assets/religious-rcv-logo.jpg";
 import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 
 const OrganizationTabs = () => {
