@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Lifesaver Trailblazer Hub
 
-## Project info
+A showcase website for the **Lifesaver Labs** ecosystem—an innovation hub advancing public health prevention, personal and community security, and a higher standard of civic democracy.
 
-**URL**: https://lovable.dev/projects/970c3e79-416e-4b80-9b45-71719da03fe1
+## About Lifesaver Labs
 
-## How can I edit this code?
+Lifesaver Labs is a coordinated ecosystem comprising:
 
-There are several ways of editing your application.
+- **Lifesaver Labs Coalition** (Nonprofit): Global community initiatives focused on public health, emergency response innovation, and civic education
+- **Lifesaver Labs PBC** (Public Benefit Corporation): Product-building and technology-executing arm developing privacy-first, life-saving technology
+- **Lifesaver Labs US** (Civics Campaigns & Legal): Democracy innovation and civic reform initiative
 
-**Use Lovable**
+## Featured Projects
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/970c3e79-416e-4b80-9b45-71719da03fe1) and start prompting.
+### Coalition (Nonprofit)
+- **Civigion** - Civic religion recognizing shared faith in democratic values
+- **UNify SOS** - Advocating for universal emergency numbers and Good Samaritan protections
+- **Tear Down This Firewall** - Fighting digital censorship and internet freedom
+- **Nayborly** - Community portal for health and safety best practices
+- **Ribbreakers United** - Normalizing life-saving CPR and emergency training
+- **#heartclot!!** - Rebranding heart attacks for better symptom recognition
+- **Take 10?** - De-escalation phrase for conflict resolution
+- **Krashless Kar™** - Autonomous vehicle safety certification standards
+- **Enough Is Enuf** - Simplified American spelling reform
+- **BLED⁵/Blessed Dialect** - Future of English language evolution
 
-Changes made via Lovable will be committed automatically to this repo.
+### PBC (Public Benefit Corp)
+- **Naybor SOS™** - Community emergency response platform
+- **Safeword™** - Relationship safety and consent communication tools
 
-**Use your preferred IDE**
+### Civics Campaigns & Legal
+- **Raising Rights** - Youth suffrage and civic education initiative
+- **Calm⁴UNism** - Global economic and social decision-making framework
+- **#SaveUsFromSlog** - Campaign to limit election season duration
+- **Religious RCV** - Ranked-choice voting advocacy
+- **Lifesaver Labs United** - Harmless Hands Emergency⁵ Party
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This project is built with modern web technologies:
 
-Follow these steps:
+- **[Vite](https://vitejs.dev/)** - Lightning-fast build tool
+- **[React](https://react.dev/)** - UI component library
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[shadcn/ui](https://ui.shadcn.com/)** - Re-usable component library
+- **[React Router](https://reactrouter.com/)** - Client-side routing
+- **[TanStack Query](https://tanstack.com/query)** - Server state management
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (recommended via [nvm](https://github.com/nvm-sh/nvm))
+- npm or yarn
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone <repository-url>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd lifesaver-trailblazer-hub
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+```sh
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run build:dev    # Build in development mode
+npm run lint         # Run ESLint
+npm run preview      # Preview production build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── assets/          # Images and static assets
+├── components/      # React components
+│   ├── ui/          # shadcn/ui components
+│   ├── Hero.tsx     # Hero section with branding
+│   ├── OrganizationTabs.tsx  # Project showcase tabs
+│   ├── ProjectCard.tsx       # Individual project cards
+│   └── Footer.tsx   # Footer component
+├── pages/           # Page components
+│   ├── Index.tsx    # Main landing page
+│   └── NotFound.tsx # 404 page
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+└── main.tsx         # Application entry point
+```
 
-This project is built with:
+## Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/970c3e79-416e-4b80-9b45-71719da03fe1) and click on Share -> Publish.
+© 2025 Lifesaver Labs Coalition, Lifesaver Labs Public Benefit Corporation, and Lifesaver Labs US / United
 
-## Can I connect a custom domain to my Lovable project?
+## Contact
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For more information about Lifesaver Labs and our initiatives, visit the project websites linked in the application.
