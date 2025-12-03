@@ -72,15 +72,6 @@ const OrganizationTabs = () => {
       status: "Concept",
     },
     {
-      name: "Naybor SOS",
-      logo: "",
-      logoImage: nayborsosLogo,
-      url: "https://www.nayborsos.org",
-      description:
-        "Global initiative unifying emergency numbers and Good Samaritan protections to empower community-based emergency response",
-      status: "Alpha",
-    },
-    {
       name: "Enough Is Enuf: English for Humans",
       logo: "",
       logoImage: enoughIsEnufLogo,
@@ -146,6 +137,15 @@ const OrganizationTabs = () => {
   ];
 
   const pbcProjects = [
+    {
+      name: "Naybor SOS",
+      logo: "",
+      logoImage: nayborsosLogo,
+      url: "https://www.nayborsos.org",
+      description:
+        "Community-based emergency response platform connecting naybors to respond to CPR, overdose, wellness checks, and crisis situations in minutes—not quarter-hours",
+      status: "Alpha",
+    },
     {
       name: "Safeword",
       logo: "",
