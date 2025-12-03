@@ -4,12 +4,13 @@ import { Badge } from "@/components/ui/badge";
 interface ProjectCardProps {
   name: string;
   logo: string;
+  logoImage?: string;
   url: string;
   description?: string;
   status?: string;
 }
 
-const ProjectCard = ({ name, logo, url, description, status }: ProjectCardProps) => {
+const ProjectCard = ({ name, logo, logoImage, url, description, status }: ProjectCardProps) => {
   return (
     <a 
       href={url} 
@@ -19,8 +20,12 @@ const ProjectCard = ({ name, logo, url, description, status }: ProjectCardProps)
     >
       <Card className="h-full transition-all duration-300 hover:shadow-[var(--card-hover-shadow)] hover:-translate-y-1 border-border bg-card">
         <CardContent className="p-6 flex flex-col items-center text-center gap-4">
-          <div className="w-24 h-24 flex items-center justify-center bg-muted rounded-lg p-4 group-hover:bg-primary/10 transition-colors">
-            <span className="text-4xl font-bold text-primary">{logo}</span>
+          <div className="w-24 h-24 flex items-center justify-center bg-muted rounded-lg p-4 group-hover:bg-primary/10 transition-colors overflow-hidden">
+            {logoImage ? (
+              <img src={logoImage} alt={`${name} logo`} className="w-full h-full object-contain" />
+            ) : (
+              <span className="text-4xl font-bold text-primary">{logo}</span>
+            )}
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-center gap-2">
