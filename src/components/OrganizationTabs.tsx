@@ -111,7 +111,7 @@ const OrganizationTabs = () => {
 
   const pbcProjects = [
     {
-      name: "Naybor SOS",
+      name: "Naybor SOS™",
       logo: "",
       logoImage: nayborsosLogo,
       url: "https://www.nayborsos.org",
@@ -120,7 +120,7 @@ const OrganizationTabs = () => {
       status: "Concept",
     },
     {
-      name: "Safeword",
+      name: "Safeword™",
       logo: "",
       logoImage: safewordLogo,
       url: "https://www.safeword.us",
