@@ -166,6 +166,15 @@ const OrganizationTabs = () => {
         "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
       status: "Concept",
     },
+    {
+      name: "Lifesaver Labs United",
+      logo: "",
+      logoImage: lifesaverLabsUnitedLogo,
+      url: "https://www.lifesaverlabsunited.org",
+      description:
+        "Harmless Hands Emergency⁵ Party organizing around policies to sociotechnically engineer civigious miracles and major civ build projects",
+      status: "Concept",
+    },
   ];
 
   return (
