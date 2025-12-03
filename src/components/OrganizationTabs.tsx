@@ -47,7 +47,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: ribbreakersLogo,
       url: "https://www.ribbreakersunited.org",
-      description: "Uniting the CPR community to normalize life-saving chest compressions and overcome bystander hesitation",
+      description:
+        "Uniting the CPR community to normalize life-saving chest compressions and overcome bystander hesitation",
       status: "POC",
     },
     {
@@ -87,7 +88,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: safewordLogo,
       url: "https://www.safeword.us",
-      description: "Helping couples build stronger, safer relationships through consent tools, check-ins, and privacy-first communication",
+      description:
+        "Helping couples build stronger, safer relationships through consent tools, check-ins, and privacy-first calmunication",
       status: "Beta",
     },
     {
