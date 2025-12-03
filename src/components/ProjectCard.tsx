@@ -20,11 +20,11 @@ const ProjectCard = ({ name, logo, logoImage, url, description, status }: Projec
     >
       <Card className="h-full transition-all duration-300 hover:shadow-[var(--card-hover-shadow)] hover:-translate-y-1 border-border bg-card">
         <CardContent className="p-6 flex flex-col items-center text-center gap-4">
-          <div className="w-24 h-24 flex items-center justify-center bg-muted rounded-lg p-4 group-hover:bg-primary/10 transition-colors overflow-hidden">
+          <div className="w-full aspect-[3/2] flex items-center justify-center bg-muted rounded-lg p-3 group-hover:bg-primary/10 transition-colors overflow-hidden">
             {logoImage ? (
               <img src={logoImage} alt={`${name} logo`} className="w-full h-full object-contain" />
             ) : (
-              <span className="text-4xl font-bold text-primary">{logo}</span>
+              <span className="text-5xl font-bold text-primary">{logo}</span>
             )}
           </div>
           <div className="space-y-2">
