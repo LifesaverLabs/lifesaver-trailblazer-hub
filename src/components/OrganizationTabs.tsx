@@ -49,7 +49,7 @@ const OrganizationTabs = () => {
       logoImage: calmunismLogo,
       url: "https://www.calmunism.org",
       description:
-        "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical off-ramp toward calmunistic consensus",
+        "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical on-ramp toward calmunistic consensus",
       status: "Beta",
     },
     {
