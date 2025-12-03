@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
 import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
 import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
+import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -37,6 +38,14 @@ const OrganizationTabs = () => {
       description:
         "Calmunity⁵ portal for naybors to learn about, revise, and coordinate on health and safety best practices",
       status: "Concept",
+    },
+    {
+      name: "Ribbreakers United",
+      logo: "",
+      logoImage: ribbreakersLogo,
+      url: "https://www.ribbreakersunited.org",
+      description: "Uniting the CPR community to normalize life-saving chest compressions and overcome bystander hesitation",
+      status: "POC",
     },
     {
       name: "CPR Calmunity Programs",
