@@ -4,6 +4,7 @@ import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
 import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
 import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
 import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
+import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -45,6 +46,14 @@ const OrganizationTabs = () => {
       logoImage: ribbreakersLogo,
       url: "https://www.ribbreakersunited.org",
       description: "Uniting the CPR community to normalize life-saving chest compressions and overcome bystander hesitation",
+      status: "POC",
+    },
+    {
+      name: "#SaveUsFromSlog",
+      logo: "",
+      logoImage: saveUsFromSlogLogo,
+      url: "https://www.saveusfromslog.us",
+      description: "Nonpartisan push to limit campaign seasons to a humane fraction of each term",
       status: "POC",
     },
     {
