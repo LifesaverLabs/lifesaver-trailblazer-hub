@@ -177,6 +177,14 @@ const OrganizationTabs = () => {
       status: "POC",
     },
     {
+      name: "Religious RCV",
+      logo: "",
+      logoImage: civigionLogo,
+      url: "https://www.religiousrcv.us",
+      description: "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
+      status: "Concept",
+    },
+    {
       name: "Democracy Innovation",
       logo: "🗳️",
       url: "#",
