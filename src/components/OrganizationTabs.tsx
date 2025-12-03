@@ -6,6 +6,7 @@ import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
 import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
 import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
 import heartclotLogo from "@/assets/heartclot-logo.jpeg";
+import safewordLogo from "@/assets/safeword-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -83,9 +84,10 @@ const OrganizationTabs = () => {
   const pbcProjects = [
     {
       name: "Safeword",
-      logo: "🔒",
-      url: "#",
-      description: "Privacy-first emergency communication tools",
+      logo: "",
+      logoImage: safewordLogo,
+      url: "https://www.safeword.us",
+      description: "Your safety net before saying 'yes!' - consent verification and safety communication tools",
       status: "Beta",
     },
     {
