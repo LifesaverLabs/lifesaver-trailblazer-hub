@@ -15,7 +15,7 @@ const Hero = () => {
         <img 
           src={lifesaverLabsLogo} 
           alt="Lifesaver Labs" 
-          className="w-56 md:w-72 lg:w-80 mx-auto mb-8 drop-shadow-lg"
+          className="w-72 md:w-96 lg:w-[28rem] mx-auto mb-8 drop-shadow-lg"
         />
         <p className="text-xl md:text-2xl text-primary-foreground/95 max-w-4xl mx-auto leading-relaxed mb-4">
           An innovation hub advancing public-health prevention, personal and community security, 
