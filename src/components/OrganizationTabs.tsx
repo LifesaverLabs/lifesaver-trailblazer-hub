@@ -34,7 +34,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: nayborlyLogo,
       url: "https://www.nayborly.org",
-      description: "Calmunity⁵ portal for naybors to coordinate on health and safety best practices",
+      description:
+        "Calmunity⁵ portal for naybors to learn about, revise, and coordinate on health and safety best practices",
       status: "Concept",
     },
     {
