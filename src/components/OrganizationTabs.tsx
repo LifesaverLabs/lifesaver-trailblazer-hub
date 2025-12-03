@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "./ProjectCard";
 import enoughIsEnufLogo from "@/assets/enough-is-enuf-logo.png";
 import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
+import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -27,6 +28,14 @@ const OrganizationTabs = () => {
       url: "https://www.BlessedDialect.org",
       description: "The flexible future of English language evolution",
       status: "POC",
+    },
+    {
+      name: "Nayborly",
+      logo: "",
+      logoImage: nayborlyLogo,
+      url: "https://www.nayborly.org",
+      description: "Calmunity⁵ portal for naybors to coordinate on health and safety best practices",
+      status: "Concept",
     },
     {
       name: "CPR Calmunity Programs",
