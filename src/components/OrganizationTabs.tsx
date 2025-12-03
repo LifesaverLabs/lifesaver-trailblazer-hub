@@ -5,6 +5,7 @@ import bledLogo from "@/assets/bled-blessed-dialect-logo.png";
 import nayborlyLogo from "@/assets/nayborly-logo.jpeg";
 import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
 import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
+import heartclotLogo from "@/assets/heartclot-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -46,6 +47,14 @@ const OrganizationTabs = () => {
       logoImage: ribbreakersLogo,
       url: "https://www.ribbreakersunited.org",
       description: "Uniting the CPR community to normalize life-saving chest compressions and overcome bystander hesitation",
+      status: "POC",
+    },
+    {
+      name: "#heartclot!!",
+      logo: "",
+      logoImage: heartclotLogo,
+      url: "https://www.heartclot.us",
+      description: "Rebranding 'heart attack' to help people recognize subtle symptoms and seek timely treatment",
       status: "POC",
     },
     {
