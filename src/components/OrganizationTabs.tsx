@@ -124,27 +124,6 @@ const OrganizationTabs = () => {
       description: "Rebranding 'heart attack' to help people recognize subtle symptoms and seek timely treatment",
       status: "POC",
     },
-    {
-      name: "CPR Calmunity Programs",
-      logo: "❤️",
-      url: "#",
-      description: "Global CPR training and life-saving education",
-      status: "Beta",
-    },
-    {
-      name: "Emergency Accessibility",
-      logo: "♿",
-      url: "#",
-      description: "Making emergency services accessible worldwide",
-      status: "POC",
-    },
-    {
-      name: "Public Health Education",
-      logo: "📚",
-      url: "#",
-      description: "Preventive health and safety education initiatives",
-      status: "Planning",
-    },
   ];
 
   const pbcProjects = [
@@ -182,7 +161,8 @@ const OrganizationTabs = () => {
       logo: "",
       logoImage: religiousRcvLogo,
       url: "https://www.religiousrcv.us",
-      description: "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
+      description:
+        "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
       status: "Concept",
     },
     {
