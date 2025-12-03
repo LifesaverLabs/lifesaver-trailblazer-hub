@@ -15,6 +15,7 @@ import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
 import calmunismLogo from "@/assets/calmunism-logo.jpeg";
 import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
 import krashlessKarLogo from "@/assets/krashless-kar-logo.png";
+import religiousRcvLogo from "@/assets/religious-rcv-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -179,7 +180,7 @@ const OrganizationTabs = () => {
     {
       name: "Religious RCV",
       logo: "",
-      logoImage: civigionLogo,
+      logoImage: religiousRcvLogo,
       url: "https://www.religiousrcv.us",
       description: "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
       status: "Concept",
