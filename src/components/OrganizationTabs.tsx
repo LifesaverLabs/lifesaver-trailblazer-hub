@@ -11,6 +11,7 @@ import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
 import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
 import civigionLogo from "@/assets/civigion-logo.png";
 import take10Logo from "@/assets/take10-logo.jpeg";
+import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -30,6 +31,15 @@ const OrganizationTabs = () => {
       url: "https://www.take10.us",
       description:
         "#take10? A simple de-escalation phrase inviting reflection—whether 10 seconds, 10 minutes, or 10 hours—to create space for calm, conciliation, and face-saving gestures",
+      status: "Concept",
+    },
+    {
+      name: "Raising Rights",
+      logo: "",
+      logoImage: raisingRightsLogo,
+      url: "https://www.raisingrights.org",
+      description:
+        "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
       status: "Concept",
     },
     {
