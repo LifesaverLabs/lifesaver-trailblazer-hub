@@ -83,7 +83,7 @@ const OrganizationTabs = () => {
       status: "Concept",
     },
     {
-      name: "Krashless Kar",
+      name: "Krashless Kar™",
       logo: "",
       logoImage: krashlessKarLogo,
       url: "https://www.krashlesskar.org",
