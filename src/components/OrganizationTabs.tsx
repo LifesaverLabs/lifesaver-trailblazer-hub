@@ -22,6 +22,14 @@ const OrganizationTabs = () => {
       status: "Concept",
     },
     {
+      name: "Civigion",
+      logo: "⚖️",
+      url: "https://www.civigion.us",
+      description:
+        "Civigion (Civic Religion): Recognizing our shared faith in democratic values, natural rights, and human dignity—compatible with all spiritual traditions",
+      status: "Beta",
+    },
+    {
       name: "Naybor SOS",
       logo: "",
       logoImage: nayborsosLogo,
