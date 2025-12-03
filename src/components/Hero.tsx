@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-lifesaver.jpg";
+import lifesaverLabsLogo from "@/assets/lifesaver-labs-logo.png";
 
 const Hero = () => {
   return (
@@ -11,6 +12,11 @@ const Hero = () => {
       </div>
       
       <div className="container relative z-10 px-6 py-20 text-center animate-fade-in">
+        <img 
+          src={lifesaverLabsLogo} 
+          alt="Lifesaver Labs logo" 
+          className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-lg"
+        />
         <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 tracking-tight">
           Lifesaver Labs
         </h1>
