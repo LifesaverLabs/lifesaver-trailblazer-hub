@@ -38,24 +38,6 @@ const OrganizationTabs = () => {
       status: "Concept",
     },
     {
-      name: "Raising Rights",
-      logo: "",
-      logoImage: raisingRightsLogo,
-      url: "https://www.raisingrights.org",
-      description:
-        "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
-      status: "POC",
-    },
-    {
-      name: "Calm⁴UNism",
-      logo: "",
-      logoImage: calmunismLogo,
-      url: "https://www.calmunism.org",
-      description:
-        "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical on-ramp toward calmunistic consensus",
-      status: "Beta",
-    },
-    {
       name: "Tear Down This Firewall",
       logo: "",
       logoImage: tearDownThisFirewallLogo,
@@ -149,6 +131,24 @@ const OrganizationTabs = () => {
 
   const usaProjects = [
     {
+      name: "Raising Rights",
+      logo: "",
+      logoImage: raisingRightsLogo,
+      url: "https://www.raisingrights.org",
+      description:
+        "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
+      status: "POC",
+    },
+    {
+      name: "Calm⁴UNism",
+      logo: "",
+      logoImage: calmunismLogo,
+      url: "https://www.calmunism.org",
+      description:
+        "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical on-ramp toward calmunistic consensus",
+      status: "Beta",
+    },
+    {
       name: "#SaveUsFromSlog",
       logo: "",
       logoImage: saveUsFromSlogLogo,
@@ -215,7 +215,7 @@ const OrganizationTabs = () => {
             value="usa"
             className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-4 text-sm md:text-base"
           >
-            US (Civics Campaign Committees)
+            Civics Campaigns and Legal
           </TabsTrigger>
         </TabsList>
 
