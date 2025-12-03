@@ -9,9 +9,19 @@ import heartclotLogo from "@/assets/heartclot-logo.jpeg";
 import safewordLogo from "@/assets/safeword-logo.png";
 import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
 import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
+import civigionLogo from "@/assets/civigion-logo.png";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
+    {
+      name: "Civigion",
+      logo: "",
+      logoImage: civigionLogo,
+      url: "https://www.civigion.us",
+      description:
+        "Civigion (Civic Religion): Recognizing our shared faith in democratic values, natural rights, and human dignity—compatible with all spiritual traditions",
+      status: "Beta",
+    },
     {
       name: "UNify SOS",
       logo: "",
@@ -20,14 +30,6 @@ const OrganizationTabs = () => {
       description:
         "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
       status: "Concept",
-    },
-    {
-      name: "Civigion",
-      logo: "⚖️",
-      url: "https://www.civigion.us",
-      description:
-        "Civigion (Civic Religion): Recognizing our shared faith in democratic values, natural rights, and human dignity—compatible with all spiritual traditions",
-      status: "Beta",
     },
     {
       name: "Naybor SOS",
