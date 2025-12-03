@@ -155,27 +155,6 @@ const OrganizationTabs = () => {
         "Helping couples build stronger, safer relationships through consent tools, check-ins, and privacy-first calmunication",
       status: "Beta",
     },
-    {
-      name: "Quick Consent",
-      logo: "✅",
-      url: "#",
-      description: "Clear consent protocols and safety verification",
-      status: "Alpha",
-    },
-    {
-      name: "Wake-Word Monitoring",
-      logo: "🎙️",
-      url: "#",
-      description: "On-device privacy protection and emergency detection",
-      status: "POC",
-    },
-    {
-      name: "Encrypted Emergency Systems",
-      logo: "🔐",
-      url: "#",
-      description: "Secure, end-to-end encrypted safety technology",
-      status: "Alpha",
-    },
   ];
 
   const usaProjects = [
