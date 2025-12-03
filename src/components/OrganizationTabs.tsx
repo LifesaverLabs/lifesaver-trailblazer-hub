@@ -170,7 +170,7 @@ const OrganizationTabs = () => {
       name: "Lifesaver Labs United",
       logo: "",
       logoImage: lifesaverLabsUnitedLogo,
-      url: "https://www.lifesaverlabsunited.org",
+      url: "https://www.lifesaverlabs.us",
       description:
         "Harmless Hands Emergency⁵ Party organizing around policies to sociotechnically engineer civigious miracles and major incredibly urgent civ build projects",
       status: "Concept",
