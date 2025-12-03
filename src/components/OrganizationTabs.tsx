@@ -12,6 +12,7 @@ import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
 import civigionLogo from "@/assets/civigion-logo.png";
 import take10Logo from "@/assets/take10-logo.jpeg";
 import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
+import calmunismLogo from "@/assets/calmunism-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -41,6 +42,15 @@ const OrganizationTabs = () => {
       description:
         "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
       status: "POC",
+    },
+    {
+      name: "Calm⁴UNism",
+      logo: "",
+      logoImage: calmunismLogo,
+      url: "https://www.calmunism.org",
+      description:
+        "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical off-ramp toward calmunistic consensus",
+      status: "Beta",
     },
     {
       name: "UNify SOS",
