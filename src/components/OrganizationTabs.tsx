@@ -7,14 +7,16 @@ import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpeg";
 import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
 import heartclotLogo from "@/assets/heartclot-logo.jpeg";
 import safewordLogo from "@/assets/safeword-logo.png";
+import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
     {
-      name: "Neighbor SOS",
-      logo: "🆘",
-      url: "#",
-      description: "Community-driven emergency response network",
+      name: "Naybor SOS",
+      logo: "",
+      logoImage: nayborsosLogo,
+      url: "https://www.nayborsos.org",
+      description: "Global initiative unifying emergency numbers and Good Samaritan protections to empower community-based emergency response",
       status: "Alpha",
     },
     {
