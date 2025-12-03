@@ -40,7 +40,7 @@ const OrganizationTabs = () => {
       url: "https://www.raisingrights.org",
       description:
         "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
-      status: "Movement",
+      status: "POC",
     },
     {
       name: "UNify SOS",
