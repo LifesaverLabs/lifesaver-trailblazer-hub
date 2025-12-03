@@ -8,9 +8,18 @@ import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpeg";
 import heartclotLogo from "@/assets/heartclot-logo.jpeg";
 import safewordLogo from "@/assets/safeword-logo.png";
 import nayborsosLogo from "@/assets/nayborsos-logo.jpeg";
+import unifySosLogo from "@/assets/unify-sos-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
+    {
+      name: "UNify SOS",
+      logo: "",
+      logoImage: unifySosLogo,
+      url: "https://www.unifysos.org",
+      description: "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
+      status: "Concept",
+    },
     {
       name: "Naybor SOS",
       logo: "",
