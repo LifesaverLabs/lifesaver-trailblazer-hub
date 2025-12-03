@@ -29,12 +29,12 @@ const OrganizationTabs = () => {
       status: "Beta",
     },
     {
-      name: "Take 10?",
+      name: "UNify SOS",
       logo: "",
-      logoImage: take10Logo,
-      url: "https://www.take10.us",
+      logoImage: unifySosLogo,
+      url: "https://www.unifysos.org",
       description:
-        "#take10? A simple de-escalation phrase inviting reflection—whether 10 seconds, 10 minutes, or 10 hours—to create space for calm, conciliation, and face-saving gestures",
+        "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
       status: "Concept",
     },
     {
@@ -45,40 +45,6 @@ const OrganizationTabs = () => {
       description:
         "#teardownthisfirewall: Fighting digital censorship and advocating for internet freedom—because when ideas cannot flow freely, humanity suffers",
       status: "Alpha",
-    },
-    {
-      name: "UNify SOS",
-      logo: "",
-      logoImage: unifySosLogo,
-      url: "https://www.unifysos.org",
-      description:
-        "#UNifySOS: Advocating for one world, one emergency number, and universal Good Samaritan protections to empower everyone to become an upstander",
-      status: "Concept",
-    },
-    {
-      name: "Krashless Kar",
-      logo: "",
-      logoImage: krashlessKarLogo,
-      url: "https://www.krashlesskar.org",
-      description:
-        "Coming soon: A certification standards body granting safety levels measured in percentiles beyond typical human performance—Level 1 exceeds the 80th percentile of defensive driving, with all certifications requiring zero driver attention or supervision",
-      status: "Concept",
-    },
-    {
-      name: "Enough Is Enuf: English for Humans",
-      logo: "",
-      logoImage: enoughIsEnufLogo,
-      url: "https://www.EnoughIsEnuf.org",
-      description: "Simplified American spelling and counting reform for global accessibility",
-      status: "POC",
-    },
-    {
-      name: "BLED⁵/Blessed Dialect",
-      logo: "",
-      logoImage: bledLogo,
-      url: "https://www.BlessedDialect.org",
-      description: "The flexible future of English language evolution",
-      status: "POC",
     },
     {
       name: "Nayborly",
@@ -104,6 +70,40 @@ const OrganizationTabs = () => {
       logoImage: heartclotLogo,
       url: "https://www.heartclot.us",
       description: "Rebranding 'heart attack' to help people recognize subtle symptoms and seek timely treatment",
+      status: "POC",
+    },
+    {
+      name: "Take 10?",
+      logo: "",
+      logoImage: take10Logo,
+      url: "https://www.take10.us",
+      description:
+        "#take10? A simple de-escalation phrase inviting reflection—whether 10 seconds, 10 minutes, or 10 hours—to create space for calm, conciliation, and face-saving gestures",
+      status: "Concept",
+    },
+    {
+      name: "Krashless Kar",
+      logo: "",
+      logoImage: krashlessKarLogo,
+      url: "https://www.krashlesskar.org",
+      description:
+        "Coming soon: A certification standards body granting safety levels measured in percentiles beyond typical human performance—Level 1 exceeds the 80th percentile of defensive driving, with all certifications requiring zero driver attention or supervision",
+      status: "Concept",
+    },
+    {
+      name: "Enough Is Enuf: English for Humans",
+      logo: "",
+      logoImage: enoughIsEnufLogo,
+      url: "https://www.EnoughIsEnuf.org",
+      description: "Simplified American spelling and counting reform for global accessibility",
+      status: "POC",
+    },
+    {
+      name: "BLED⁵/Blessed Dialect",
+      logo: "",
+      logoImage: bledLogo,
+      url: "https://www.BlessedDialect.org",
+      description: "The flexible future of English language evolution",
       status: "POC",
     },
   ];
