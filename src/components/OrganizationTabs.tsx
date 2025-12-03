@@ -144,7 +144,7 @@ const OrganizationTabs = () => {
       url: "https://www.nayborsos.org",
       description:
         "Community-based emergency response platform connecting naybors to respond to CPR, overdose, wellness checks, and crisis situations in minutes—not quarter-hours",
-      status: "Alpha",
+      status: "Concept",
     },
     {
       name: "Safeword",
