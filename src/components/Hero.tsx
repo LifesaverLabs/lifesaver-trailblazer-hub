@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-lifesaver.jpg";
+import heroImage from "@/assets/hero-lifesaver.webp";
 import lifesaverLabsLogo from "@/assets/lifesaver-labs-logo.png";
 
 const Hero = () => {
