@@ -13,6 +13,7 @@ import civigionLogo from "@/assets/civigion-logo.png";
 import take10Logo from "@/assets/take10-logo.jpeg";
 import raisingRightsLogo from "@/assets/raising-rights-logo.jpeg";
 import calmunismLogo from "@/assets/calmunism-logo.jpeg";
+import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpeg";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -51,6 +52,15 @@ const OrganizationTabs = () => {
       description:
         "Coming soon: A democratic, contract-based framework for global economic and social decision-making—CALM (Capital/Calmunity/Contract Altering Life Moments)—offering an ethical on-ramp toward calmunistic consensus",
       status: "Beta",
+    },
+    {
+      name: "Tear Down This Firewall",
+      logo: "",
+      logoImage: tearDownThisFirewallLogo,
+      url: "https://www.teardownthisfirewall.org",
+      description:
+        "#teardownthisfirewall: Fighting digital censorship and advocating for internet freedom—because when ideas cannot flow freely, humanity suffers",
+      status: "Alpha",
     },
     {
       name: "UNify SOS",
