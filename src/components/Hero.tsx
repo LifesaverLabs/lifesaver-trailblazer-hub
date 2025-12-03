@@ -14,12 +14,9 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-20 text-center animate-fade-in">
         <img 
           src={lifesaverLabsLogo} 
-          alt="Lifesaver Labs logo" 
-          className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 drop-shadow-lg"
+          alt="Lifesaver Labs" 
+          className="w-56 md:w-72 lg:w-80 mx-auto mb-8 drop-shadow-lg"
         />
-        <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 tracking-tight">
-          Lifesaver Labs
-        </h1>
         <p className="text-xl md:text-2xl text-primary-foreground/95 max-w-4xl mx-auto leading-relaxed mb-4">
           An innovation hub advancing public-health prevention, personal and community security, 
           and a higher standard of civic democracy.
