@@ -142,6 +142,15 @@ const OrganizationTabs = () => {
       status: "POC",
     },
     {
+      name: "CALM Currency Reform",
+      logo: "",
+      logoImage: calmCurrencyReformLogo,
+      url: "https://www.ingwetrust.org",
+      description:
+        "Reimagining currency as a moral exchange of sentiments—where CALM (Childhood/Community/Conscience Altering Life Moments) transforms transactions into votes for civic harmony, intergenerational trust, and collective flourishing",
+      status: "Concept",
+    },
+    {
       name: "Calm⁴UNism",
       logo: "",
       logoImage: calmunismLogo,
@@ -174,15 +183,6 @@ const OrganizationTabs = () => {
       url: "https://www.lifesaverlabs.us",
       description:
         "Harmless Hands Emergency⁵ Party organizing around policies to sociotechnically engineer civigious miracles and major incredibly urgent civ build projects",
-      status: "Concept",
-    },
-    {
-      name: "CALM Currency Reform",
-      logo: "",
-      logoImage: calmCurrencyReformLogo,
-      url: "https://www.ingwetrust.org",
-      description:
-        "Reimagining currency as a moral exchange of sentiments—where CALM (Childhood/Community/Conscience Altering Life Moments) transforms transactions into votes for civic harmony, intergenerational trust, and collective flourishing",
       status: "Concept",
     },
   ];
