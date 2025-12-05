@@ -147,7 +147,7 @@ const OrganizationTabs = () => {
       logoImage: calmCurrencyReformLogo,
       url: "https://www.ingwetrust.org",
       description:
-        "Reimagining currency as a moral exchange of sentiments—where CALM (Childhood/Community/Conscience Altering Life Moments) transforms transactions into votes for civic harmony, intergenerational trust, and collective flourishing",
+        "Reimagining currency as a moral exchange of sentiments—where CALM (Childhood/Community/Conscience Altering Life Moments) transforms transactions into votes for civic harmony, intergenerational trust, and collective flourishing. Embedded within 'In G We Trust˝ Shaimos protection case.",
       status: "Concept",
     },
     {
