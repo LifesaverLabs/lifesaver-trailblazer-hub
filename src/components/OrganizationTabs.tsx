@@ -17,6 +17,7 @@ import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpg"
 import krashlessKarLogo from "@/assets/krashless-kar-logo.jpg";
 import religiousRcvLogo from "@/assets/religious-rcv-logo.jpg";
 import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
+import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -178,10 +179,10 @@ const OrganizationTabs = () => {
     {
       name: "CALM Currency Reform",
       logo: "",
-      logoImage: calmunismLogo,
+      logoImage: calmCurrencyReformLogo,
       url: "https://www.ingwetrust.org",
       description:
-        "Reimagining currency as a moral exchange of sentiments—where CALM (Conscience/Community/Contract Altering Life Moments) transforms transactions into votes for civic harmony, trust, and collective flourishing",
+        "Reimagining currency as a moral exchange of sentiments—where CALM (Childhood/Community/Conscience Altering Life Moments) transforms transactions into votes for civic harmony, intergenerational trust, and collective flourishing",
       status: "Concept",
     },
   ];
