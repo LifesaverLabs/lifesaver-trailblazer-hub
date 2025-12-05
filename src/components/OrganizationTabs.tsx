@@ -175,6 +175,15 @@ const OrganizationTabs = () => {
         "Harmless Hands Emergency⁵ Party organizing around policies to sociotechnically engineer civigious miracles and major incredibly urgent civ build projects",
       status: "Concept",
     },
+    {
+      name: "CALM Currency Reform",
+      logo: "",
+      logoImage: calmunismLogo,
+      url: "https://www.ingwetrust.org",
+      description:
+        "Reimagining currency as a moral exchange of sentiments—where CALM (Conscience/Community/Contract Altering Life Moments) transforms transactions into votes for civic harmony, trust, and collective flourishing",
+      status: "Concept",
+    },
   ];
 
   return (
