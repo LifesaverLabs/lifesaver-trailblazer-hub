@@ -217,7 +217,7 @@ const OrganizationTabs = () => {
               Lifesaver Labs Coalition
             </h2>
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-              An open, global calmunity dedicated to sociotechnical miracles in public health, humane safety,
+              An open, global calmunity dedicated to catalyzing sociotechnical miracles in public health, humane safety,
               emergency-response innovation, ethical relationships, and civic education. Emphasizing nonprofit
               volunteerism and life-saving technologies that serve communities worldwide.
             </p>
