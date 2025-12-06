@@ -252,7 +252,8 @@ const OrganizationTabs = () => {
             <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
               The civic-reform and democracy-innovation initiative focused on raising the ethical standard of
               representative democracy, improving citizen suffrage access, and integrating humane public safety values
-              into governance. Building a more compassionate, Hippocratic, and well-rounded democracy.
+              into governance. Building a more compassionate, Hippocratic, and well-rounded truly representative
+              democracy.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
