@@ -19,8 +19,8 @@ const Hero = () => {
           height={448}
         />
         <p className="text-xl md:text-2xl text-primary-foreground/95 max-w-4xl mx-auto leading-relaxed mb-4 font-medium">
-          We don't just save lives—we redesign the systems that put them at risk. Public health is democracy in
-          practice; every prevented harm is a vote for the world we're building together.
+          We don't just save lives—we redesign and reinvent the systems that put them at risk. Public health is
+          democracy in practice; every prevented harm is a Vision Zero vote for the world we're building together.
         </p>
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
           Make no little plans. Aim for the systems that shape generations—because our grandchildren will inherit either
