@@ -37,26 +37,26 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="space-y-3 text-secondary-foreground/80">
               <a
-                href="mailto:david@lifesaverlabs.org"
+                href="mailto:team@lifesaverlabs.org"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail size={16} />
-                <span>david@lifesaverlabs.org</span>
+                <span>team@lifesaverlabs.org</span>
               </a>
               <a
-                href="mailto:david@neighbor911.us"
+                href="mailto:team@neighbor911.us"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail size={16} />
-                <span>david@neighbor911.us</span>
+                <span>team@neighbor911.us</span>
               </a>
-              <a href="tel:1-800-268-7368" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="tel:+18002667368" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} />
-                <span>1-800-CONSENT</span>
+                <span>+1-800-CONSENT</span>
               </a>
               <a href="tel:+13212529626" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} />
-                <span>(321) 252-9626</span>
+                <span>+1 (321) 252-9626</span>
               </a>
             </div>
           </div>
