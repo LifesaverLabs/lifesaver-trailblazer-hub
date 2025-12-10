@@ -23,15 +23,6 @@ import feministYesLogo from "@/assets/feminist-yes-logo.webp";
 const OrganizationTabs = () => {
   const coalitionProjects = [
     {
-      name: "Feminist Yes!",
-      logo: "",
-      logoImage: feministYesLogo,
-      url: "https://www.feministyes.org",
-      description:
-        "A thoughtful space exploring conscious consent in relationships—applying Sexual Reliability Engineering principles to ensure every 'yes' is informed, enthusiastic, and mutual",
-      status: "Beta",
-    },
-    {
       name: "Civigion",
       logo: "",
       logoImage: civigionLogo,
@@ -150,6 +141,15 @@ const OrganizationTabs = () => {
       description:
         "Youth suffrage initiative advocating for voting rights at 14, civic education, and service rites—empowering those who bear long-term consequences to shape their future",
       status: "POC",
+    },
+    {
+      name: "Feminist Yes!",
+      logo: "",
+      logoImage: feministYesLogo,
+      url: "https://www.feministyes.org",
+      description:
+        "A thoughtful space exploring conscious consent in relationships—applying Sexual Reliability Engineering principles to ensure every 'yes' is informed, enthusiastic, and mutual",
+      status: "Beta",
     },
     {
       name: "CALM Currency Reform",
