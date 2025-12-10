@@ -18,9 +18,19 @@ import krashlessKarLogo from "@/assets/krashless-kar-logo.jpg";
 import religiousRcvLogo from "@/assets/religious-rcv-logo.jpg";
 import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
+import feministYesLogo from "@/assets/feminist-yes-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
+    {
+      name: "Feminist Yes!",
+      logo: "",
+      logoImage: feministYesLogo,
+      url: "https://www.feministyes.org",
+      description:
+        "A thoughtful space exploring conscious consent in relationships—applying Sexual Reliability Engineering principles to ensure every 'yes' is informed, enthusiastic, and mutual",
+      status: "Beta",
+    },
     {
       name: "Civigion",
       logo: "",
