@@ -20,15 +20,9 @@ const InternationalizationSection = () => {
           </p>
 
           <p>
-            Projects like <span className="font-medium text-foreground">Krashless Kar</span>,
-            <span className="font-medium text-foreground"> Raising Rights</span>,{" "}
-            <span className="font-medium text-foreground">Tongtied</span>,{" "}
-            <span className="font-medium text-foreground">Drafting Precedents</span>,{" "}
-            <span className="font-medium text-foreground">Take 10</span>,{" "}
-            <span className="font-medium text-foreground">Naybor SOS</span>,{" "}
-            <span className="font-medium text-foreground">Feminist Yes!</span>, and{" "}
-            <span className="font-medium text-foreground">Lifesaver Labs US</span> really may need to be built uniquely
-            for each culture.
+            Projects like <span className="font-medium text-foreground">Krashless Kar</span> or
+            <span className="font-medium text-foreground"> Raising Rights</span> really may need to be built,
+            recompiled, modularized, or redesigned uniquely for each culture.
           </p>
 
           <p className="italic text-foreground/80">Perhaps you'll even end up outpacing Us.</p>
