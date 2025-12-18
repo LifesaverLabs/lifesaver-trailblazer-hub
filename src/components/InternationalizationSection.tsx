@@ -14,28 +14,20 @@ const InternationalizationSection = () => {
           <p>
             If you or your team share similar goals and values and want to volunteer to
             <span className="text-foreground font-medium"> hybridize and localize </span>
-            these projects for your local or national context—and insufficient internationalization has been done—we're{" "}
-            <span className="text-primary font-medium">super-happy to share</span> any of these concepts or domains if
-            you'd find that useful.
+            these projects for your local, state or national context—and insufficient internationalization has been
+            done—we're <span className="text-primary font-medium">super-happy to share</span> any of these concepts or
+            domains if you'd find that useful.
           </p>
 
           <p>
-            Projects like <span className="font-medium text-foreground">Krashless Kar</span>,
-            <span className="font-medium text-foreground"> Raising Rights</span>,{" "}
-            <span className="font-medium text-foreground"> Tongtied</span>,{" "}
-            <span className="font-medium text-foreground"> Drafting Precedents</span>,{" "}
-            <span className="font-medium text-foreground"> Take 10</span>,{" "}
-            <span className="font-medium text-foreground"> Naybor SOS</span>, and{" "}
-            <span className="font-medium text-foreground">Lifesaver Labs US</span> really may need to be built,
-            recompiled, modularized, or redesigned uniquely for each culture.
+            Projects like <span className="font-medium text-foreground">Krashless Kar</span> or
+            <span className="font-medium text-foreground"> Raising Rights</span> really may need to be built uniquely
+            for each culture.
           </p>
 
           <p className="italic text-foreground/80">Perhaps you'll even end up outpacing Us.</p>
 
-          <p>
-            We do hope for broader impact than what we ourselves locally experience, natively know, and can handle. So
-            get in touch with us if you want to remix and race a project forward locally.
-          </p>
+          <p>We do hope for broader impact than what we ourselves locally experience, natively know, and can handle.</p>
         </div>
 
         <div className="mt-10 flex justify-center gap-8 text-muted-foreground">
