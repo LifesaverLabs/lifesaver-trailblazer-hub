@@ -19,6 +19,7 @@ import religiousRcvLogo from "@/assets/religious-rcv-logo.jpg";
 import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
 import feministYesLogo from "@/assets/feminist-yes-logo.webp";
+import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -194,6 +195,15 @@ const OrganizationTabs = () => {
       description:
         "Harmless Hands Emergency⁵ Party organizing around policies to sociotechnically engineer civigious miracles and major incredibly urgent civ build projects",
       status: "Concept",
+    },
+    {
+      name: "Come Sit, Let's Be Family⁵",
+      logo: "",
+      logoImage: comeSitFamily5Logo,
+      url: "/letsbefamily5",
+      description:
+        "Fighting the loneliness epidemic one table at a time—downloadable table tent designs that invite strangers to become kousins across the Family⁵",
+      status: "Alpha",
     },
   ];
 
