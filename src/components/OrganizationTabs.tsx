@@ -200,7 +200,7 @@ const OrganizationTabs = () => {
       name: "Come Sit, Let's Be Family⁵",
       logo: "",
       logoImage: comeSitFamily5Logo,
-      url: "/letsbefamily5",
+      url: "/letsbeFamily⁵",
       description:
         "Fighting the loneliness epidemic one table at a time—downloadable table tent designs that invite strangers to become kousins across the Family⁵",
       status: "Alpha",
