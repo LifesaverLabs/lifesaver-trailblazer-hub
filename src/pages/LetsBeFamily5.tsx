@@ -320,6 +320,16 @@ const LetsBeFamily5 = () => {
       <section className="py-16 bg-background">
         <div className="container px-6">
           <div className="max-w-3xl mx-auto text-center">
+            <blockquote className="mb-8">
+              <p className="text-2xl md:text-3xl font-display text-primary leading-relaxed mb-3" dir="rtl" lang="he">
+                הִנֵּה מַה־טּוֹב וּמַה־נָּעִים שֶׁבֶת אַחִים גַּם־יָחַד
+              </p>
+              <p className="text-lg md:text-xl text-foreground italic">
+                "Behold, how good and how pleasant it is when brothers and kousins dwell together in unity⁵."
+              </p>
+              <cite className="text-sm text-muted-foreground mt-2 block">— Psalm 133:1</cite>
+            </blockquote>
+            
             <p className="text-2xl md:text-3xl font-display text-foreground leading-relaxed">
               In a world that's been <em>Bowling Alone</em> for too long, 
               let's start <strong className="text-primary">Dining Together</strong>.
