@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Heart, Users, Coffee, Utensils, Globe, Sparkles } from "lucide-react";
+import { ArrowLeft, Download, Heart, Users, Coffee, Utensils, Globe, Sparkles, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import family5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
+import tableTentPreview from "@/assets/table-tent-preview.jpg";
 import Footer from "@/components/Footer";
 
 const LetsBeFamily5 = () => {
@@ -169,22 +170,51 @@ const LetsBeFamily5 = () => {
               Download, print on cardstock, laminate if you can, and start sparking Family⁵ conversations.
             </p>
             
-            <Card className="bg-card border-2 border-dashed border-primary/40 mb-8">
-              <CardContent className="p-12">
-                <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Download className="w-10 h-10 text-primary" />
+            <Card className="bg-card border border-border overflow-hidden mb-8 hover:shadow-lg transition-shadow">
+              <CardContent className="p-0">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="bg-muted/50 p-6 flex items-center justify-center">
+                    <img 
+                      src={tableTentPreview} 
+                      alt="Big Ideas & Life Models - Table Tent Preview" 
+                      className="w-full max-w-xs rounded-lg shadow-md"
+                    />
+                  </div>
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-primary mb-3">
+                      <FileText className="w-5 h-5" />
+                      <span className="text-sm font-medium uppercase tracking-wide">PDF Download</span>
+                    </div>
+                    <h3 className="text-2xl font-display font-bold text-foreground mb-3">
+                      "Big Ideas & Life Models" Table Tent
+                    </h3>
+                    <p className="text-muted-foreground mb-2">
+                      <em>"Skip the weather. Tell me your theory."</em>
+                    </p>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      A conversation-starting table tent with QR code. Print on cardstock, fold, and place on your table to invite deeper conversations with fellow kousins.
+                    </p>
+                    <a 
+                      href="/downloads/come-sit-table-tent-with-qr.pdf" 
+                      download="Come-Sit-Table-Tent-Big-Ideas.pdf"
+                      className="inline-block"
+                    >
+                      <Button className="gap-2">
+                        <Download className="w-4 h-4" />
+                        Download PDF
+                      </Button>
+                    </a>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                  Table Tent Designs Coming Soon
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  We're preparing our first collection of downloadable designs. 
-                  Check back soon for beautiful, print-ready table tents in various styles.
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-muted/30 border-dashed border-2 border-muted-foreground/20 mb-8">
+              <CardContent className="p-8 text-center">
+                <Sparkles className="w-8 h-8 text-muted-foreground/50 mx-auto mb-3" />
+                <p className="text-muted-foreground">
+                  More designs coming soon! We're building a growing gallery of table tents for different moods and conversation styles.
                 </p>
-                <Button disabled className="gap-2">
-                  <Download className="w-4 h-4" />
-                  Downloads Coming Soon
-                </Button>
               </CardContent>
             </Card>
             
