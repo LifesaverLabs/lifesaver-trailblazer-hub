@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Heart, Users, Coffee, Utensils, Globe, Sparkles, FileText } from "lucide-react";
+import { ArrowLeft, Download, Heart, Users, Coffee, Utensils, Globe, Sparkles, FileText, Tablet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import family5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
@@ -192,6 +192,52 @@ const LetsBeFamily5 = () => {
                       <Button className="gap-2">
                         <Download className="w-4 h-4" />
                         Download PDF
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card border border-border overflow-hidden mb-8 hover:shadow-lg transition-shadow">
+              <CardContent className="p-0">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-6 flex flex-col items-center justify-center gap-4">
+                    <div className="w-full max-w-xs aspect-[4/3] rounded-lg shadow-md bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] flex flex-col items-center justify-center p-4 text-center">
+                      <p className="text-lg font-bold text-[#1a3c5e] mb-1">Hi there.</p>
+                      <p className="text-lg font-bold text-[#1a3c5e] mb-2">This table is open.</p>
+                      <p className="text-xs text-[#444] italic">Rotates every 2′18″</p>
+                    </div>
+                  </div>
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-primary mb-3">
+                      <Tablet className="w-5 h-5" />
+                      <span className="text-sm font-medium uppercase tracking-wide">Tablet Display</span>
+                    </div>
+                    <h3 className="text-2xl font-display font-bold text-foreground mb-3">
+                      "Come Sit With Me" Tablet Display
+                    </h3>
+                    <p className="text-muted-foreground mb-2">
+                      <em>A rotating invitation for cafés and social spaces.</em>
+                    </p>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      Open this page full-screen on a tablet or iPad facing others in a social café or restaurant. Three 
+                      warm, welcoming slides rotate every 2′18″ (138 seconds), inviting strangers to become kousins.
+                    </p>
+                    <ul className="text-muted-foreground mb-6 text-sm space-y-1">
+                      <li>• <strong>Slide 1:</strong> "Hi there. This table is open."</li>
+                      <li>• <strong>Slide 2:</strong> "On the Menu: Big ideas, Life Models..."</li>
+                      <li>• <strong>Slide 3:</strong> "Human Mode: Activated."</li>
+                    </ul>
+                    <a
+                      href="/downloads/come-sit-tablet-display.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <Button className="gap-2">
+                        <Tablet className="w-4 h-4" />
+                        Open Tablet Display
                       </Button>
                     </a>
                   </div>
