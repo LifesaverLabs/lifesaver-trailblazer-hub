@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Cafe Invitation Display</title>
+<style>
+    /* Reset and full screen setup */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #000;
+    }
+
+    /* Main container for the slides */
+    #container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    /* General Slide Styling */
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        box-sizing: border-box;
+        opacity: 0; /* Hidden by default */
+        /* A very slow, smooth fade transition (4 seconds) so it's not jarring */
+        transition: opacity 4s ease-in-out;
+        z-index: 0;
+    }
+
+    /* Class to make a slide visible */
+    .active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    /* Typography Styling */
+    h1 {
+        font-size: 8vh; /* Responsive font size based on screen height */
+        font-weight: 800;
+        margin: 0 0 20px 0;
+        line-height: 1.1;
+        color: #2c3e50;
+    }
+
+    h2 {
+        font-size: 4vh;
+        font-weight: 300;
+        margin: 0;
+        line-height: 1.3;
+        color: #444;
+        max-width: 80%;
+    }
+
+    .highlight {
+        font-weight: 600;
+        color: #E67E22; /* That warm orange from previous designs */
+    }
+
+    /* --- SLIDE SPECIFIC BACKGROUNDS (Warm Gradients) --- */
+    
+    /* Slide 1: Warm morning light vibe */
+    #slide1 {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    }
+    h1.s1-text { color: #1a3c5e; }
+
+    /* Slide 2: Cozy coffee vibe */
+    #slide2 {
+        background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
+    }
+    
+    /* Slide 3: Sunset/Calm vibe */
+    #slide3 {
+        background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    }
+    #slide3 h1, #slide3 h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+</style>
+</head>
+<body>
+
+<div id="container">
+    
+    <div class="slide active" id="slide1">
+        <h1 class="s1-text">Hi there.<br>This table is open.</h1>
+        <h2>I'm working, but I'd happily trade solitude for good company.</h2>
+    </div>
+
+    <div class="slide" id="slide2">
+        <h1>On the Menu:</h1>
+        <h2>Big ideas, <span class="highlight">Life Models</span>, wild theories, or just tell me what you are currently obsessed with.</h2>
+    </div>
+
+    <div class="slide" id="slide3">
+        <h1>Human Mode: <span class="highlight">Activated</span>.</h1>
+        <h2>Putting down my phone. If you want to put down yours and chat, pull up a chair.</h2>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function nextSlide() {
+        // Remove active class from current slide
+        slides[currentSlide].classList.remove('active');
+
+        // Calculate next slide index (loops back to 0 at the end)
+        currentSlide = (currentSlide + 1) % totalSlides;
+
+        // Add active class to next slide
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Set the rotation time.
+    // 2 minutes 18 seconds = 138 seconds = 138000 milliseconds
+    setInterval(nextSlide, 138000);
+</script>
+
+</body>
+</html>
