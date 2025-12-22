@@ -7,7 +7,7 @@ import ribbreakersLogo from "@/assets/ribbreakers-united-logo.jpg";
 import saveUsFromSlogLogo from "@/assets/save-us-from-slog-logo.jpg";
 import heartclotLogo from "@/assets/heartclot-logo.jpg";
 import safewordLogo from "@/assets/safeword-logo.jpg";
-import nayborsosLogo from "@/assets/nayborsos-logo.jpg";
+import nayborsosLogo from "@/assets/nayborsos-logo.webp";
 import unifySosLogo from "@/assets/unify-sos-logo.jpg";
 import civigionLogo from "@/assets/civigion-logo.jpg";
 import take10Logo from "@/assets/take10-logo.jpg";
