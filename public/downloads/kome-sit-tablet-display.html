@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- v0.0.3 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Cafe Invitation Display</title>
+<title>Warm Kousin Invitation</title>
 <style>
     /* Reset and full screen setup */
     body, html {
@@ -14,9 +15,10 @@
         overflow: hidden;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         background-color: #000;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
-    /* Main container for the slides */
     #container {
         width: 100%;
         height: 100%;
@@ -37,21 +39,19 @@
         text-align: center;
         padding: 40px;
         box-sizing: border-box;
-        opacity: 0; /* Hidden by default */
-        /* A very slow, smooth fade transition (4 seconds) so it's not jarring */
-        transition: opacity 4s ease-in-out;
+        opacity: 0; 
+        transition: opacity 2.5s ease-in-out; /* Slower, gentler fade */
         z-index: 0;
     }
 
-    /* Class to make a slide visible */
     .active {
         opacity: 1;
         z-index: 1;
     }
 
-    /* Typography Styling */
+    /* Typography */
     h1 {
-        font-size: 8vh; /* Responsive font size based on screen height */
+        font-size: 7vh; 
         font-weight: 800;
         margin: 0 0 20px 0;
         line-height: 1.1;
@@ -59,37 +59,57 @@
     }
 
     h2 {
-        font-size: 4vh;
+        font-size: 3.5vh;
         font-weight: 300;
         margin: 0;
-        line-height: 1.3;
+        line-height: 1.4;
         color: #444;
-        max-width: 80%;
+        max-width: 85%;
     }
 
     .highlight {
-        font-weight: 600;
-        color: #E67E22; /* That warm orange from previous designs */
+        font-weight: 700;
+        color: #E67E22; 
     }
 
-    /* --- SLIDE SPECIFIC BACKGROUNDS (Warm Gradients) --- */
-    
-    /* Slide 1: Warm morning light vibe */
-    #slide1 {
-        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    .url-text {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: #fff;
+        background-color: #E67E22;
+        padding: 8px 20px;
+        border-radius: 10px;
+        font-size: 0.8em;
     }
+
+    /* Disclaimer text for the phonetics slide */
+    .disclaimer {
+        font-size: 2vh;
+        margin-top: 30px;
+        font-style: italic;
+        opacity: 0.7;
+        max-width: 70%;
+    }
+
+    /* --- BACKGROUNDS (Warm & Inviting) --- */
+    
+    /* Slide 1: Pure Warmth (Standard) */
+    #slide1 { background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); }
     h1.s1-text { color: #1a3c5e; }
 
-    /* Slide 2: Cozy coffee vibe */
-    #slide2 {
-        background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
-    }
+    /* Slide 2: The Menu (Standard) */
+    #slide2 { background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%); }
+
+    /* Slide 3: The Kousin Intro (Transition) */
+    #slide3 { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); }
     
-    /* Slide 3: Sunset/Calm vibe */
-    #slide3 {
-        background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    }
-    #slide3 h1, #slide3 h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    /* Slide 4: The Language Struggle (Humble) */
+    #slide4 { background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); }
+
+    /* Slide 5: The Mission (Link) */
+    #slide5 { background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
+    #slide5 h1, #slide5 h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    #slide5 .url-text { background-color: white; color: #E67E22; }
 
     /* --- CONTROLS --- */
     #controls {
@@ -120,12 +140,7 @@
         transition: all 0.2s;
         outline: none;
     }
-
-    .btn:active {
-        background-color: rgba(255, 255, 255, 0.3);
-        transform: scale(0.95);
-    }
-
+    .btn:active { background-color: rgba(255, 255, 255, 0.3); transform: scale(0.95); }
 
 </style>
 </head>
@@ -134,18 +149,33 @@
 <div id="container">
     
     <div class="slide active" id="slide1">
-        <h1 class="s1-text">Hi there.<br>This table is open.</h1>
-        <h2>I'm working, but I'd happily trade solitude for good company.</h2>
+        <h1 class="s1-text">Come Sit With Me.</h1>
+        <h2>This table is open.<br>I'd love the company if you'd love a chat.</h2>
     </div>
 
     <div class="slide" id="slide2">
         <h1>On the Menu:</h1>
-        <h2>Big ideas, <span class="highlight">Life Models</span>, wild theories, or just tell me what you are currently obsessed with.</h2>
+        <h2><span class="highlight">Life Models</span>, Big Ideas, or just a moment of shared humanity.</h2>
     </div>
 
     <div class="slide" id="slide3">
-        <h1>Human Mode: <span class="highlight">Activated</span>.</h1>
-        <h2>Putting down my phone. If you want to put down yours and chat, pull up a chair.</h2>
+        <h1>Kome Sit With Me, Kousin.</h1>
+        <h2>"Strangers" are just <span class="highlight">Family⁵</span> members we haven't met yet.</h2>
+    </div>
+
+    <div class="slide" id="slide4">
+        <h1>Pardon the Spelling.</h1>
+        <h2>I'm experimenting with <span class="highlight">Blesséd Dialekt</span> (phonetic spelling).</h2>
+        <div class="disclaimer">
+            It's a shift! I'm still learning IPA vowels myself. Whether you speak American Standard or BLED, you are welcome here.
+        </div>
+    </div>
+
+    <div class="slide" id="slide5">
+        <h1>Why the change?</h1>
+        <h2>See why we frame language differently at:</h2>
+        <br>
+        <h1><span class="url-text">EnoughIsEnuf.org</span></h1>
     </div>
 
     <div id="controls">
@@ -194,11 +224,11 @@
         if (isPlaying) {
             clearInterval(autoPlayInterval);
             isPlaying = false;
-            btn.innerHTML = '&#9658;'; // Play symbol
+            btn.innerHTML = '&#9658;'; 
         } else {
             resetTimer();
             isPlaying = true;
-            btn.innerHTML = '&#10074;&#10074;'; // Pause symbol
+            btn.innerHTML = '&#10074;&#10074;'; 
         }
     }
 
