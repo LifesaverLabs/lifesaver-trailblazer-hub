@@ -204,9 +204,9 @@ const LetsBeFamily5 = () => {
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 p-6 flex flex-col items-center justify-center gap-4">
                     <div className="w-full max-w-xs aspect-[4/3] rounded-lg shadow-md bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] flex flex-col items-center justify-center p-4 text-center">
-                      <p className="text-lg font-bold text-[#1a3c5e] mb-1">Hi there.</p>
-                      <p className="text-lg font-bold text-[#1a3c5e] mb-2">This table is open.</p>
-                      <p className="text-xs text-[#444] italic">Rotates every 2′18″</p>
+                      <p className="text-lg font-bold text-[#1a3c5e] mb-1">Come Sit With Me.</p>
+                      <p className="text-sm text-[#444] mb-2">This table is open.</p>
+                      <p className="text-xs text-[#444] italic">5 slides · Rotates every 2′18″</p>
                     </div>
                   </div>
                   <div className="p-8 flex flex-col justify-center">
@@ -215,22 +215,24 @@ const LetsBeFamily5 = () => {
                       <span className="text-sm font-medium uppercase tracking-wide">Tablet Display</span>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      "Kome Sit With Me" Tablet Display <span className="text-sm font-normal text-muted-foreground">v0.0.2</span>
+                      "Kome Sit With Me" Tablet Display <span className="text-sm font-normal text-muted-foreground">v0.0.3</span>
                     </h3>
                     <p className="text-muted-foreground mb-2">
                       <em>A rotating invitation for cafés and social spaces.</em>
                     </p>
                     <p className="text-muted-foreground mb-4 text-sm">
-                      Open this page full-screen on a tablet or iPad facing others in a social café or restaurant. Three 
+                      Open this page full-screen on a tablet or iPad facing others in a social café or restaurant. Five
                       warm, welcoming slides rotate every 2′18″ (138 seconds), inviting strangers to become kousins.
                     </p>
                     <ul className="text-muted-foreground mb-6 text-sm space-y-1">
-                      <li>• <strong>Slide 1:</strong> "Hi there. This table is open."</li>
-                      <li>• <strong>Slide 2:</strong> "On the Menu: Big ideas, Life Models..."</li>
-                      <li>• <strong>Slide 3:</strong> "Human Mode: Activated."</li>
+                      <li>• <strong>Slide 1:</strong> "Come Sit With Me. This table is open."</li>
+                      <li>• <strong>Slide 2:</strong> "On the Menu: Life Models, Big Ideas..."</li>
+                      <li>• <strong>Slide 3:</strong> "Kome Sit With Me, Kousin."</li>
+                      <li>• <strong>Slide 4:</strong> "Pardon the Spelling." (Blesséd Dialekt intro)</li>
+                      <li>• <strong>Slide 5:</strong> "Why the change?" → EnoughIsEnuf.org</li>
                     </ul>
                     <a
-                      href="/downloads/come-sit-tablet-display.html"
+                      href="/downloads/kome-sit-tablet-display.html"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block"
