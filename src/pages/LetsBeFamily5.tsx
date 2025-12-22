@@ -245,6 +245,52 @@ const LetsBeFamily5 = () => {
               </CardContent>
             </Card>
 
+            <Card className="bg-card border border-border overflow-hidden mb-8 hover:shadow-lg transition-shadow">
+              <CardContent className="p-0">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-6 flex flex-col items-center justify-center gap-4">
+                    <div className="w-full max-w-xs aspect-[4/3] rounded-lg shadow-md bg-gradient-to-br from-slate-700 to-slate-800 flex flex-col items-center justify-center p-4 text-center">
+                      <p className="text-lg font-bold text-[#FFD166] mb-1">HEADS DOWN</p>
+                      <p className="text-sm font-medium text-white/80 mb-2">Deep Work Mode</p>
+                      <p className="text-xs text-white/60 italic">Tap to control slides</p>
+                    </div>
+                  </div>
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 text-primary mb-3">
+                      <Tablet className="w-5 h-5" />
+                      <span className="text-sm font-medium uppercase tracking-wide">Tablet Display</span>
+                    </div>
+                    <h3 className="text-2xl font-display font-bold text-foreground mb-3">
+                      "Heads Down Mode" Display
+                    </h3>
+                    <p className="text-muted-foreground mb-2">
+                      <em>Sometimes you need focus time—signal it beautifully.</em>
+                    </p>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      Make this a full-screen app on your tablet and control which slide stays up. Features slides for 
+                      Lifesaver Labs, Naybor SOS, Unify SOS, and focus modes. Tap to toggle controls.
+                    </p>
+                    <ul className="text-muted-foreground mb-6 text-sm space-y-1">
+                      <li>• <strong>Control:</strong> Tap the screen to show/hide slide controls</li>
+                      <li>• <strong>Pin slides:</strong> Choose which message stays visible</li>
+                      <li>• <strong>Remix-ready:</strong> Perfect base for Naybor SOS or Lifesaver Labs projects</li>
+                    </ul>
+                    <a
+                      href="/downloads/lifesaver-heads-down-display.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <Button className="gap-2">
+                        <Tablet className="w-4 h-4" />
+                        Open Heads Down Display
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card className="bg-muted/30 border-dashed border-2 border-muted-foreground/20 mb-8">
               <CardContent className="p-8 text-center">
                 <Sparkles className="w-8 h-8 text-muted-foreground/50 mx-auto mb-3" />
