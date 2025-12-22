@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Heads Down Display with Controls</title>
+<title>Heads Down Display Extended</title>
 <style>
     /* Reset and full screen setup */
     body, html {
@@ -14,12 +14,11 @@
         overflow: hidden;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         background-color: #000;
-        /* Prevent text selection on double tap */
         user-select: none;
         -webkit-user-select: none; 
     }
 
-    /* Main container for the slides */
+    /* Main container */
     #container {
         width: 100%;
         height: 100%;
@@ -43,10 +42,9 @@
         opacity: 0; 
         transition: opacity 1s ease-in-out; 
         z-index: 0;
-        pointer-events: none; /* Allows clicks to pass through to buttons if needed */
+        pointer-events: none; 
     }
 
-    /* Class to make a slide visible */
     .active {
         opacity: 1;
         z-index: 1;
@@ -58,9 +56,11 @@
         height: 25vh; 
         width: auto;
         margin-bottom: 4vh;
+        /* Drop shadow for better visibility on color backgrounds */
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
     }
 
-    /* Typography Styling */
+    /* Typography */
     h1 {
         font-size: 7vh;
         font-weight: 900;
@@ -77,7 +77,7 @@
         text-transform: uppercase;
     }
 
-    /* The Interrupt Message Styling */
+    /* Interrupt Box */
     .interrupt-box {
         border-top: 2px solid rgba(255,255,255,0.3);
         padding-top: 20px;
@@ -99,7 +99,7 @@
         line-height: 1.3;
     }
 
-    /* --- CONTROLS STYLING --- */
+    /* --- CONTROLS --- */
     #controls {
         position: absolute;
         bottom: 20px;
@@ -135,10 +135,19 @@
     }
 
     /* --- SLIDE COLORS --- */
-    #slide1 { background-color: #D32F2F; color: white; }
-    #slide2 { background-color: #1F3A5D; color: white; }
-    #slide3 { background-color: #000000; color: white; }
+    #slide1 { background-color: #D32F2F; color: white; } /* Lifesaver Red */
+    #slide2 { background-color: #1F3A5D; color: white; } /* Naybor Blue */
+    #slide3 { background-color: #000000; color: white; } /* Code Black */
+    #slide4 { background-color: #f4f6f7; color: #1F3A5D; } /* Unify White/Light Grey (using dark text) */
+    #slide5 { background-color: #4A148C; color: white; } /* Focus Purple */
+
     .urgent-red { color: #FF3B30; }
+    
+    /* Specific tweaks for Slide 4 (Light Background) */
+    #slide4 h1, #slide4 .sub-head { color: #0e2a47; }
+    #slide4 .interrupt-header { color: #d35400; } /* Orange accent */
+    #slide4 .interrupt-body { color: #333; }
+    #slide4 .interrupt-box { border-top: 2px solid rgba(0,0,0,0.1); }
 
 </style>
 </head>
@@ -147,7 +156,7 @@
 <div id="container">
     
     <div class="slide active" id="slide1">
-        <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-svg" viewBox="0 0 200 200">
             <circle cx="100" cy="100" r="90" fill="#D32F2F" stroke="white" stroke-width="10"/>
             <path d="M100 10c-49.7 0-90 40.3-90 90s40.3 90 90 90 90-40.3 90-90-40.3-90-90-90zm0 20c38.6 0 70 31.4 70 70s-31.4 70-70 70-70-31.4-70-70 31.4-70 70-70z" fill="white"/>
             <rect x="85" y="10" width="30" height="180" fill="white"/>
@@ -165,7 +174,7 @@
     </div>
 
     <div class="slide" id="slide2">
-        <svg class="logo-svg" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-svg" viewBox="0 0 200 250">
             <g transform="translate(25,0) scale(0.8)">
                  <path d="M96.2,7.4L6.4,85.6c-3.8,3.3-6.4,8.1-6.4,13.5v97c0,10.2,8.3,18.5,18.5,18.5h163.1c10.2,0,18.5-8.3,18.5-18.5v-97 c0-5.4-2.5-10.2-6.4-13.5L103.8,7.4C101.7,5.5,98.3,5.5,96.2,7.4z" fill="#D32F2F"/>
                  <path d="M164.1,54.8V23.4c0-3.1-2.5-5.6-5.6-5.6h-22.6c-3.1,0-5.6,2.5-5.6,5.6v58.2L164.1,54.8z" fill="#D32F2F"/>
@@ -179,7 +188,7 @@
             </g>
         </svg>
         <h1>Heads Down:</h1>
-        <div class="sub-head">Naybor SOS™ Calmunication⁺</div>
+        <div class="sub-head">Naybor SOS™ Kalmunication⁺</div>
         <div class="interrupt-box">
             <div class="interrupt-header">Interrupt Me</div>
             <div class="interrupt-body">if you have a life-saving idea, angle, or hint I haven't heard.</div>
@@ -187,7 +196,7 @@
     </div>
 
     <div class="slide" id="slide3">
-        <svg class="logo-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-svg" viewBox="0 0 200 150">
             <rect x="10" y="10" width="180" height="130" rx="10" ry="10" fill="#222" stroke="#555" stroke-width="4"/>
             <circle cx="30" cy="30" r="5" fill="#FF5F56"/>
             <circle cx="50" cy="30" r="5" fill="#FFBD2E"/>
@@ -206,8 +215,52 @@
         </div>
     </div>
 
+    <div class="slide" id="slide4">
+        <svg class="logo-svg" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#1F3A5D" stroke-width="4"/>
+            <ellipse cx="100" cy="100" rx="40" ry="90" fill="none" stroke="#1F3A5D" stroke-width="2"/>
+            <ellipse cx="100" cy="100" rx="80" ry="90" fill="none" stroke="#1F3A5D" stroke-width="2"/>
+            <path d="M10 100 H 190" stroke="#1F3A5D" stroke-width="2" fill="none"/>
+            <path d="M25 60 Q 100 80 175 60" stroke="#1F3A5D" stroke-width="2" fill="none"/>
+            <path d="M25 140 Q 100 120 175 140" stroke="#1F3A5D" stroke-width="2" fill="none"/>
+            <rect x="40" y="70" width="120" height="60" fill="#f4f6f7" />
+            <text x="100" y="115" font-family="Arial, sans-serif" font-weight="900" font-size="60" text-anchor="middle" fill="#E67E22">SOS</text>
+            <path d="M85 75 Q 100 65 115 75" stroke="#E67E22" stroke-width="4" fill="none"/>
+            <path d="M92 82 Q 100 78 108 82" stroke="#E67E22" stroke-width="4" fill="none"/>
+        </svg>
+
+        <h1>Heads Down:</h1>
+        <div class="sub-head">Unify SOS™ Deployment</div>
+        <div class="interrupt-box">
+            <div class="interrupt-header">Interrupt Me</div>
+            <div class="interrupt-body">if you have a life-saving idea, angle, or hint I haven't heard.</div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide5">
+        <svg class="logo-svg" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="8"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="6" opacity="0.7"/>
+            <circle cx="100" cy="100" r="30" fill="white"/>
+            <line x1="100" y1="5" x2="100" y2="35" stroke="white" stroke-width="8"/>
+            <line x1="100" y1="165" x2="100" y2="195" stroke="white" stroke-width="8"/>
+            <line x1="5" y1="100" x2="35" y2="100" stroke="white" stroke-width="8"/>
+            <line x1="165" y1="100" x2="195" y2="100" stroke="white" stroke-width="8"/>
+        </svg>
+
+        <h1>Heads Down:</h1>
+        <div class="sub-head">Fokus Mode / Deep Work</div>
+        <div class="interrupt-box">
+            <div class="interrupt-header">Interrupt Me</div>
+            <div class="interrupt-body">if you have a life-saving idea, angle, or hint I haven't heard.</div>
+        </div>
+    </div>
+
     <div id="controls">
-        <button class="btn" onclick="manualPrev()">&#9668;</button> <button class="btn" id="playPauseBtn" onclick="togglePlay()">&#10074;&#10074;</button> <button class="btn" onclick="manualNext()">&#9658;</button> </div>
+        <button class="btn" onclick="manualPrev()">&#9668;</button> 
+        <button class="btn" id="playPauseBtn" onclick="togglePlay()">&#10074;&#10074;</button> 
+        <button class="btn" onclick="manualNext()">&#9658;</button> 
+    </div>
 
 </div>
 
@@ -234,7 +287,6 @@
         showSlide(currentSlide);
     }
 
-    // Manual controls should reset the timer so it doesn't jump immediately after you click
     function manualNext() {
         nextSlide();
         resetTimer();
@@ -250,21 +302,20 @@
         if (isPlaying) {
             clearInterval(autoPlayInterval);
             isPlaying = false;
-            btn.innerHTML = '&#9658;'; // Show Play Symbol
+            btn.innerHTML = '&#9658;'; // Play symbol
         } else {
-            resetTimer(); // Restart timer
+            resetTimer();
             isPlaying = true;
-            btn.innerHTML = '&#10074;&#10074;'; // Show Pause Symbol
+            btn.innerHTML = '&#10074;&#10074;'; // Pause symbol
         }
     }
 
     function resetTimer() {
-        if (!isPlaying) return; // Don't restart if we are paused
+        if (!isPlaying) return;
         clearInterval(autoPlayInterval);
         autoPlayInterval = setInterval(nextSlide, intervalTime);
     }
 
-    // Start
     autoPlayInterval = setInterval(nextSlide, intervalTime);
 </script>
 

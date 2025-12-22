@@ -175,7 +175,7 @@ const LetsBeFamily5 = () => {
                       <span className="text-sm font-medium uppercase tracking-wide">PDF Download</span>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      "Big Ideas & Life Models" Table Tent
+                      "Big Ideas & Life Models" Table Tent <span className="text-sm font-normal text-muted-foreground">v0.0.5</span>
                     </h3>
                     <p className="text-muted-foreground mb-2">
                       <em>"Skip the weather. Tell me your theory."</em>
@@ -261,7 +261,7 @@ const LetsBeFamily5 = () => {
                       <span className="text-sm font-medium uppercase tracking-wide">Tablet Display</span>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      "Heads Down Mode" Display
+                      "Heads Down Mode" Display <span className="text-sm font-normal text-muted-foreground">v0.0.2</span>
                     </h3>
                     <p className="text-muted-foreground mb-2">
                       <em>Sometimes you need focus time—signal it beautifully.</em>
