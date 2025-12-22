@@ -215,7 +215,7 @@ const LetsBeFamily5 = () => {
                       <span className="text-sm font-medium uppercase tracking-wide">Tablet Display</span>
                     </div>
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-                      "Come Sit With Me" Tablet Display <span className="text-sm font-normal text-muted-foreground">v0.0.1</span>
+                      "Kome Sit With Me" Tablet Display <span className="text-sm font-normal text-muted-foreground">v0.0.2</span>
                     </h3>
                     <p className="text-muted-foreground mb-2">
                       <em>A rotating invitation for cafés and social spaces.</em>

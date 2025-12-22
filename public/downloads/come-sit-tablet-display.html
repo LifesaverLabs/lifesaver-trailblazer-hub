@@ -91,6 +91,42 @@
     }
     #slide3 h1, #slide3 h2 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
+    /* --- CONTROLS --- */
+    #controls {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        gap: 15px;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 10px 15px;
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+    }
+
+    .btn {
+        background: none;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.8);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        outline: none;
+    }
+
+    .btn:active {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: scale(0.95);
+    }
+
+
 </style>
 </head>
 <body>
@@ -112,27 +148,67 @@
         <h2>Putting down my phone. If you want to put down yours and chat, pull up a chair.</h2>
     </div>
 
+    <div id="controls">
+        <button class="btn" onclick="manualPrev()">&#9668;</button> 
+        <button class="btn" id="playPauseBtn" onclick="togglePlay()">&#10074;&#10074;</button> 
+        <button class="btn" onclick="manualNext()">&#9658;</button> 
+    </div>
+
 </div>
 
 <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
+    let autoPlayInterval;
+    let isPlaying = true;
+    const intervalTime = 138000; // 2 min 18 sec
 
-    function nextSlide() {
-        // Remove active class from current slide
-        slides[currentSlide].classList.remove('active');
-
-        // Calculate next slide index (loops back to 0 at the end)
-        currentSlide = (currentSlide + 1) % totalSlides;
-
-        // Add active class to next slide
-        slides[currentSlide].classList.add('active');
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index].classList.add('active');
     }
 
-    // Set the rotation time.
-    // 2 minutes 18 seconds = 138 seconds = 138000 milliseconds
-    setInterval(nextSlide, 138000);
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    function manualNext() {
+        nextSlide();
+        resetTimer();
+    }
+
+    function manualPrev() {
+        prevSlide();
+        resetTimer();
+    }
+
+    function togglePlay() {
+        const btn = document.getElementById('playPauseBtn');
+        if (isPlaying) {
+            clearInterval(autoPlayInterval);
+            isPlaying = false;
+            btn.innerHTML = '&#9658;'; // Play symbol
+        } else {
+            resetTimer();
+            isPlaying = true;
+            btn.innerHTML = '&#10074;&#10074;'; // Pause symbol
+        }
+    }
+
+    function resetTimer() {
+        if (!isPlaying) return;
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    autoPlayInterval = setInterval(nextSlide, intervalTime);
 </script>
 
 </body>
