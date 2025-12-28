@@ -422,6 +422,89 @@ const WestWingBlessedMap = () => {
         </div>
       </section>
 
+      {/* Priority Endonym Adoption Section */}
+      <section className="container px-6 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-8">
+            <h2 className="text-2xl font-display font-bold text-foreground mb-2 flex items-center gap-3">
+              <span className="bg-amber-500 text-black text-sm font-bold px-3 py-1 uppercase">Priority⁵</span>
+              Top 10 Kountries for Urgent Endonym Adoption
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              By shifting to endonyms for just these 10 nations, we kover the self-identifikation of over <span className="text-amber-500 font-bold">4.7 billion souls</span>—more than half of humanity.
+            </p>
+            
+            <div className="space-y-3 mb-6">
+              {[
+                { rank: 1, exonym: "China", endonym: "Zhōngguó", souls: 1412, note: "Middle Kingdom" },
+                { rank: 2, exonym: "India", endonym: "Bhārat", souls: 1408, note: "Land of Bharata" },
+                { rank: 3, exonym: "United States", endonym: "United States", souls: 334, note: "(already uses endonym)", isEndonym: true },
+                { rank: 4, exonym: "Indonesia", endonym: "Indonesia", souls: 277, note: "(already uses endonym)", isEndonym: true },
+                { rank: 5, exonym: "Pakistan", endonym: "Pākistān", souls: 231, note: "Land of the Pure" },
+                { rank: 6, exonym: "Brazil", endonym: "Brasil", souls: 215, note: "Brazilwood land" },
+                { rank: 7, exonym: "Nigeria", endonym: "Nigeria", souls: 218, note: "(already uses endonym)", isEndonym: true },
+                { rank: 8, exonym: "Bangladesh", endonym: "Bangla Desh", souls: 171, note: "Land of Bengal" },
+                { rank: 9, exonym: "Russia", endonym: "Rossiya", souls: 144, note: "Land of the Rus" },
+                { rank: 10, exonym: "Japan", endonym: "Nippon", souls: 125, note: "Origin of the Sun" },
+              ].map((country) => (
+                <div 
+                  key={country.rank}
+                  className={`flex items-center justify-between p-3 rounded-sm border ${
+                    country.isEndonym 
+                      ? "bg-slate-800/50 border-slate-600/50" 
+                      : "bg-amber-900/30 border-amber-500/30"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <span className={`font-mono text-lg font-bold w-6 ${country.isEndonym ? "text-slate-500" : "text-amber-500"}`}>
+                      {country.rank}
+                    </span>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className={`font-medium ${country.isEndonym ? "text-slate-400 line-through" : "text-slate-400"}`}>
+                          {country.exonym}
+                        </span>
+                        {!country.isEndonym && <span className="text-amber-500">→</span>}
+                        <span className={`font-bold ${country.isEndonym ? "text-slate-300" : "text-amber-400"}`}>
+                          {country.endonym}
+                        </span>
+                      </div>
+                      <span className="text-xs text-muted-foreground italic">{country.note}</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className={`font-mono font-bold ${country.isEndonym ? "text-slate-400" : "text-foreground"}`}>
+                      {country.souls}M
+                    </span>
+                    <div className="text-xs text-muted-foreground">souls</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Totals */}
+            <div className="border-t border-amber-500/30 pt-4 space-y-2">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-muted-foreground">Souls requiring endonym transition:</span>
+                <span className="font-mono font-bold text-amber-400">3,706M</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-muted-foreground">Souls already using endonyms:</span>
+                <span className="font-mono font-bold text-slate-400">829M</span>
+              </div>
+              <div className="flex justify-between items-center text-lg border-t border-amber-500/20 pt-2 mt-2">
+                <span className="text-foreground font-medium">Total souls in Top 10:</span>
+                <span className="font-mono font-bold text-amber-500">4,535M</span>
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground mt-4 italic">
+              * Population figures approximate (2023 estimates). "Souls" is used in the spirit of honoring each individual's kulturel identity.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy Section */}
       <section className="container px-6 py-12">
         <div className="max-w-4xl mx-auto space-y-12">
