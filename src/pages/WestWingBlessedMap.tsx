@@ -196,10 +196,13 @@ const BlessedMap = () => {
           </div>
         </button>
 
-        {/* Rotation Adjustment Control - TEMPORARY FOR TESTING */}
-        <div className="bg-red-900/80 backdrop-blur-md p-4 rounded-sm border-l-4 border-red-500 shadow-2xl">
-          <h3 className="text-sm font-bold text-white mb-2">ROTATION TEST CONTROL</h3>
-          <div className="flex items-center gap-3">
+        {/* Globe Seam Control - because Earth is round, the seam is arbitrary */}
+        <div className="bg-gray-900/70 backdrop-blur-md px-3 py-2 rounded-sm border border-gray-600 shadow-lg">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-medium text-gray-300">🌍 Edge of the World™</span>
+            <span className="text-[10px] text-gray-500 italic">(for flat-earthers only)</span>
+          </div>
+          <div className="flex items-center gap-2">
             <input
               type="range"
               min="-180"
@@ -207,13 +210,10 @@ const BlessedMap = () => {
               step="5"
               value={rotation}
               onChange={(e) => setRotation(Number(e.target.value))}
-              className="flex-1"
+              className="flex-1 h-1 accent-amber-500"
             />
-            <span className="text-white font-mono text-sm w-16">{rotation}°</span>
+            <span className="text-amber-400 font-mono text-xs w-10 text-right">{rotation}°</span>
           </div>
-          <p className="text-xs text-gray-300 mt-2">
-            Adjust until seam is in Pacific Ocean. Current tests: 0° (default), try -180°, 180°, or values near them.
-          </p>
         </div>
       </div>
 
