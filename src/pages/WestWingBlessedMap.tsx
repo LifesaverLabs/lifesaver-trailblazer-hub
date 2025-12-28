@@ -159,10 +159,6 @@ const BlessedMap = () => {
               Gall-Peters (South-Up)
             </span>
           </div>
-          <p className="text-sm text-gray-400 leading-relaxed font-light">
-            Toggle below to compare the <span className="text-amber-500">Blesséd Endonyms</span> (how people name themselves) 
-            with the <span className="text-slate-400">Standard Exonyms</span> (how outsiders name them).
-          </p>
         </div>
 
         {/* The Toggle Switch */}
