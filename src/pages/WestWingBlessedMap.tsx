@@ -266,7 +266,7 @@ const BlessedMap = () => {
                           <text
                             textAnchor="middle"
                             dominantBaseline="middle"
-                            transform="rotate(180)"
+                            transform="rotate(180) scale(1, -1)"
                             style={{
                               fontFamily: '"Courier New", monospace',
                               fill: showEndonyms ? "#2c2822" : "#555",
