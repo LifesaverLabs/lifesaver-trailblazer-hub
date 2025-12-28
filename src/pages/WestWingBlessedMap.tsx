@@ -119,13 +119,14 @@ const endonymMap: Record<string, string> = {
 // --- 2. CONFIGURATION ---
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Gall-Peters (South-Up)
-const projectionDefinition = () => 
-  geoCylindricalEqualArea()
+// Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
+const createGallPetersProjection = (width: number, height: number) => {
+  return geoCylindricalEqualArea()
     .parallel(45)
     .rotate([0, 180, 0]) 
-    .translate([400, 300])
-    .scale(150);
+    .translate([width / 2, height / 2])
+    .scale(width / 5.5);
+};
 
 const BlessedMap = () => {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
@@ -196,7 +197,7 @@ const BlessedMap = () => {
       <div className="w-full h-full border border-gray-700 bg-[#a4b6c3] relative overflow-hidden rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         
         <ComposableMap
-          projection={projectionDefinition}
+          projection={createGallPetersProjection(800, 600)}
           width={800}
           height={600}
           className="w-full h-full"
