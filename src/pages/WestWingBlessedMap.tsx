@@ -200,7 +200,7 @@ const BlessedMap = () => {
         <div className="bg-gray-900/70 backdrop-blur-md px-3 py-2 rounded-sm border border-gray-600 shadow-lg">
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs font-medium text-gray-300">🌍 Edge of the World™</span>
-            <span className="text-[10px] text-gray-500 italic">(for flat-earthers only)</span>
+            <span className="text-[10px] text-gray-500 italic">(jump-skare for flat-earthers only)</span>
           </div>
           <div className="flex items-center gap-2">
             <input
