@@ -235,10 +235,10 @@ const endonymMap: Record<string, string> = {
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 // Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
-const createGallPetersProjection = (width: number, height: number) => {
+const createGallPetersProjection = (width: number, height: number, rotationLambda: number = 0) => {
   return geoCylindricalEqualArea()
     .parallel(45)
-    .rotate([0, 180, 0])
+    .rotate([rotationLambda, 180, 0])
     .translate([width / 2, height / 2])
     .scale(width / 5.5);
 };
@@ -246,6 +246,7 @@ const createGallPetersProjection = (width: number, height: number) => {
 const BlessedMap = () => {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [showEndonyms, setShowEndonyms] = useState(true);
+  const [rotationLambda, setRotationLambda] = useState(0);
 
   const handleMoveEnd = (position: { coordinates: [number, number]; zoom: number }) => {
     setPosition(position);
@@ -303,7 +304,7 @@ const BlessedMap = () => {
       {/* THE MAP */}
       <div className="w-full h-full border border-gray-700 bg-[#a4b6c3] relative overflow-hidden rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         <ComposableMap
-          projection={createGallPetersProjection(800, 600)}
+          projection={createGallPetersProjection(800, 600, rotationLambda)}
           width={800}
           height={600}
           className="w-full h-full"
@@ -469,6 +470,23 @@ const BlessedMap = () => {
         >
           (-)
         </button>
+      </div>
+
+      {/* Globe Seam Control - Flat Earther Jump-Skare */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-sm border border-gray-600">
+        <label className="flex items-center gap-3 text-xs text-gray-300">
+          <span className="whitespace-nowrap">🌍 Edge of the World™ (jump-skare for flat-earthers only)</span>
+          <input
+            type="range"
+            min="-180"
+            max="180"
+            step="5"
+            value={rotationLambda}
+            onChange={(e) => setRotationLambda(Number(e.target.value))}
+            className="w-24 accent-amber-500"
+          />
+          <span className="font-mono w-12 text-right">{rotationLambda}°</span>
+        </label>
       </div>
     </div>
   );
