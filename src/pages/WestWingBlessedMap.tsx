@@ -120,10 +120,13 @@ const endonymMap: Record<string, string> = {
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 // Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
+// Center on 0° longitude (Greenwich), cut at International Date Line (180°) in Pacific Ocean
+// Rotation: [lambda, phi, gamma] = [longitude rotation, latitude flip, roll]
+// -10° longitude centers the map slightly west to keep all of Europe/Africa together
 const createGallPetersProjection = (width: number, height: number) => {
   return geoCylindricalEqualArea()
     .parallel(45)
-    .rotate([0, 180, 0]) 
+    .rotate([-10, 180, 0]) // -10° centers map with Europe/Africa, 180° flips for south-up
     .translate([width / 2, height / 2])
     .scale(width / 5.5);
 };
