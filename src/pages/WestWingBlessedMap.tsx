@@ -220,31 +220,32 @@ const BlessedMap = () => {
 
                   // Calculate country bounds for dynamic sizing
                   const bounds = geoBounds(geo);
-                  const countryWidth = Math.abs(bounds[1][0] - bounds[0][0]); // longitude span
-                  const countryHeight = Math.abs(bounds[1][1] - bounds[0][1]); // latitude span
+                  const countryWidth = Math.abs(bounds[1][0] - bounds[0][0]); // longitude span in degrees
+                  const countryHeight = Math.abs(bounds[1][1] - bounds[0][1]); // latitude span in degrees
                   
-                  // Estimate character width (rough approximation)
+                  // Estimate character width (rough approximation for monospace)
                   const labelLength = label.length;
-                  const charWidthRatio = 0.6; // approximate width/height ratio for monospace
+                  const charWidthRatio = 0.55;
                   
-                  // Calculate base font size that fits within country dimensions
-                  const widthBasedSize = (countryWidth * 1.2) / (labelLength * charWidthRatio);
-                  const heightBasedSize = countryHeight * 0.6;
+                  // Calculate base font size that fits within country dimensions (in map units)
+                  // Scale factor converts degrees to approximate SVG units for this projection
+                  const scaleFactor = 2.5;
+                  const widthBasedSize = (countryWidth * scaleFactor) / (labelLength * charWidthRatio);
+                  const heightBasedSize = (countryHeight * scaleFactor) * 0.5;
                   
                   // Use the smaller constraint as base size
                   const baseSize = Math.min(widthBasedSize, heightBasedSize);
                   
-                  // INVERSE scaling with zoom: as zoom increases, font size decreases
-                  // This keeps labels proportional to the viewport, not the projected map
+                  // Scale inversely with zoom to keep labels fitting within country bounds
                   const fontSize = baseSize / position.zoom;
                   
-                  // Clamp to readable bounds
-                  const minDisplaySize = 0.8;
-                  const maxDisplaySize = 20;
-                  const clampedFontSize = Math.max(minDisplaySize, Math.min(maxDisplaySize, fontSize));
+                  // Clamp to reasonable bounds
+                  const minFontSize = 0.3;
+                  const maxFontSize = 25;
+                  const clampedFontSize = Math.max(minFontSize, Math.min(maxFontSize, fontSize));
                   
-                  // Show label if it would be readable at current zoom
-                  const isVisible = clampedFontSize >= 1.0 && countryWidth > 1;
+                  // Show label if country is large enough to display meaningfully
+                  const isVisible = countryWidth > 0.5;
 
                   return (
                     <React.Fragment key={geo.rsmKey}>
@@ -262,23 +263,22 @@ const BlessedMap = () => {
                       
                       {isVisible && (
                         <Marker coordinates={geoCentroid(geo)}>
-                          <text
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            style={{
-                              fontFamily: '"Courier New", monospace',
-                              fill: showEndonyms ? "#2c2822" : "#555",
-                              fontSize: `${clampedFontSize}px`,
-                              fontWeight: "bold",
-                              pointerEvents: "none",
-                              opacity: 0.85,
-                              transform: "rotate(180deg)",
-                              transformOrigin: "center",
-                              transition: "fill 0.3s ease"
-                            }}
-                          >
-                            {label}
-                          </text>
+                          <g transform="scale(1, -1)">
+                            <text
+                              textAnchor="middle"
+                              dominantBaseline="middle"
+                              style={{
+                                fontFamily: '"Courier New", monospace',
+                                fill: showEndonyms ? "#2c2822" : "#555",
+                                fontSize: `${clampedFontSize}px`,
+                                fontWeight: "bold",
+                                pointerEvents: "none",
+                                opacity: 0.85,
+                              }}
+                            >
+                              {label}
+                            </text>
+                          </g>
                         </Marker>
                       )}
                     </React.Fragment>
