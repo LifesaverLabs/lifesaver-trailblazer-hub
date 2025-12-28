@@ -144,32 +144,27 @@ const BlessedMap = () => {
     <div className="w-full h-[70vh] bg-[#1a1a1a] flex flex-col items-center justify-center p-4 relative font-sans overflow-hidden rounded-lg">
       
       {/* UI: Title Card & Toggle */}
-      <div className="absolute top-4 left-4 z-20 flex flex-col gap-3 max-w-sm">
+      <div className="absolute top-3 left-3 z-20 flex flex-col gap-2 max-w-xs">
         
         {/* Title */}
-        <div className="bg-white/5 backdrop-blur-md p-4 rounded-sm border-l-4 border-amber-500 shadow-2xl">
-          <h2 className="text-xl font-bold text-gray-100 tracking-wider font-serif uppercase mb-2">
+        <div className="bg-white/5 backdrop-blur-md px-3 py-2 rounded-sm border-l-4 border-amber-500 shadow-2xl">
+          <h2 className="text-base font-bold text-gray-100 tracking-wider font-serif uppercase">
             Organization of Kartographers
           </h2>
-          <div className="flex items-center gap-3 mb-2">
-            <span className="bg-amber-500 text-black text-xs font-bold px-2 py-0.5 uppercase">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-500 text-black text-[10px] font-bold px-1.5 py-0.5 uppercase">
               West Wing Mode
             </span>
-            <span className="text-amber-500/80 text-xs tracking-widest uppercase">
+            <span className="text-amber-500/80 text-[10px] tracking-widest uppercase">
               Gall-Peters (South-Up)
             </span>
           </div>
-          <p className="text-sm text-gray-400 leading-relaxed font-light">
-            Toggle below to compare the <span className="text-amber-500">Blesséd Endonyms</span> (how people name themselves) 
-            with the <span className="text-slate-400">Standard Exonyms</span> (how outsiders name them).
-          </p>
         </div>
 
-        {/* The Toggle Switch */}
         <button 
           onClick={() => setShowEndonyms(!showEndonyms)}
           className={`
-            relative overflow-hidden group p-3 rounded-sm border-l-4 shadow-xl text-left transition-all duration-300
+            relative overflow-hidden group px-3 py-2 rounded-sm border-l-4 shadow-xl text-left transition-all duration-300
             ${showEndonyms 
               ? "bg-amber-900/40 border-amber-500 hover:bg-amber-900/60" 
               : "bg-slate-800/80 border-slate-500 hover:bg-slate-800"}
@@ -177,18 +172,17 @@ const BlessedMap = () => {
         >
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-xs uppercase tracking-widest opacity-70 text-white mb-1">
+              <div className="text-[10px] uppercase tracking-widest opacity-70 text-white">
                 Active Dialekt:
               </div>
-              <div className={`text-base font-bold font-mono transition-colors ${showEndonyms ? "text-amber-400" : "text-white"}`}>
+              <div className={`text-sm font-bold font-mono transition-colors ${showEndonyms ? "text-amber-400" : "text-white"}`}>
                 {showEndonyms ? "BLESSÉD ENDONYMS" : "AMERICAN STANDARD"}
               </div>
             </div>
-            {/* Visual Indicator of Switch */}
-            <div className="w-12 h-6 bg-black/40 rounded-full relative ml-4 border border-white/10">
+            <div className="w-10 h-5 bg-black/40 rounded-full relative ml-3 border border-white/10">
               <div 
                 className={`
-                  absolute top-0.5 w-5 h-5 rounded-full transition-all duration-300 shadow-md
+                  absolute top-0.5 w-4 h-4 rounded-full transition-all duration-300 shadow-md
                   ${showEndonyms ? "right-0.5 bg-amber-500" : "left-0.5 bg-slate-400"}
                 `}
               />
