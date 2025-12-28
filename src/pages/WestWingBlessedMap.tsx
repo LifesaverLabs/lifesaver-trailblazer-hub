@@ -75,7 +75,7 @@ const endonymMap: Record<string, string> = {
   "Namibia": "Namibia", "Nauru": "Naoero", "Nepal": "Nepāl", 
   "Netherlands": "Nederland", "New Zealand": "Aotearoa", "Nicaragua": "Nicaragua", 
   "Niger": "Niger", "Nigeria": "Nigeria", "North Korea": "Chosŏn", 
-  "Norway": "Norge",
+  "Norway": "Norge / Noreg",
   // O
   "Oman": "ʿUmān",
   // P
@@ -210,8 +210,24 @@ const BlessedMap = () => {
             maxZoom={40}
           >
             <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => {
+              {({ geographies }) => {
+                // Separate render: shapes first, then labels on top
+                const shapes = geographies.map((geo) => (
+                  <Geography
+                    key={geo.rsmKey + "-shape"}
+                    geography={geo}
+                    fill="#d6cbb6"
+                    stroke="#8a7e68"
+                    strokeWidth={0.3 / position.zoom}
+                    style={{
+                      default: { outline: "none" },
+                      hover: { fill: "#c2b59b", outline: "none", cursor: "crosshair" },
+                      pressed: { fill: "#a3967d", outline: "none" },
+                    }}
+                  />
+                ));
+
+                const labels = geographies.map((geo) => {
                   const countryName = geo.properties.name;
                   
                   const label = showEndonyms 
@@ -266,43 +282,36 @@ const BlessedMap = () => {
                   // Show label if country is large enough to display meaningfully
                   const isVisible = countryWidth > 0.5;
 
+                  if (!isVisible) return null;
+
                   return (
-                    <React.Fragment key={geo.rsmKey}>
-                      <Geography
-                        geography={geo}
-                        fill="#d6cbb6"
-                        stroke="#8a7e68"
-                        strokeWidth={0.3 / position.zoom}
+                    <Marker key={geo.rsmKey + "-label"} coordinates={geoCentroid(geo)}>
+                      <text
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        transform="rotate(180) scale(-1, -1)"
                         style={{
-                          default: { outline: "none" },
-                          hover: { fill: "#c2b59b", outline: "none", cursor: "crosshair" },
-                          pressed: { fill: "#a3967d", outline: "none" },
+                          fontFamily: '"Courier New", monospace',
+                          fill: showEndonyms ? "#2c2822" : "#555",
+                          fontSize: `${clampedFontSize}px`,
+                          fontWeight: "bold",
+                          pointerEvents: "none",
+                          opacity: 0.85,
                         }}
-                      />
-                      
-                      {isVisible && (
-                        <Marker coordinates={geoCentroid(geo)}>
-                          <text
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                            transform="rotate(180) scale(-1, -1)"
-                            style={{
-                              fontFamily: '"Courier New", monospace',
-                              fill: showEndonyms ? "#2c2822" : "#555",
-                              fontSize: `${clampedFontSize}px`,
-                              fontWeight: "bold",
-                              pointerEvents: "none",
-                              opacity: 0.85,
-                            }}
-                          >
-                            {label}
-                          </text>
-                        </Marker>
-                      )}
-                    </React.Fragment>
+                      >
+                        {label}
+                      </text>
+                    </Marker>
                   );
-                })
-              }
+                });
+
+                return (
+                  <>
+                    {shapes}
+                    {labels}
+                  </>
+                );
+              }}
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>
