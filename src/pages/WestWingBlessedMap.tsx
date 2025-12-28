@@ -235,10 +235,10 @@ const endonymMap: Record<string, string> = {
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 // Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
-const createGallPetersProjection = (width: number, height: number) => {
+const createGallPetersProjection = (width: number, height: number, rotation: number = 0) => {
   return geoCylindricalEqualArea()
     .parallel(45)
-    .rotate([0, 180, 0])
+    .rotate([rotation, 180, 0])
     .translate([width / 2, height / 2])
     .scale(width / 5.5);
 };
@@ -246,6 +246,7 @@ const createGallPetersProjection = (width: number, height: number) => {
 const BlessedMap = () => {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [showEndonyms, setShowEndonyms] = useState(true);
+  const [mapRotation, setMapRotation] = useState(0);
 
   const handleMoveEnd = (position: { coordinates: [number, number]; zoom: number }) => {
     setPosition(position);
@@ -307,7 +308,7 @@ const BlessedMap = () => {
       {/* THE MAP */}
       <div className="w-full h-full border border-gray-700 bg-[#a4b6c3] relative overflow-hidden rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         <ComposableMap
-          projection={createGallPetersProjection(800, 600)}
+          projection={createGallPetersProjection(800, 600, mapRotation)}
           width={800}
           height={600}
           className="w-full h-full"
@@ -473,6 +474,21 @@ const BlessedMap = () => {
         >
           (-)
         </button>
+      </div>
+
+      {/* Edge of the World Seam Control */}
+      <div className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm px-3 py-2 rounded-sm border border-gray-600">
+        <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">
+          🌍 Edge of the World™ (jump-skare for flat-earthers only)
+        </label>
+        <input
+          type="range"
+          min="-180"
+          max="180"
+          value={mapRotation}
+          onChange={(e) => setMapRotation(Number(e.target.value))}
+          className="w-32 h-1 accent-amber-500 cursor-pointer"
+        />
       </div>
     </div>
   );
