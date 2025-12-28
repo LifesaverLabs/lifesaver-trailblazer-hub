@@ -135,6 +135,15 @@ const OrganizationTabs = () => {
 
   const usaProjects = [
     {
+      name: "West Wing Mode: Blesséd Map",
+      logo: "",
+      logoImage: civigionLogo,
+      url: "/west-wing-blessed-map",
+      description:
+        "A Full-Transitioned Map using Gall-Peters projection, South-up orientation, and endonym labeling—honoring how peoples name themselves with equal-area representation",
+      status: "Alpha",
+    },
+    {
       name: "Raising Rights",
       logo: "",
       logoImage: raisingRightsLogo,
