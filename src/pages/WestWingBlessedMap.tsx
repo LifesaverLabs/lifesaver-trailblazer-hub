@@ -227,23 +227,24 @@ const BlessedMap = () => {
                   const labelLength = label.length;
                   const charWidthRatio = 0.6; // approximate width/height ratio for monospace
                   
-                  // Calculate max font size that fits within country width
-                  // countryWidth is in degrees, we need to scale it appropriately
-                  const widthBasedSize = (countryWidth * 0.8) / (labelLength * charWidthRatio);
-                  const heightBasedSize = countryHeight * 0.4;
+                  // Calculate base font size that fits within country dimensions
+                  const widthBasedSize = (countryWidth * 1.2) / (labelLength * charWidthRatio);
+                  const heightBasedSize = countryHeight * 0.6;
                   
-                  // Use the smaller of width or height constraints, with zoom compensation
+                  // Use the smaller constraint as base size
                   const baseSize = Math.min(widthBasedSize, heightBasedSize);
-                  const zoomAdjustedSize = baseSize * position.zoom;
                   
-                  // Clamp to reasonable bounds (in projected coordinates)
-                  const minDisplaySize = 0.5;
-                  const maxDisplaySize = 15;
-                  const fontSize = Math.max(minDisplaySize, Math.min(maxDisplaySize, zoomAdjustedSize));
+                  // INVERSE scaling with zoom: as zoom increases, font size decreases
+                  // This keeps labels proportional to the viewport, not the projected map
+                  const fontSize = baseSize / position.zoom;
                   
-                  // Visibility based on whether label would be readable
-                  const effectiveDisplaySize = fontSize / position.zoom;
-                  const isVisible = effectiveDisplaySize >= 0.3 && countryWidth > 0.5;
+                  // Clamp to readable bounds
+                  const minDisplaySize = 0.8;
+                  const maxDisplaySize = 20;
+                  const clampedFontSize = Math.max(minDisplaySize, Math.min(maxDisplaySize, fontSize));
+                  
+                  // Show label if it would be readable at current zoom
+                  const isVisible = clampedFontSize >= 1.0 && countryWidth > 1;
 
                   return (
                     <React.Fragment key={geo.rsmKey}>
@@ -264,15 +265,16 @@ const BlessedMap = () => {
                           <text
                             textAnchor="middle"
                             dominantBaseline="middle"
-                            transform="rotate(180)"
                             style={{
                               fontFamily: '"Courier New", monospace',
                               fill: showEndonyms ? "#2c2822" : "#555",
-                              fontSize: `${fontSize}px`,
+                              fontSize: `${clampedFontSize}px`,
                               fontWeight: "bold",
                               pointerEvents: "none",
                               opacity: 0.85,
-                              transition: "fill 0.3s ease, font-size 0.2s ease"
+                              transform: "rotate(180deg)",
+                              transformOrigin: "center",
+                              transition: "fill 0.3s ease"
                             }}
                           >
                             {label}
