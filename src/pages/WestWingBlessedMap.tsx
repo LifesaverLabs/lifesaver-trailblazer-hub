@@ -7,7 +7,7 @@ import {
   Marker
 } from 'react-simple-maps';
 import { geoCylindricalEqualArea } from 'd3-geo-projection';
-import { geoCentroid } from 'd3-geo';
+import { geoCentroid, geoBounds } from 'd3-geo';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -218,15 +218,32 @@ const BlessedMap = () => {
                     ? (endonymMap[countryName] || countryName) 
                     : countryName;
 
-                  const hugeCountries = ["Russia", "Canada", "China", "United States of America", "Brazil", "Australia", "India", "Argentina", "Kazakhstan", "Algeria"];
-                  const mediumCountries = ["Mexico", "Saudi Arabia", "Indonesia", "Libya", "Iran", "Mongolia", "Peru", "Chad", "Niger", "Angola", "Mali", "South Africa", "Colombia", "Ethiopia", "Bolivia", "Mauritania", "Egypt", "Tanzania", "Nigeria", "Venezuela", "Namibia", "Mozambique", "Pakistan", "Turkey", "Chile", "Zambia", "Myanmar", "Afghanistan", "Somalia", "Central African Republic", "South Sudan", "Ukraine", "Madagascar", "Botswana", "Kenya", "France", "Yemen", "Thailand", "Spain", "Turkmenistan", "Cameroon", "Papua New Guinea", "Sweden", "Uzbekistan", "Morocco", "Iraq", "Paraguay", "Zimbabwe", "Japan", "Germany", "Philippines", "Congo", "Finland", "Vietnam", "Malaysia", "Norway", "Ivory Coast", "Poland", "Oman", "Italy"];
+                  // Calculate country bounds for dynamic sizing
+                  const bounds = geoBounds(geo);
+                  const countryWidth = Math.abs(bounds[1][0] - bounds[0][0]); // longitude span
+                  const countryHeight = Math.abs(bounds[1][1] - bounds[0][1]); // latitude span
                   
-                  let isVisible = false;
-                  if (hugeCountries.includes(countryName)) isVisible = true;
-                  else if (mediumCountries.includes(countryName) && position.zoom >= 2) isVisible = true;
-                  else if (position.zoom >= 6) isVisible = true;
-
-                  const fontSize = Math.max(2, 6 / Math.sqrt(position.zoom)); 
+                  // Estimate character width (rough approximation)
+                  const labelLength = label.length;
+                  const charWidthRatio = 0.6; // approximate width/height ratio for monospace
+                  
+                  // Calculate max font size that fits within country width
+                  // countryWidth is in degrees, we need to scale it appropriately
+                  const widthBasedSize = (countryWidth * 0.8) / (labelLength * charWidthRatio);
+                  const heightBasedSize = countryHeight * 0.4;
+                  
+                  // Use the smaller of width or height constraints, with zoom compensation
+                  const baseSize = Math.min(widthBasedSize, heightBasedSize);
+                  const zoomAdjustedSize = baseSize * position.zoom;
+                  
+                  // Clamp to reasonable bounds (in projected coordinates)
+                  const minDisplaySize = 0.5;
+                  const maxDisplaySize = 15;
+                  const fontSize = Math.max(minDisplaySize, Math.min(maxDisplaySize, zoomAdjustedSize));
+                  
+                  // Visibility based on whether label would be readable
+                  const effectiveDisplaySize = fontSize / position.zoom;
+                  const isVisible = effectiveDisplaySize >= 0.3 && countryWidth > 0.5;
 
                   return (
                     <React.Fragment key={geo.rsmKey}>
@@ -246,6 +263,8 @@ const BlessedMap = () => {
                         <Marker coordinates={geoCentroid(geo)}>
                           <text
                             textAnchor="middle"
+                            dominantBaseline="middle"
+                            transform="rotate(180)"
                             style={{
                               fontFamily: '"Courier New", monospace',
                               fill: showEndonyms ? "#2c2822" : "#555",
@@ -253,8 +272,7 @@ const BlessedMap = () => {
                               fontWeight: "bold",
                               pointerEvents: "none",
                               opacity: 0.85,
-                              transform: `rotate(180deg)`,
-                              transition: "fill 0.3s ease"
+                              transition: "fill 0.3s ease, font-size 0.2s ease"
                             }}
                           >
                             {label}
