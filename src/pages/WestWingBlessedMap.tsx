@@ -263,22 +263,21 @@ const BlessedMap = () => {
                       
                       {isVisible && (
                         <Marker coordinates={geoCentroid(geo)}>
-                          <g transform="scale(1, -1)">
-                            <text
-                              textAnchor="middle"
-                              dominantBaseline="middle"
-                              style={{
-                                fontFamily: '"Courier New", monospace',
-                                fill: showEndonyms ? "#2c2822" : "#555",
-                                fontSize: `${clampedFontSize}px`,
-                                fontWeight: "bold",
-                                pointerEvents: "none",
-                                opacity: 0.85,
-                              }}
-                            >
-                              {label}
-                            </text>
-                          </g>
+                          <text
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            transform="rotate(180)"
+                            style={{
+                              fontFamily: '"Courier New", monospace',
+                              fill: showEndonyms ? "#2c2822" : "#555",
+                              fontSize: `${clampedFontSize}px`,
+                              fontWeight: "bold",
+                              pointerEvents: "none",
+                              opacity: 0.85,
+                            }}
+                          >
+                            {label}
+                          </text>
                         </Marker>
                       )}
                     </React.Fragment>
