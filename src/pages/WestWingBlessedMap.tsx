@@ -168,28 +168,34 @@ const BlessedMap = () => {
         {/* The Toggle Switch */}
         <button 
           onClick={() => setShowEndonyms(!showEndonyms)}
+          aria-pressed={showEndonyms}
+          aria-label={`Toggle map labels. Currently showing ${showEndonyms ? 'Blesséd Endonyms' : 'American Standard Exonyms'}`}
           className={`
             relative overflow-hidden group p-3 rounded-sm border-l-4 shadow-xl text-left transition-all duration-300
+            focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900
             ${showEndonyms 
-              ? "bg-amber-900/40 border-amber-500 hover:bg-amber-900/60" 
-              : "bg-slate-800/80 border-slate-500 hover:bg-slate-800"}
+              ? "bg-amber-900/60 border-amber-400 hover:bg-amber-900/80" 
+              : "bg-slate-700/80 border-slate-400 hover:bg-slate-700"}
           `}
         >
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-xs uppercase tracking-widest opacity-70 text-white mb-1">
+              <div className="text-xs uppercase tracking-widest text-gray-200 mb-1">
                 Active Dialekt:
               </div>
-              <div className={`text-base font-bold font-mono transition-colors ${showEndonyms ? "text-amber-400" : "text-white"}`}>
+              <div className={`text-base font-bold font-mono transition-colors ${showEndonyms ? "text-amber-300" : "text-white"}`}>
                 {showEndonyms ? "BLESSÉD ENDONYMS" : "AMERICAN STANDARD"}
               </div>
             </div>
             {/* Visual Indicator of Switch */}
-            <div className="w-12 h-6 bg-black/40 rounded-full relative ml-4 border border-white/10">
+            <div 
+              className="w-12 h-6 bg-black/50 rounded-full relative ml-4 border border-white/20"
+              aria-hidden="true"
+            >
               <div 
                 className={`
                   absolute top-0.5 w-5 h-5 rounded-full transition-all duration-300 shadow-md
-                  ${showEndonyms ? "right-0.5 bg-amber-500" : "left-0.5 bg-slate-400"}
+                  ${showEndonyms ? "right-0.5 bg-amber-400" : "left-0.5 bg-gray-300"}
                 `}
               />
             </div>
@@ -197,22 +203,27 @@ const BlessedMap = () => {
         </button>
 
         {/* Globe Seam Control - because Earth is round, the seam is arbitrary */}
-        <div className="bg-gray-900/70 backdrop-blur-md px-3 py-2 rounded-sm border border-gray-600 shadow-lg">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-medium text-gray-300">🌍 Edge of the World™</span>
-            <span className="text-[10px] text-gray-500 italic">(jump-skare for flat-earthers only)</span>
-          </div>
+        <div className="bg-gray-800/90 backdrop-blur-md px-3 py-2 rounded-sm border border-gray-500 shadow-lg">
+          <label htmlFor="rotation-slider" className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-medium text-gray-200">🌍 Edge of the World™</span>
+            <span className="text-[10px] text-gray-400 italic">(jump-skare for flat-earthers only)</span>
+          </label>
           <div className="flex items-center gap-2">
             <input
+              id="rotation-slider"
               type="range"
               min="-180"
               max="180"
               step="5"
               value={rotation}
               onChange={(e) => setRotation(Number(e.target.value))}
-              className="flex-1 h-1 accent-amber-500"
+              aria-valuemin={-180}
+              aria-valuemax={180}
+              aria-valuenow={rotation}
+              aria-label="Map rotation in degrees"
+              className="flex-1 h-2 accent-amber-400 cursor-pointer"
             />
-            <span className="text-amber-400 font-mono text-xs w-10 text-right">{rotation}°</span>
+            <span className="text-amber-300 font-mono text-xs w-12 text-right" aria-live="polite">{rotation}°</span>
           </div>
         </div>
       </div>
@@ -351,16 +362,18 @@ const BlessedMap = () => {
       </div>
 
       {/* Zoom Controls */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4" role="group" aria-label="Map zoom controls">
         <button 
           onClick={() => setPosition(p => ({ ...p, zoom: p.zoom * 1.5 }))}
-          className="bg-gray-800 hover:bg-gray-700 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-xs border border-gray-600"
+          aria-label="Zoom in"
+          className="bg-gray-700 hover:bg-gray-600 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 min-w-[44px] min-h-[44px]"
         >
           (+)
         </button>
         <button 
           onClick={() => setPosition(p => ({ ...p, zoom: Math.max(1, p.zoom / 1.5) }))}
-          className="bg-gray-800 hover:bg-gray-700 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-xs border border-gray-600"
+          aria-label="Zoom out"
+          className="bg-gray-700 hover:bg-gray-600 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 min-w-[44px] min-h-[44px]"
         >
           (-)
         </button>
@@ -423,83 +436,127 @@ const WestWingBlessedMap = () => {
       </section>
 
       {/* Priority Endonym Adoption Section */}
-      <section className="container px-6 py-8">
+      <section className="container px-6 py-8" aria-labelledby="priority-heading">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-8">
-            <h2 className="text-2xl font-display font-bold text-foreground mb-2 flex items-center gap-3">
-              <span className="bg-amber-500 text-black text-sm font-bold px-3 py-1 uppercase">Priority⁵</span>
-              Top 10 Kountries for Urgent Endonym Adoption
+          <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+            <h2 id="priority-heading" className="text-2xl font-display font-bold text-foreground mb-2 flex flex-wrap items-center gap-3">
+              <span className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1 uppercase rounded">Priority⁵</span>
+              <span>Top 10 Kountries for Urgent Endonym Adoption</span>
             </h2>
-            <p className="text-muted-foreground mb-6">
-              By shifting to endonyms for just these 10 nations, we kover the self-identifikation of over <span className="text-amber-500 font-bold">4.7 billion souls</span>—more than half of humanity.
+            <p className="text-foreground/80 mb-6 leading-relaxed">
+              By shifting to endonyms for just these 10 nations, we kover the self-identifikation of over <strong className="text-foreground">4.7 billion souls</strong>—more than half of humanity.
             </p>
             
-            <div className="space-y-3 mb-6">
-              {[
-                { rank: 1, exonym: "China", endonym: "Zhōngguó", souls: 1412, note: "Middle Kingdom" },
-                { rank: 2, exonym: "India", endonym: "Bhārat", souls: 1408, note: "Land of Bharata" },
-                { rank: 3, exonym: "United States", endonym: "United States", souls: 334, note: "(already uses endonym)", isEndonym: true },
-                { rank: 4, exonym: "Indonesia", endonym: "Indonesia", souls: 277, note: "(already uses endonym)", isEndonym: true },
-                { rank: 5, exonym: "Pakistan", endonym: "Pākistān", souls: 231, note: "Land of the Pure" },
-                { rank: 6, exonym: "Brazil", endonym: "Brasil", souls: 215, note: "Brazilwood land" },
-                { rank: 7, exonym: "Nigeria", endonym: "Nigeria", souls: 218, note: "(already uses endonym)", isEndonym: true },
-                { rank: 8, exonym: "Bangladesh", endonym: "Bangla Desh", souls: 171, note: "Land of Bengal" },
-                { rank: 9, exonym: "Russia", endonym: "Rossiya", souls: 144, note: "Land of the Rus" },
-                { rank: 10, exonym: "Japan", endonym: "Nippon", souls: 125, note: "Origin of the Sun" },
-              ].map((country) => (
-                <div 
-                  key={country.rank}
-                  className={`flex items-center justify-between p-3 rounded-sm border ${
-                    country.isEndonym 
-                      ? "bg-slate-800/50 border-slate-600/50" 
-                      : "bg-amber-900/30 border-amber-500/30"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className={`font-mono text-lg font-bold w-6 ${country.isEndonym ? "text-slate-500" : "text-amber-500"}`}>
-                      {country.rank}
-                    </span>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className={`font-medium ${country.isEndonym ? "text-slate-400 line-through" : "text-slate-400"}`}>
-                          {country.exonym}
-                        </span>
-                        {!country.isEndonym && <span className="text-amber-500">→</span>}
-                        <span className={`font-bold ${country.isEndonym ? "text-slate-300" : "text-amber-400"}`}>
-                          {country.endonym}
-                        </span>
-                      </div>
-                      <span className="text-xs text-muted-foreground italic">{country.note}</span>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className={`font-mono font-bold ${country.isEndonym ? "text-slate-400" : "text-foreground"}`}>
-                      {country.souls}M
-                    </span>
-                    <div className="text-xs text-muted-foreground">souls</div>
-                  </div>
-                </div>
-              ))}
+            {/* Accessible table */}
+            <div className="overflow-x-auto -mx-2 px-2">
+              <table className="w-full text-left border-collapse" role="table" aria-label="Top 10 countries by population for endonym adoption">
+                <thead>
+                  <tr className="border-b-2 border-border">
+                    <th scope="col" className="py-3 px-2 text-xs uppercase tracking-wider text-muted-foreground font-semibold w-12">#</th>
+                    <th scope="col" className="py-3 px-2 text-xs uppercase tracking-wider text-muted-foreground font-semibold">Exonym → Endonym</th>
+                    <th scope="col" className="py-3 px-2 text-xs uppercase tracking-wider text-muted-foreground font-semibold text-right">Souls</th>
+                    <th scope="col" className="py-3 px-2 text-xs uppercase tracking-wider text-muted-foreground font-semibold w-20 text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {[
+                    { rank: 1, exonym: "China", endonym: "Zhōngguó", souls: 1412, note: "Middle Kingdom", needsTransition: true },
+                    { rank: 2, exonym: "India", endonym: "Bhārat", souls: 1408, note: "Land of Bharata", needsTransition: true },
+                    { rank: 3, exonym: "United States", endonym: "United States", souls: 334, note: "Already uses endonym", needsTransition: false },
+                    { rank: 4, exonym: "Indonesia", endonym: "Indonesia", souls: 277, note: "Already uses endonym", needsTransition: false },
+                    { rank: 5, exonym: "Pakistan", endonym: "Pākistān", souls: 231, note: "Land of the Pure", needsTransition: true },
+                    { rank: 6, exonym: "Brazil", endonym: "Brasil", souls: 215, note: "Brazilwood land", needsTransition: true },
+                    { rank: 7, exonym: "Nigeria", endonym: "Nigeria", souls: 218, note: "Already uses endonym", needsTransition: false },
+                    { rank: 8, exonym: "Bangladesh", endonym: "Bangla Desh", souls: 171, note: "Land of Bengal", needsTransition: true },
+                    { rank: 9, exonym: "Russia", endonym: "Rossiya", souls: 144, note: "Land of the Rus", needsTransition: true },
+                    { rank: 10, exonym: "Japan", endonym: "Nippon", souls: 125, note: "Origin of the Sun", needsTransition: true },
+                  ].map((country) => (
+                    <tr 
+                      key={country.rank}
+                      className={country.needsTransition ? "bg-primary/5" : "bg-muted/30"}
+                    >
+                      <td className="py-3 px-2 font-mono font-bold text-foreground">
+                        {country.rank}
+                      </td>
+                      <td className="py-3 px-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                          {country.needsTransition ? (
+                            <>
+                              <span className="text-muted-foreground">{country.exonym}</span>
+                              <span className="text-foreground hidden sm:inline" aria-hidden="true">→</span>
+                              <span className="font-semibold text-foreground">{country.endonym}</span>
+                            </>
+                          ) : (
+                            <span className="text-foreground">{country.endonym}</span>
+                          )}
+                        </div>
+                        <span className="text-xs text-muted-foreground block mt-0.5">{country.note}</span>
+                      </td>
+                      <td className="py-3 px-2 text-right font-mono font-semibold text-foreground">
+                        {country.souls.toLocaleString()}M
+                      </td>
+                      <td className="py-3 px-2 text-center">
+                        {country.needsTransition ? (
+                          <span 
+                            className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded bg-primary/15 text-foreground border border-primary/30"
+                            aria-label="Needs transition"
+                          >
+                            <span aria-hidden="true">◉</span> Action
+                          </span>
+                        ) : (
+                          <span 
+                            className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded bg-muted text-muted-foreground"
+                            aria-label="Already using endonym"
+                          >
+                            <span aria-hidden="true">✓</span> Done
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot className="border-t-2 border-border bg-muted/50">
+                  <tr>
+                    <td colSpan={2} className="py-3 px-2 text-sm text-foreground">
+                      Souls requiring transition:
+                    </td>
+                    <td className="py-3 px-2 text-right font-mono font-bold text-foreground">
+                      3,706M
+                    </td>
+                    <td className="py-3 px-2 text-center">
+                      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded bg-primary/15 text-foreground border border-primary/30">
+                        <span aria-hidden="true">◉</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colSpan={2} className="py-3 px-2 text-sm text-muted-foreground">
+                      Already using endonyms:
+                    </td>
+                    <td className="py-3 px-2 text-right font-mono font-semibold text-muted-foreground">
+                      829M
+                    </td>
+                    <td className="py-3 px-2 text-center">
+                      <span className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded bg-muted text-muted-foreground">
+                        <span aria-hidden="true">✓</span>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border">
+                    <td colSpan={2} className="py-4 px-2 text-base font-semibold text-foreground">
+                      Total souls in Top 10:
+                    </td>
+                    <td className="py-4 px-2 text-right font-mono font-bold text-lg text-foreground">
+                      4,535M
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
 
-            {/* Totals */}
-            <div className="border-t border-amber-500/30 pt-4 space-y-2">
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-muted-foreground">Souls requiring endonym transition:</span>
-                <span className="font-mono font-bold text-amber-400">3,706M</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-muted-foreground">Souls already using endonyms:</span>
-                <span className="font-mono font-bold text-slate-400">829M</span>
-              </div>
-              <div className="flex justify-between items-center text-lg border-t border-amber-500/20 pt-2 mt-2">
-                <span className="text-foreground font-medium">Total souls in Top 10:</span>
-                <span className="font-mono font-bold text-amber-500">4,535M</span>
-              </div>
-            </div>
-
-            <p className="text-sm text-muted-foreground mt-4 italic">
-              * Population figures approximate (2023 estimates). "Souls" is used in the spirit of honoring each individual's kulturel identity.
+            <p className="text-sm text-muted-foreground mt-6">
+              * Population figures approximate (2023 estimates). "Souls" honors each individual's kulturel identity.
             </p>
           </div>
         </div>
