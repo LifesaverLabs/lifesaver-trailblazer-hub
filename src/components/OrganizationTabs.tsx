@@ -191,7 +191,7 @@ const OrganizationTabs = () => {
       name: "Religious RCV",
       logo: "",
       logoImage: religiousRcvLogo,
-      url: "https://www.religiousrcv.us",
+      url: "https://claude.ai/share/7e78ae42-c0ae-49b4-aee6-ca916900ba75",
       description:
         "A Civigion Initiative: Legal effort to attain ranked-choice voting and mandatory voting standards for all elections",
       status: "Concept",
