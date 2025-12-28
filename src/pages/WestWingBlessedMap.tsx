@@ -122,11 +122,11 @@ const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 // Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
 // Center on 0° longitude (Greenwich), cut at International Date Line (180°) in Pacific Ocean
 // Rotation: [lambda, phi, gamma] = [longitude rotation, latitude flip, roll]
-// 0° longitude keeps seam in Pacific Ocean through Bering Strait area
-const createGallPetersProjection = (width: number, height: number) => {
+// Adjustable lambda to find the right seam position
+const createGallPetersProjection = (width: number, height: number, rotationLambda: number) => {
   return geoCylindricalEqualArea()
     .parallel(45)
-    .rotate([0, 180, 0]) // 0° centers at Greenwich meridian, 180° flips for south-up
+    .rotate([rotationLambda, 180, 0]) // rotationLambda is adjustable, 180° flips for south-up
     .translate([width / 2, height / 2])
     .scale(width / 5.5);
 };
@@ -134,6 +134,7 @@ const createGallPetersProjection = (width: number, height: number) => {
 const BlessedMap = () => {
   const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
   const [showEndonyms, setShowEndonyms] = useState(true);
+  const [rotation, setRotation] = useState(0); // Adjustable rotation for testing
 
   const handleMoveEnd = (position: { coordinates: [number, number], zoom: number }) => {
     setPosition(position);
@@ -194,13 +195,33 @@ const BlessedMap = () => {
             </div>
           </div>
         </button>
+
+        {/* Rotation Adjustment Control - TEMPORARY FOR TESTING */}
+        <div className="bg-red-900/80 backdrop-blur-md p-4 rounded-sm border-l-4 border-red-500 shadow-2xl">
+          <h3 className="text-sm font-bold text-white mb-2">ROTATION TEST CONTROL</h3>
+          <div className="flex items-center gap-3">
+            <input
+              type="range"
+              min="-180"
+              max="180"
+              step="5"
+              value={rotation}
+              onChange={(e) => setRotation(Number(e.target.value))}
+              className="flex-1"
+            />
+            <span className="text-white font-mono text-sm w-16">{rotation}°</span>
+          </div>
+          <p className="text-xs text-gray-300 mt-2">
+            Adjust until seam is in Pacific Ocean. Current tests: 0° (default), try -180°, 180°, or values near them.
+          </p>
+        </div>
       </div>
 
       {/* THE MAP */}
       <div className="w-full h-full border border-gray-700 bg-[#a4b6c3] relative overflow-hidden rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         
         <ComposableMap
-          projection={createGallPetersProjection(800, 600)}
+          projection={createGallPetersProjection(800, 600, rotation)}
           width={800}
           height={600}
           className="w-full h-full"
