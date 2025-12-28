@@ -236,13 +236,32 @@ const BlessedMap = () => {
                   // Use the smaller constraint as base size
                   const baseSize = Math.min(widthBasedSize, heightBasedSize);
                   
-                  // Scale inversely with zoom to keep labels fitting within country bounds
-                  const fontSize = baseSize / position.zoom;
+                  // Zoom-level minimum font size table for legibility
+                  // At higher zoom levels, we allow smaller minimum fonts since you're zoomed in
+                  const zoomMinFontTable: Record<number, number> = {
+                    1: 1.5,    // At zoom 1, minimum 1.5px
+                    2: 1.2,    // At zoom 2, minimum 1.2px
+                    3: 1.0,    // At zoom 3, minimum 1.0px
+                    4: 0.8,    // At zoom 4, minimum 0.8px
+                    5: 0.7,    // At zoom 5, minimum 0.7px
+                    6: 0.6,    // At zoom 6+, minimum 0.6px
+                  };
                   
-                  // Clamp to reasonable bounds
-                  const minFontSize = 0.3;
+                  // Get minimum font size for current zoom level
+                  const zoomLevel = Math.min(6, Math.max(1, Math.floor(position.zoom)));
+                  const minFontForZoom = zoomMinFontTable[zoomLevel] || 0.6;
+                  
+                  // Dampen shrinking for smaller countries: use sqrt to slow down shrinking rate
+                  // Smaller baseSize countries shrink less aggressively
+                  const shrinkDamping = Math.sqrt(baseSize / 10); // Normalized dampening factor
+                  const dampedZoom = 1 + (position.zoom - 1) * Math.min(1, shrinkDamping);
+                  
+                  // Scale with damped zoom factor
+                  const fontSize = baseSize / dampedZoom;
+                  
+                  // Clamp to zoom-appropriate minimum and reasonable maximum
                   const maxFontSize = 25;
-                  const clampedFontSize = Math.max(minFontSize, Math.min(maxFontSize, fontSize));
+                  const clampedFontSize = Math.max(minFontForZoom, Math.min(maxFontSize, fontSize));
                   
                   // Show label if country is large enough to display meaningfully
                   const isVisible = countryWidth > 0.5;
