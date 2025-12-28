@@ -264,10 +264,6 @@ const BlessedMap = () => {
             <span className="bg-amber-500 text-black text-xs font-bold px-2 py-0.5 uppercase">West Wing Mode</span>
             <span className="text-amber-500/80 text-xs tracking-widest uppercase">Gall-Peters (South-Up)</span>
           </div>
-          <p className="text-sm text-gray-400 leading-relaxed font-light">
-            Toggle below to compare the <span className="text-amber-500">Blesséd Endonyms</span> (how people name
-            themselves) with the <span className="text-slate-400">Standard Exonyms</span> (how outsiders name them).
-          </p>
         </div>
 
         {/* The Toggle Switch */}
@@ -288,7 +284,7 @@ const BlessedMap = () => {
               <div
                 className={`text-base font-bold font-mono transition-colors ${showEndonyms ? "text-amber-400" : "text-white"}`}
               >
-                {showEndonyms ? "BLESSÉD ENDONYMS" : "AMERICAN STANDARD EXONYMS"}
+                {showEndonyms ? "BLESSÉD ENDONYMS" : "AMERICAN STANDARD"}
               </div>
             </div>
             {/* Visual Indicator of Switch */}
