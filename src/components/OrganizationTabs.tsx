@@ -21,6 +21,7 @@ import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
 import feministYesLogo from "@/assets/feminist-yes-logo.webp";
 import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
+import innerFriendLogo from "@/assets/inner-friend-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -119,6 +120,15 @@ const OrganizationTabs = () => {
       description:
         "High-Intensity Interval Training advocacy promoting accessible, time-efficient fitness for healthier communities",
       status: "Concept",
+    },
+    {
+      name: "Inner Friend",
+      logo: "",
+      logoImage: innerFriendLogo,
+      url: "https://www.innerfriend.org",
+      description:
+        "Curate your closest relationships based on Dunbar's research—intentionally nurturing the 5 intimate, 15 close, and 150 meaningful connections that matter most",
+      status: "Beta",
     },
   ];
 
