@@ -128,7 +128,7 @@ const OrganizationTabs = () => {
       url: "https://www.innerfriend.org",
       description:
         "Curate your closest relationships based on Dunbar's research—intentionally nurturing the 5 intimate, 15 close, and 150 meaningful connections that matter most",
-      status: "Beta",
+      status: "Unstable Alpha",
     },
   ];
 
