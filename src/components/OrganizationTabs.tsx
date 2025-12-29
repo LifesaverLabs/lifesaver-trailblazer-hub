@@ -20,9 +20,19 @@ import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
 import feministYesLogo from "@/assets/feminist-yes-logo.webp";
 import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
+import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
+    {
+      name: "Just Do Hiit",
+      logo: "",
+      logoImage: justDoHiitLogo,
+      url: "https://www.justdohiit.org",
+      description:
+        "High-Intensity Interval Training advocacy promoting accessible, time-efficient fitness for healthier communities",
+      status: "Concept",
+    },
     {
       name: "Civigion",
       logo: "",
