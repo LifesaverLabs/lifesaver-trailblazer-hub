@@ -25,15 +25,6 @@ import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
 const OrganizationTabs = () => {
   const coalitionProjects = [
     {
-      name: "Just Do Hiit",
-      logo: "",
-      logoImage: justDoHiitLogo,
-      url: "https://www.justdohiit.org",
-      description:
-        "High-Intensity Interval Training advocacy promoting accessible, time-efficient fitness for healthier communities",
-      status: "Concept",
-    },
-    {
       name: "Civigion",
       logo: "",
       logoImage: civigionLogo,
@@ -119,6 +110,15 @@ const OrganizationTabs = () => {
       url: "https://www.BlessedDialect.org",
       description: "The flexible future of English language evolution",
       status: "POC",
+    },
+    {
+      name: "Just Do Hiit",
+      logo: "",
+      logoImage: justDoHiitLogo,
+      url: "https://www.justdohiit.org",
+      description:
+        "High-Intensity Interval Training advocacy promoting accessible, time-efficient fitness for healthier communities",
+      status: "Concept",
     },
   ];
 
