@@ -7,9 +7,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="font-display text-xl font-bold mb-4">Lifesaver Labs</h3>
-            <p className="text-secondary-foreground/80 leading-relaxed">
+            <p className="text-secondary-foreground/80 leading-relaxed mb-4">
               A coordinated ecosystem dedicated to public benefit, life-saving innovation, and democratic integrity.
             </p>
+            <a
+              href="https://github.com/LifesaverLabs/lifesaver-trailblazer-hub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:bg-primary/90 transition-colors"
+            >
+              <Github size={18} />
+              <span>Please Contribute or Correct</span>
+            </a>
           </div>
 
           <div>
@@ -57,15 +66,6 @@ const Footer = () => {
               <a href="tel:+13212529626" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} />
                 <span>+1 (321) 252-9626</span>
-              </a>
-              <a
-                href="https://github.com/LifesaverLabs/lifesaver-trailblazer-hub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <Github size={16} />
-                <span>Please Contribute or Correct</span>
               </a>
             </div>
           </div>
