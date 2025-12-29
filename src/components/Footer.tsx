@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -44,11 +44,11 @@ const Footer = () => {
                 <span>team@lifesaverlabs.org</span>
               </a>
               <a
-                href="mailto:team@neighbor911.us"
+                href="mailto:team@nayborsos.org"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail size={16} />
-                <span>team@neighbor911.us</span>
+                <span>team@nayborsos.org</span>
               </a>
               <a href="tel:+18002667368" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} />
@@ -57,6 +57,15 @@ const Footer = () => {
               <a href="tel:+13212529626" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Phone size={16} />
                 <span>+1 (321) 252-9626</span>
+              </a>
+              <a
+                href="https://github.com/LifesaverLabs/lifesaver-trailblazer-hub"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Github size={16} />
+                <span>Please Contribute or Correct</span>
               </a>
             </div>
           </div>
