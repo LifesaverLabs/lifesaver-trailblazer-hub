@@ -110,6 +110,15 @@ const OrganizationTabs = () => {
       description: "The flexible future of English language evolution",
       status: "POC",
     },
+    {
+      name: "Drone AED Coverage Calculator",
+      logo: "",
+      logoImage: nayborsosLogo,
+      url: "/drone-coverage-calculator",
+      description:
+        "Interactive QALY analysis tool for drone-delivered AED coverage across US states and territories—comparing Florida-first vs. population-prioritized deployment strategies",
+      status: "Alpha",
+    },
   ];
 
   const pbcProjects = [
