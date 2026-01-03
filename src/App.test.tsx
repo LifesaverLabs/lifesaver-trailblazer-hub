@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 
@@ -84,38 +84,39 @@ describe("App Routing", () => {
   });
 
   describe("LetsBeFamily5 Route (/letsbeFamily⁵)", () => {
-    it("should render LetsBeFamily5 page at /letsbeFamily⁵", () => {
+    it("should render LetsBeFamily5 page at /letsbeFamily⁵", async () => {
       renderWithRoute("/letsbeFamily⁵");
-      expect(screen.getByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
+      // Wait for lazy-loaded component
+      expect(await screen.findByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
     });
 
-    it("should show back link on LetsBeFamily5 page", () => {
+    it("should show back link on LetsBeFamily5 page", async () => {
       renderWithRoute("/letsbeFamily⁵");
-      expect(screen.getByText("Back to Lifesaver Labs")).toBeInTheDocument();
+      expect(await screen.findByText("Back to Lifesaver Labs")).toBeInTheDocument();
     });
   });
 
   describe("LetsBeFamily5 Alternate Route (/letsbeFamily5)", () => {
-    it("should render LetsBeFamily5 page at /letsbeFamily5 (ASCII variant)", () => {
+    it("should render LetsBeFamily5 page at /letsbeFamily5 (ASCII variant)", async () => {
       renderWithRoute("/letsbeFamily5");
-      expect(screen.getByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
+      expect(await screen.findByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
     });
   });
 
   describe("WestWingBlessedMap Route (/west-wing-blessed-map)", () => {
-    it("should render WestWingBlessedMap page", () => {
+    it("should render WestWingBlessedMap page", async () => {
       renderWithRoute("/west-wing-blessed-map");
-      expect(screen.getByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
+      expect(await screen.findByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
     });
 
-    it("should show back button on WestWingBlessedMap page", () => {
+    it("should show back button on WestWingBlessedMap page", async () => {
       renderWithRoute("/west-wing-blessed-map");
-      expect(screen.getByText("Back to Lifesaver Labs")).toBeInTheDocument();
+      expect(await screen.findByText("Back to Lifesaver Labs")).toBeInTheDocument();
     });
 
-    it("should show Organization of Kartographers on map page", () => {
+    it("should show Organization of Kartographers on map page", async () => {
       renderWithRoute("/west-wing-blessed-map");
-      expect(screen.getByText("Organization of Kartographers")).toBeInTheDocument();
+      expect(await screen.findByText("Organization of Kartographers")).toBeInTheDocument();
     });
   });
 
@@ -154,22 +155,22 @@ describe("App Route Definitions", () => {
     expect(screen.getByAltText("Lifesaver Labs")).toBeInTheDocument();
   });
 
-  it("should have route for /letsbeFamily⁵ (unicode)", () => {
+  it("should have route for /letsbeFamily⁵ (unicode)", async () => {
     window.history.pushState({}, "Test", "/letsbeFamily⁵");
     render(<App />);
-    expect(screen.getByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
+    expect(await screen.findByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
   });
 
-  it("should have route for /letsbeFamily5 (ASCII fallback)", () => {
+  it("should have route for /letsbeFamily5 (ASCII fallback)", async () => {
     window.history.pushState({}, "Test", "/letsbeFamily5");
     render(<App />);
-    expect(screen.getByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
+    expect(await screen.findByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
   });
 
-  it("should have route for /west-wing-blessed-map", () => {
+  it("should have route for /west-wing-blessed-map", async () => {
     window.history.pushState({}, "Test", "/west-wing-blessed-map");
     render(<App />);
-    expect(screen.getByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
+    expect(await screen.findByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
   });
 
   it("should have catch-all route for 404", () => {
@@ -181,7 +182,7 @@ describe("App Route Definitions", () => {
 });
 
 describe("App Navigation", () => {
-  it("should allow navigation from home to LetsBeFamily5", () => {
+  it("should allow navigation from home to LetsBeFamily5", async () => {
     window.history.pushState({}, "Test", "/");
     render(<App />);
 
@@ -189,10 +190,10 @@ describe("App Navigation", () => {
     window.history.pushState({}, "Test", "/letsbeFamily⁵");
     render(<App />);
 
-    expect(screen.getByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
+    expect(await screen.findByText("Come Sit, Let's Be Family⁵")).toBeInTheDocument();
   });
 
-  it("should allow navigation from home to WestWingBlessedMap", () => {
+  it("should allow navigation from home to WestWingBlessedMap", async () => {
     window.history.pushState({}, "Test", "/");
     render(<App />);
 
@@ -200,7 +201,7 @@ describe("App Navigation", () => {
     window.history.pushState({}, "Test", "/west-wing-blessed-map");
     render(<App />);
 
-    expect(screen.getByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
+    expect(await screen.findByText("West Wing Mode: Blesséd Map")).toBeInTheDocument();
   });
 });
 

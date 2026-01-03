@@ -1,4 +1,5 @@
-import { Mail, Phone, Github } from "lucide-react";
+import { Mail, Phone, Github, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -76,7 +77,14 @@ const Footer = () => {
             © {new Date().getFullYear()} Lifesaver Labs Coalition & PBC. Public benefit organizations committed to
             life-saving, liberty⁵-building innovation.
           </p>
-          <p className="italic">"First, do no harm. Then, save lives."</p>
+          <p className="italic mb-3">"First, do no harm. Then, save lives."</p>
+          <Link
+            to="/open-source-acknowledgments"
+            className="inline-flex items-center gap-1 text-secondary-foreground/60 hover:text-primary transition-colors"
+          >
+            <Heart size={14} />
+            <span>Built with open source</span>
+          </Link>
         </div>
       </div>
     </footer>

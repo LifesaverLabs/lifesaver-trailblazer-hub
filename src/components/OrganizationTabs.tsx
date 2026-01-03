@@ -130,6 +130,15 @@ const OrganizationTabs = () => {
         "Curate your closest relationships based on Dunbar's research—intentionally nurturing the 5 intimate, 15 close, and 150 meaningful connections that matter most",
       status: "Reference Alpha",
     },
+    {
+      name: "Drone AED Coverage Calculator",
+      logo: "",
+      logoImage: nayborsosLogo,
+      url: "/drone-coverage-calculator",
+      description:
+        "Interactive QALY analysis tool for drone-delivered AED coverage across US states and territories—comparing Florida-first vs. population-prioritized deployment strategies",
+      status: "Alpha",
+    },
   ];
 
   const pbcProjects = [
