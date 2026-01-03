@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 const LetsBeFamily5 = lazy(() => import("./pages/LetsBeFamily5"));
 const WestWingBlessedMap = lazy(() => import("./pages/WestWingBlessedMap"));
 const DroneCoverageCalculatorUSAT = lazy(() => import("./pages/DroneCoverageCalculatorUSAT"));
+const OpenSourceAcknowledgments = lazy(() => import("./pages/OpenSourceAcknowledgments"));
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/letsbeFamily5" element={<Suspense fallback={null}><LetsBeFamily5 /></Suspense>} />
           <Route path="/west-wing-blessed-map" element={<Suspense fallback={null}><WestWingBlessedMap /></Suspense>} />
           <Route path="/drone-coverage-calculator" element={<Suspense fallback={null}><DroneCoverageCalculatorUSAT /></Suspense>} />
+          <Route path="/open-source-acknowledgments" element={<Suspense fallback={null}><OpenSourceAcknowledgments /></Suspense>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

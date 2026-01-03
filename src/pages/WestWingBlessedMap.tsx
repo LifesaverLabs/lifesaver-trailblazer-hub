@@ -9,7 +9,7 @@ import {
 import { geoCylindricalEqualArea } from 'd3-geo-projection';
 import { geoCentroid, geoBounds } from 'd3-geo';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // --- 1. THE COMPREHENSIVE ENDONYM DATABASE ---
@@ -528,9 +528,16 @@ const WestWingBlessedMap = () => {
           <p className="mb-2">
             Part of the <Link to="/" className="text-primary hover:underline">Lifesaver Labs</Link> civic innovation ecosystem
           </p>
-          <p className="text-sm">
+          <p className="text-sm mb-3">
             "Cartographers for Social Equality" clip from <em>The West Wing</em>, Season 2, Episode 16: "Somebody's Going to Emergency, Somebody's Going to Jail"
           </p>
+          <Link
+            to="/open-source-acknowledgments"
+            className="inline-flex items-center gap-1 text-muted-foreground/60 hover:text-primary transition-colors text-sm"
+          >
+            <Heart size={14} />
+            <span>Built with open source</span>
+          </Link>
         </div>
       </footer>
     </div>
