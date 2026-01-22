@@ -44,10 +44,10 @@ const endonymMap: Record<string, string> = {
   // F
   "Fiji": "Viti", "Finland": "Suomi", "France": "France",
   // G
-  "Gabon": "Gabon", "Gambia": "Gambia", "Georgia": "Sakartvelo", 
-  "Germany": "Deutschland", "Ghana": "Ghana", "Greece": "Hellas", 
-  "Grenada": "Grenada", "Guatemala": "Guatemala", "Guinea": "Guinée", 
-  "Guinea-Bissau": "Guiné-Bissau", "Guyana": "Guyana",
+  "Gabon": "Gabon", "Gambia": "Gambia", "Georgia": "Sakartvelo",
+  "Germany": "Deutschland", "Ghana": "Ghana", "Greece": "Hellas",
+  "Greenland": "Kalaallit Nunaat", "Grenada": "Grenada", "Guatemala": "Guatemala",
+  "Guinea": "Guinée", "Guinea-Bissau": "Guiné-Bissau", "Guyana": "Guyana",
   // H
   "Haiti": "Ayiti", "Honduras": "Honduras", "Hungary": "Magyarország",
   // I
@@ -661,6 +661,36 @@ const WestWingBlessedMap = () => {
                 <span><strong>Accessibility:</strong> High-contrast design, clear typography, and intuitive toggle controls for all users.</span>
               </li>
             </ul>
+          </div>
+
+          {/* Errors & Corrections */}
+          <div className="bg-card border border-amber-500/30 rounded-lg p-8">
+            <h2 className="text-2xl font-display font-bold text-foreground mb-4">
+              Errors, Omissions & Corrections
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Creating a comprehensive endonym database is challenging. Languages have multiple writing systems,
+              countries have multiple official languages, and even "official" names can be contested. We've made
+              mistakes, and we want to be transparent about them. If you spot an error, please let us know.
+            </p>
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-amber-500">Known Corrections Made:</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex gap-3">
+                  <span className="text-red-400 font-mono text-sm">×</span>
+                  <span>
+                    <strong>Kalaallit Nunaat (Greenland):</strong> Our initial release omitted Greenland entirely from the endonym database.
+                    The correct endonym is <em>Kalaallit Nunaat</em> in Kalaallisut, the sole official language of this
+                    autonomous territory. We apologize for this oversight—erasing the indigenous name while discussing
+                    decolonized cartography is precisely the kind of irony we should avoid.
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mt-4 text-sm italic">
+              This list will be updated as we discover and correct additional errors. Transparency about our mistakes
+              is part of the learning process this map is meant to inspire.
+            </p>
           </div>
 
         </div>

@@ -40,10 +40,10 @@ const endonymMap: Record<string, string> = {
   // F
   "Fiji": "Viti", "Finland": "Suomi", "France": "France",
   // G
-  "Gabon": "Gabon", "Gambia": "Gambia", "Georgia": "Sakartvelo", 
-  "Germany": "Deutschland", "Ghana": "Ghana", "Greece": "Hellas", 
-  "Grenada": "Grenada", "Guatemala": "Guatemala", "Guinea": "Guinée", 
-  "Guinea-Bissau": "Guiné-Bissau", "Guyana": "Guyana",
+  "Gabon": "Gabon", "Gambia": "Gambia", "Georgia": "Sakartvelo",
+  "Germany": "Deutschland", "Ghana": "Ghana", "Greece": "Hellas",
+  "Greenland": "Kalaallit Nunaat", "Grenada": "Grenada", "Guatemala": "Guatemala",
+  "Guinea": "Guinée", "Guinea-Bissau": "Guiné-Bissau", "Guyana": "Guyana",
   // H
   "Haiti": "Ayiti", "Honduras": "Honduras", "Hungary": "Magyarország",
   // I

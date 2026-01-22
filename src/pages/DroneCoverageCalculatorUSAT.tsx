@@ -652,26 +652,25 @@ const CoverageMap: React.FC<MapProps> = ({ viewMode, locations, showCoverage }) 
 
       // Create Gall-Peters (cylindrical equal-area) projection
       // Standard parallel at 45° gives the Gall-Peters variant
+      // After 180° rotation, we need to position so continental US is centered
+      // Continental US spans roughly 25°N-49°N latitude, centered around 37°N
+      // With south-up rotation, we translate Y higher so the US appears centered after flip
       const gallPeters = geoCylindricalEqualArea()
         .parallel(45)
-        .rotate([98, 0, 0])  // Center on continental US
-        .scale(width * 0.85)
-        .translate([width * 0.5, height * 0.35]);
+        .rotate([98, 0, 0])  // Center on continental US longitude (roughly 98°W)
+        .scale(width * 0.9)
+        .translate([width * 0.5, height * 0.7]);  // Higher Y value so US is centered after 180° rotation
 
-      // Invert Y-axis for south-up orientation
+      // For south-up, we use the projection with geoPath, then flip paths via transform
+      const pathGenerator = d3.geoPath().projection(gallPeters);
+
+      // Simple function to project individual points for markers/cities
+      // Uses 180° rotation (not reflection) to preserve Earth's chirality
       const southUpProjection = (coords: [number, number]): [number, number] | null => {
         const projected = gallPeters(coords);
         if (!projected) return null;
-        // Flip Y around center
-        return [projected[0], height * 0.7 - projected[1]];
-      };
-
-      // Custom path generator for south-up
-      const createSouthUpPath = (feature: any): string => {
-        const coords = feature.geometry.coordinates[0] as [number, number][];
-        const projected = coords.map(c => southUpProjection(c)).filter(p => p !== null) as [number, number][];
-        if (projected.length < 3) return '';
-        return 'M' + projected.map(p => p.join(',')).join('L') + 'Z';
+        // Rotate 180°: flip both X and Y around the center of the viewport
+        return [width - projected[0], height - projected[1]];
       };
 
       // Filter to continental features only for main map
@@ -679,16 +678,34 @@ const CoverageMap: React.FC<MapProps> = ({ viewMode, locations, showCoverage }) 
         f => !f.properties?.isTerritory && !f.properties?.isNonContiguous
       );
 
-      // Draw all continental states with equal-area projection
-      continentalFeatures.forEach(feature => {
-        const density = (feature.properties?.pop || 0) / (feature.properties?.area || 1);
-        const fillOpacity = Math.min(0.35, 0.05 + density / 300);
+      // Create a group for the map that we'll ROTATE 180° for south-up orientation
+      // This is a rotation, NOT a reflection - preserving Earth's chirality (handedness)
+      // With rotation: South is up, East is left, West is right (correct geographic orientation)
+      const mapGroup = mainGroup.append('g')
+        .attr('transform', `translate(${width}, ${height}) scale(-1, -1)`);
 
-        mainGroup.append('path')
-          .attr('d', createSouthUpPath(feature))
-          .attr('fill', `rgba(78, 205, 196, ${fillOpacity})`)
-          .attr('stroke', feature.properties?.abbr === 'FL' ? '#ff6b6b' : '#4ecdc4')
-          .attr('stroke-width', (feature.properties?.abbr === 'FL' ? 2 : 0.8) / syncedZoom.k);
+      // Draw ocean background first (dark blue-green)
+      // After scale(-1, -1), the coordinate system is flipped around (0,0)
+      // So we need to draw from (0,0) to (width, height) to cover the visible area
+      mapGroup.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', width)
+        .attr('height', height)
+        .attr('fill', '#1a3a4a');  // Dark ocean blue
+
+      // Draw all continental states with equal-area projection
+      // Land: warm tan (#e8d4b8), Ocean: dark blue (#1a3a4a), Borders: dark brown (#4a3728)
+      continentalFeatures.forEach(feature => {
+        const pathD = pathGenerator(feature as any);
+        if (!pathD) return;
+
+        const isFL = feature.properties?.abbr === 'FL';
+        mapGroup.append('path')
+          .attr('d', pathD)
+          .attr('fill', isFL ? '#f0c8a0' : '#e8d4b8')  // Warm tan land, FL slightly highlighted
+          .attr('stroke', isFL ? '#d4442a' : '#4a3728')  // Dark brown borders, FL in red
+          .attr('stroke-width', (isFL ? 3 : 1.5) / syncedZoom.k);
       });
 
       // Draw coverage on continental US
@@ -844,37 +861,59 @@ const CoverageMap: React.FC<MapProps> = ({ viewMode, locations, showCoverage }) 
           .attr('font-family', 'JetBrains Mono, monospace')
           .text(`${formatNumber(area)} km²`);
 
-        // Get center of feature for projection
-        const coords = feature.geometry.coordinates[0] as [number, number][];
-        const centerLng = coords.reduce((s, c) => s + c[0], 0) / coords.length;
-        const centerLat = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+        // Use D3's geoCentroid to find the proper center of the feature
+        const centroid = d3.geoCentroid(feature as any);
+        const centerLng = centroid[0];
+        const centerLat = centroid[1];
 
         // Use same Gall-Peters projection for equal-area, with SYNCHRONIZED ZOOM
-        const insetProjection = geoCylindricalEqualArea()
+        const insetBaseProjection = geoCylindricalEqualArea()
           .parallel(45)
           .center([centerLng, centerLat])
           .scale(insetW * 80 * syncedZoom.k)  // SYNCHRONIZED with main zoom!
           .translate([insetW / 2, insetH / 2]);
 
-        // South-up for inset too (flip Y)
-        const insetSouthUp = (c: [number, number]): [number, number] | null => {
-          const p = insetProjection(c);
-          if (!p) return null;
-          // For southern hemisphere (AS), don't flip
-          if (abbr === 'AS') return p;
-          return [p[0], insetH - p[1]];
-        };
+        // Use D3's geoPath for proper polygon rendering in insets
+        const insetPathGenerator = d3.geoPath().projection(insetBaseProjection);
 
-        // Draw feature path
-        const insetCoords = coords.map(c => insetSouthUp(c)).filter(p => p !== null) as [number, number][];
-        if (insetCoords.length > 2) {
-          const pathD = 'M' + insetCoords.map(p => p.join(',')).join('L') + 'Z';
-          insetGroup.append('path')
-            .attr('d', pathD)
-            .attr('fill', `${color}33`)
-            .attr('stroke', color)
-            .attr('stroke-width', 1 / syncedZoom.k);
+        // Create a sub-group for the inset map content that we'll ROTATE 180°
+        // For south-up: rotate both axes (except American Samoa which is in southern hemisphere)
+        // This preserves Earth's chirality (handedness)
+        const insetMapGroup = insetGroup.append('g');
+        if (abbr !== 'AS') {
+          insetMapGroup.attr('transform', `translate(${insetW}, ${insetH}) scale(-1, -1)`);
         }
+
+        // Draw ocean background for inset
+        // For rotated insets (all except AS), use (0,0) since the transform flips coordinates
+        insetMapGroup.append('rect')
+          .attr('x', 0)
+          .attr('y', 0)
+          .attr('width', insetW)
+          .attr('height', insetH)
+          .attr('fill', '#1a3a4a');  // Dark ocean blue
+
+        // Draw feature path using geoPath
+        // Use warm tan fill with distinct stroke for land/ocean contrast
+        const insetPathD = insetPathGenerator(feature as any);
+        if (insetPathD) {
+          insetMapGroup.append('path')
+            .attr('d', insetPathD)
+            .attr('fill', '#e8d4b8')  // Warm tan land color (matching main map)
+            .attr('stroke', color)
+            .attr('stroke-width', 2 / syncedZoom.k);
+        }
+
+        // For point projections (coverage circles), we need 180° rotation
+        // This preserves Earth's chirality (handedness)
+        const insetSouthUp = (c: [number, number]): [number, number] | null => {
+          const p = insetBaseProjection(c);
+          if (!p) return null;
+          // For southern hemisphere (AS), don't rotate
+          if (abbr === 'AS') return p;
+          // 180° rotation: flip both X and Y
+          return [insetW - p[0], insetH - p[1]];
+        };
 
         // Draw coverage in inset
         const insetLocations = locations.filter(l => l.region === feature.properties?.name);
