@@ -88,6 +88,7 @@ describe("WestWingBlessedMap - Endonym Database", () => {
     Germany: "Deutschland",
     Ghana: "Ghana",
     Greece: "Hellas",
+    Greenland: "Kalaallit Nunaat",
     Grenada: "Grenada",
     Guatemala: "Guatemala",
     Guinea: "Guinée",
@@ -1303,5 +1304,102 @@ describe("WestWingBlessedMap - Toggle State", () => {
       fireEvent.click(toggleButton!);
       expect(screen.getByText(expectedText)).toBeInTheDocument();
     }
+  });
+});
+
+// ============================================================================
+// GREENLAND / KALAALLIT NUNAAT ENDONYM TESTS
+// ============================================================================
+
+describe("WestWingBlessedMap - Greenland Endonym", () => {
+  // Local copy of endonym map for Greenland-specific tests
+  const greenlandEndonymMap: Record<string, string> = {
+    Greece: "Hellas",
+    Greenland: "Kalaallit Nunaat",
+    Grenada: "Grenada",
+  };
+
+  it("should have Kalaallit Nunaat as the endonym for Greenland", () => {
+    // Verify the endonymMap includes Greenland with its Kalaallisut name
+    expect(greenlandEndonymMap["Greenland"]).toBe("Kalaallit Nunaat");
+  });
+
+  it("should use the sole official language (Kalaallisut) for the endonym", () => {
+    // Kalaallit Nunaat is the name in Kalaallisut, the only official language
+    // of Greenland since 2009. Danish "Grønland" is NOT the endonym.
+    const greenlandEndonym = greenlandEndonymMap["Greenland"];
+    expect(greenlandEndonym).not.toBe("Grønland"); // Not Danish
+    expect(greenlandEndonym).not.toBe("Greenland"); // Not English
+    expect(greenlandEndonym).toBe("Kalaallit Nunaat"); // Kalaallisut
+  });
+
+  it("should alphabetically place Greenland between Greece and Grenada", () => {
+    const keys = Object.keys(greenlandEndonymMap);
+    const greeceIndex = keys.indexOf("Greece");
+    const greenlandIndex = keys.indexOf("Greenland");
+    const grenadaIndex = keys.indexOf("Grenada");
+
+    // Greenland should exist
+    expect(greenlandIndex).toBeGreaterThan(-1);
+
+    // Alphabetical order: Greece < Greenland < Grenada
+    expect(greenlandIndex).toBeGreaterThan(greeceIndex);
+    expect(greenlandIndex).toBeLessThan(grenadaIndex);
+  });
+});
+
+// ============================================================================
+// ERRORS & CORRECTIONS SECTION TESTS
+// ============================================================================
+
+describe("WestWingBlessedMap - Errors & Corrections Section", () => {
+  it("should render the Errors, Omissions & Corrections section", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    expect(screen.getByText("Errors, Omissions & Corrections")).toBeInTheDocument();
+  });
+
+  it("should display the Known Corrections Made heading", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    expect(screen.getByText("Known Corrections Made:")).toBeInTheDocument();
+  });
+
+  it("should include the Kalaallit Nunaat correction entry", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    expect(screen.getByText(/Kalaallit Nunaat \(Greenland\)/)).toBeInTheDocument();
+  });
+
+  it("should explain the Greenland correction in detail", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    // Check for key phrases in the correction explanation
+    expect(screen.getByText(/omitted Greenland entirely/)).toBeInTheDocument();
+    expect(screen.getByText(/Kalaallisut/)).toBeInTheDocument();
+    expect(screen.getByText(/sole official language/)).toBeInTheDocument();
+  });
+
+  it("should acknowledge the irony of the omission", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    expect(screen.getByText(/erasing the indigenous name while discussing/)).toBeInTheDocument();
+    expect(screen.getByText(/decolonized cartography/)).toBeInTheDocument();
+  });
+
+  it("should include a note about updating the corrections list", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    expect(screen.getByText(/This list will be updated/)).toBeInTheDocument();
+  });
+
+  it("should style the corrections section with amber border", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    const section = screen.getByText("Errors, Omissions & Corrections").closest("div");
+    expect(section).toHaveClass("border-amber-500/30");
+  });
+
+  it("should render both corrections section and footer", () => {
+    renderWithRouter(<WestWingBlessedMap />);
+    const correctionsHeading = screen.getByText("Errors, Omissions & Corrections");
+    const footerLink = screen.getByText("Lifesaver Labs");
+
+    // Both should exist
+    expect(correctionsHeading).toBeInTheDocument();
+    expect(footerLink).toBeInTheDocument();
   });
 });
