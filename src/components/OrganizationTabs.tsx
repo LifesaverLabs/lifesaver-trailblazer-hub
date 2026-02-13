@@ -22,6 +22,7 @@ import feministYesLogo from "@/assets/feminist-yes-logo.webp";
 import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
 import innerFriendLogo from "@/assets/inner-friend-logo.webp";
+import safewordMoralMonopolyLogo from "@/assets/safeword-moral-monopoly-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -163,10 +164,10 @@ const OrganizationTabs = () => {
     {
       name: "Safeword Moral Monopoly⁵ Copilot Race",
       logo: "",
-      logoImage: safewordLogo,
+      logoImage: safewordMoralMonopolyLogo,
       url: "/safewordpatent",
       description:
-        "Patent-protected framework for Five Nines Copilot Studies Lifetime Reliability⁵ Engineering—building the foundations of a global Lysistrata/Clytemnestra peace-movement localized participative system",
+        "Patent-protected framework for Five Nines Copilot Studies Lifetime Reliability⁵ Engineering—building, among other things, the foundations of a global Lysistrata/Clytemnestra peace-movement localized participative system, organized together over time through Copilot Studies",
       status: "Patent Filed",
     },
   ];
