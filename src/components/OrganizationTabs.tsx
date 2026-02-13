@@ -167,7 +167,7 @@ const OrganizationTabs = () => {
       logoImage: safewordMoralMonopolyLogo,
       url: "/safewordpatent",
       description:
-        "Improving on the Bohlin-Volvo model of superethical moral licensing—attaching ethics terms to a critical patent authorship pool to achieve maximal diversity⁵ and democratic impact for the life of the patent, organized together over time through Copilot Studies",
+        "Improving on the Bohlin-Volvo model of superethical moral licensing—attaching ethics terms to a critical patent authorship pool to achieve maximal diversity⁵ and democratic ædukational impact for the life of the patent, organized together over time through Copilot Studies",
       status: "Patent Filed",
     },
   ];
