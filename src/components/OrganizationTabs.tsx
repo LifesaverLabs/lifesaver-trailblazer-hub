@@ -167,7 +167,7 @@ const OrganizationTabs = () => {
       logoImage: safewordMoralMonopolyLogo,
       url: "/safewordpatent",
       description:
-        "Patent-protected framework for Five Nines Copilot Studies Lifetime Reliability⁵ Engineering—building, among other things, the foundations of a global Lysistrata/Clytemnestra peace-movement localized participative system, organized together over time through Copilot Studies",
+        "Improving on the Bohlin-Volvo model of superethical moral licensing—attaching ethics terms to a critical patent authorship pool to achieve maximal diversity⁵ and democratic impact for the life of the patent, organized together over time through Copilot Studies",
       status: "Patent Filed",
     },
   ];
