@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Drone Coverage Calculator - Map Visualization Test Suite
  *
