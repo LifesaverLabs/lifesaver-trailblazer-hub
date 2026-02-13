@@ -160,6 +160,15 @@ const OrganizationTabs = () => {
         "Helping couples build stronger, safer relationships through consent tools, check-ins, and privacy-first calmunication",
       status: "Beta",
     },
+    {
+      name: "Safeword Moral Monopoly⁵ Copilot Race",
+      logo: "",
+      logoImage: safewordLogo,
+      url: "/safewordpatent",
+      description:
+        "Patent-protected framework for Five Nines Copilot Studies Lifetime Reliability⁵ Engineering—building the foundations of a global Lysistrata/Clytemnestra peace-movement localized participative system",
+      status: "Patent Filed",
+    },
   ];
 
   const usaProjects = [
