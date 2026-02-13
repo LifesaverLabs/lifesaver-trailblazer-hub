@@ -186,7 +186,7 @@ const generateUSPriorityHexGrid = (maxInstallations: number): DroneLocation[] =>
       isTerritory: f.properties?.isTerritory || false,
       isNonContiguous: f.properties?.isNonContiguous || false,
       density: (f.properties?.pop || 0) / (f.properties?.area || 1),
-      coords: f.geometry.coordinates[0] as [number, number][],
+      coords: (f.geometry as any).coordinates[0] as [number, number][],
     }))
     .filter(f => f.pop > 0)
     .sort((a, b) => b.density - a.density);
