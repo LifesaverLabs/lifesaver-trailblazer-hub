@@ -162,7 +162,7 @@ const OrganizationTabs = () => {
       status: "Beta",
     },
     {
-      name: "Safeword Moral Monopoly⁵ Copilot Race",
+      name: "Safeword Ædukational Kopilot Race",
       logo: "",
       logoImage: safewordMoralMonopolyLogo,
       url: "/safewordpatent",
