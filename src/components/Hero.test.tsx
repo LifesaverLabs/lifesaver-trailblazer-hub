@@ -55,7 +55,7 @@ describe("Hero Component", () => {
   describe("Content", () => {
     it("should mention public health and democracy", () => {
       renderHero();
-      expect(screen.getByText(/Public health is democracy in practice/)).toBeInTheDocument();
+      expect(screen.getByText(/Publik health is demokracy in praktice/)).toBeInTheDocument();
     });
 
     it("should mention miracles", () => {
