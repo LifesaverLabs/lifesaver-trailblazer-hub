@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import { DialectProvider } from "@/contexts/DialectContext";
 import Index from "./Index";
 
 const renderWithRouter = (component: React.ReactNode) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
+  return render(<DialectProvider><BrowserRouter>{component}</BrowserRouter></DialectProvider>);
 };
 
 describe("Index Page", () => {
