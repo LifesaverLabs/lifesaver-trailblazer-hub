@@ -69,7 +69,7 @@ const PACKAGES: PackageInfo[] = [
   { name: "d3-geo", version: "3.1.1", license: "ISC", description: "Geographic projections for D3", homepage: "https://d3js.org", author: "Mike Bostock", category: "visualization" },
   { name: "d3-geo-projection", version: "4.0.0", license: "ISC", description: "Extended geographic projections for D3", homepage: "https://github.com/d3/d3-geo-projection", author: "Mike Bostock", category: "visualization" },
   { name: "Recharts", version: "2.15.4", license: "MIT", description: "A composable charting library for React", homepage: "https://recharts.org", author: "Recharts Group", category: "visualization" },
-  { name: "react-simple-maps", version: "3.0.0", license: "MIT", description: "Beautiful SVG maps in React", homepage: "https://www.react-simple-maps.io", author: "Zach Mongeau", category: "visualization" },
+  { name: "topojson-client", version: "3.1.0", license: "ISC", description: "Manipulate TopoJSON and convert it to GeoJSON", homepage: "https://github.com/topojson/topojson-client", author: "Mike Bostock", category: "visualization" },
 
   // Forms
   { name: "React Hook Form", version: "7.61.1", license: "MIT", description: "Performant, flexible forms for React", homepage: "https://react-hook-form.com", author: "Bill Luo (Beier)", category: "forms" },
