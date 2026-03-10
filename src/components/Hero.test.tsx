@@ -48,7 +48,7 @@ describe("Hero Component", () => {
 
     it("should render courage vs complacency message", () => {
       renderHero();
-      expect(screen.getByText(/courage or our complacency/)).toBeInTheDocument();
+      expect(screen.getByText(/kourage or our komplacency/)).toBeInTheDocument();
     });
   });
 
