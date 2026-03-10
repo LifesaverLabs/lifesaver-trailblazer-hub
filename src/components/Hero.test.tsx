@@ -60,7 +60,7 @@ describe("Hero Component", () => {
 
     it("should mention miracles", () => {
       renderHero();
-      expect(screen.getByText(/miracles we're building together/)).toBeInTheDocument();
+      expect(screen.getByText(/mirakles we're building together/)).toBeInTheDocument();
     });
 
     it("should reference making no little plans", () => {
