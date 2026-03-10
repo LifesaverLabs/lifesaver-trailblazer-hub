@@ -3,51 +3,22 @@ import "@testing-library/jest-dom";
 import { vi } from "vitest";
 import React from "react";
 
-// Mock react-simple-maps as it requires canvas and complex geo operations
-vi.mock("react-simple-maps", () => ({
-  ComposableMap: ({ children, ...props }: any) =>
-    React.createElement("svg", { "data-testid": "composable-map", ...props }, children),
-  Geographies: ({ children }: any) => {
-    const mockGeographies = [
-      { rsmKey: "geo-1", properties: { name: "United States of America" } },
-      { rsmKey: "geo-2", properties: { name: "Germany" } },
-      { rsmKey: "geo-3", properties: { name: "Japan" } },
-      { rsmKey: "geo-4", properties: { name: "Brazil" } },
-      { rsmKey: "geo-5", properties: { name: "India" } },
-      { rsmKey: "geo-6", properties: { name: "China" } },
-      { rsmKey: "geo-7", properties: { name: "Finland" } },
-      { rsmKey: "geo-8", properties: { name: "New Zealand" } },
-      { rsmKey: "geo-9", properties: { name: "Ireland" } },
-      { rsmKey: "geo-10", properties: { name: "Greece" } },
-    ];
-    return React.createElement(
-      "g",
-      { "data-testid": "geographies" },
-      children({ geographies: mockGeographies })
-    );
-  },
-  Geography: ({ geography, ...props }: any) =>
-    React.createElement("path", {
-      "data-testid": `geography-${geography.rsmKey}`,
-      "data-country": geography.properties.name,
-      ...props,
-    }),
-  ZoomableGroup: ({ children, zoom, center, ...props }: any) =>
-    React.createElement(
-      "g",
-      {
-        "data-testid": "zoomable-group",
-        "data-zoom": zoom,
-        "data-center": center?.join(","),
-      },
-      children
-    ),
-  Marker: ({ children, coordinates, ...props }: any) =>
-    React.createElement(
-      "g",
-      { "data-testid": "marker", "data-coordinates": coordinates?.join(",") },
-      children
-    ),
+// Mock topojson-client for tests
+vi.mock("topojson-client", () => ({
+  feature: () => ({
+    features: [
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "United States of America" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Germany" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Japan" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Brazil" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "India" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "China" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Finland" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "New Zealand" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Ireland" } },
+      { type: "Feature", geometry: { type: "Polygon", coordinates: [[[0,0],[1,0],[1,1],[0,1],[0,0]]] }, properties: { name: "Greece" } },
+    ],
+  }),
 }));
 
 // Mock d3-geo functions
@@ -57,19 +28,23 @@ vi.mock("d3-geo", () => ({
     [-10, -10],
     [10, 10],
   ],
+  geoPath: () => {
+    const pathFn = (geo: any) => "M0,0L1,0L1,1Z";
+    pathFn.projection = () => pathFn;
+    return pathFn;
+  },
 }));
 
 // Mock d3-geo-projection
 vi.mock("d3-geo-projection", () => ({
-  geoCylindricalEqualArea: () => ({
-    parallel: () => ({
-      rotate: () => ({
-        translate: () => ({
-          scale: () => ({}),
-        }),
-      }),
-    }),
-  }),
+  geoCylindricalEqualArea: () => {
+    const projFn = (coords: [number, number]) => [0, 0];
+    projFn.parallel = () => projFn;
+    projFn.rotate = () => projFn;
+    projFn.translate = () => projFn;
+    projFn.scale = () => projFn;
+    return projFn;
+  },
 }));
 
 // Mock image imports
