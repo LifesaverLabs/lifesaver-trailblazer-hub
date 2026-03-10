@@ -97,9 +97,9 @@ describe("Footer Component", () => {
       expect(screen.getByText("team@lifesaverlabs.org")).toBeInTheDocument();
     });
 
-    it("should display team@neighbor911.us email", () => {
+    it("should display team@nayborsos.org email", () => {
       renderWithRouter(<Footer />);
-      expect(screen.getByText("team@neighbor911.us")).toBeInTheDocument();
+      expect(screen.getByText("team@nayborsos.org")).toBeInTheDocument();
     });
 
     it("should display CONSENT phone number", () => {

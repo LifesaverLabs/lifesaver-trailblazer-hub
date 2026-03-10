@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { DialectProvider } from "@/contexts/DialectContext";
 import Hero from "./Hero";
+
+const renderHero = () => render(<DialectProvider><Hero /></DialectProvider>);
 
 describe("Hero Component", () => {
   describe("Rendering", () => {
