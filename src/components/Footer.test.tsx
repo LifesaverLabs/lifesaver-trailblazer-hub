@@ -118,10 +118,10 @@ describe("Footer Component", () => {
       expect(emailLink).toHaveAttribute("href", "mailto:team@lifesaverlabs.org");
     });
 
-    it("should have mailto link for neighbor911", () => {
+    it("should have mailto link for nayborsos", () => {
       renderWithRouter(<Footer />);
-      const emailLink = screen.getByRole("link", { name: /team@neighbor911.us/ });
-      expect(emailLink).toHaveAttribute("href", "mailto:team@neighbor911.us");
+      const emailLink = screen.getByRole("link", { name: /team@nayborsos.org/ });
+      expect(emailLink).toHaveAttribute("href", "mailto:team@nayborsos.org");
     });
 
     it("should have tel link for CONSENT", () => {
