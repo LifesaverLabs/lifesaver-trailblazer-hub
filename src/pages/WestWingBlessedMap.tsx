@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-  Marker
-} from 'react-simple-maps';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { geoCylindricalEqualArea } from 'd3-geo-projection';
-import { geoCentroid, geoBounds } from 'd3-geo';
+import { geoCentroid, geoBounds, geoPath } from 'd3-geo';
+import { feature } from 'topojson-client';
+import type { Topology } from 'topojson-specification';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
