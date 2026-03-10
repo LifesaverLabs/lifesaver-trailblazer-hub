@@ -114,26 +114,75 @@ const endonymMap: Record<string, string> = {
 // --- 2. CONFIGURATION ---
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Gall-Peters (South-Up) - returns the projection directly for react-simple-maps v3
-// Center on 0° longitude (Greenwich), cut at International Date Line (180°) in Pacific Ocean
-// Rotation: [lambda, phi, gamma] = [longitude rotation, latitude flip, roll]
-// Adjustable lambda to find the right seam position
+const MAP_WIDTH = 800;
+const MAP_HEIGHT = 600;
+
 const createGallPetersProjection = (width: number, height: number, rotationLambda: number) => {
   return geoCylindricalEqualArea()
     .parallel(45)
-    .rotate([rotationLambda, 180, 0]) // rotationLambda is adjustable, 180° flips for south-up
+    .rotate([rotationLambda, 180, 0])
     .translate([width / 2, height / 2])
     .scale(width / 5.5);
 };
 
-const BlessedMap = () => {
-  const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
-  const [showEndonyms, setShowEndonyms] = useState(true);
-  const [rotation, setRotation] = useState(0); // Adjustable rotation for testing
+interface GeoFeature {
+  type: string;
+  geometry: any;
+  properties: { name: string };
+  rsmKey?: string;
+}
 
-  const handleMoveEnd = (position: { coordinates: [number, number], zoom: number }) => {
-    setPosition(position);
-  };
+const BlessedMap = () => {
+  const [zoom, setZoom] = useState(1);
+  const [translate, setTranslate] = useState<[number, number]>([0, 0]);
+  const [showEndonyms, setShowEndonyms] = useState(true);
+  const [rotation, setRotation] = useState(0);
+  const [geographies, setGeographies] = useState<GeoFeature[]>([]);
+  const [hoveredGeo, setHoveredGeo] = useState<string | null>(null);
+  const [isPanning, setIsPanning] = useState(false);
+  const panStart = useRef<[number, number] | null>(null);
+  const translateStart = useRef<[number, number]>([0, 0]);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  // Load TopoJSON data
+  useEffect(() => {
+    fetch(geoUrl)
+      .then((res) => res.json())
+      .then((topology: Topology) => {
+        const countries = feature(topology, topology.objects.countries as any);
+        setGeographies((countries as any).features);
+      })
+      .catch(console.error);
+  }, []);
+
+  const projection = createGallPetersProjection(MAP_WIDTH, MAP_HEIGHT, rotation);
+  const pathGenerator = geoPath().projection(projection);
+
+  // Mouse/touch pan handlers
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    setIsPanning(true);
+    panStart.current = [e.clientX, e.clientY];
+    translateStart.current = translate;
+    (e.target as Element)?.setPointerCapture?.(e.pointerId);
+  }, [translate]);
+
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isPanning || !panStart.current) return;
+    const dx = (e.clientX - panStart.current[0]) / zoom;
+    const dy = (e.clientY - panStart.current[1]) / zoom;
+    setTranslate([translateStart.current[0] + dx, translateStart.current[1] + dy]);
+  }, [isPanning, zoom]);
+
+  const handlePointerUp = useCallback(() => {
+    setIsPanning(false);
+    panStart.current = null;
+  }, []);
+
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    const factor = e.deltaY > 0 ? 1 / 1.2 : 1.2;
+    setZoom((z) => Math.max(1, Math.min(40, z * factor)));
+  }, []);
 
   return (
     <div className="w-full h-[70vh] bg-[#1a1a1a] flex flex-col items-center justify-center p-4 relative font-sans overflow-hidden rounded-lg">
@@ -182,7 +231,6 @@ const BlessedMap = () => {
                 {showEndonyms ? "BLESSÉD ENDONYMS" : "AMERICAN STANDARD"}
               </div>
             </div>
-            {/* Visual Indicator of Switch */}
             <div 
               className="w-12 h-6 bg-black/50 rounded-full relative ml-4 border border-white/20"
               aria-hidden="true"
@@ -197,7 +245,7 @@ const BlessedMap = () => {
           </div>
         </button>
 
-        {/* Globe Seam Control - because Earth is round, the seam is arbitrary */}
+        {/* Globe Seam Control */}
         <div className="bg-gray-800/90 backdrop-blur-md px-3 py-2 rounded-sm border border-gray-500 shadow-lg">
           <label htmlFor="rotation-slider" className="flex items-center gap-2 mb-1">
             <span className="text-xs font-medium text-gray-200">🌍 Edge of the World™</span>
@@ -226,125 +274,95 @@ const BlessedMap = () => {
       {/* THE MAP */}
       <div className="w-full h-full border border-gray-700 bg-[#a4b6c3] relative overflow-hidden rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         
-        <ComposableMap
-          projection={createGallPetersProjection(800, 600, rotation)}
-          width={800}
-          height={600}
+        <svg
+          ref={svgRef}
+          viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
           className="w-full h-full"
+          style={{ cursor: isPanning ? 'grabbing' : 'grab' }}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+          onWheel={handleWheel}
         >
-          <ZoomableGroup
-            zoom={position.zoom}
-            center={position.coordinates as [number, number]}
-            onMoveEnd={handleMoveEnd}
-            minZoom={1}
-            maxZoom={40}
-          >
-            <Geographies geography={geoUrl}>
-              {({ geographies }) => {
-                // Separate render: shapes first, then labels on top
-                const shapes = geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey + "-shape"}
-                    geography={geo}
-                    fill="#d6cbb6"
-                    stroke="#8a7e68"
-                    strokeWidth={0.3 / position.zoom}
-                    style={{
-                      default: { outline: "none" },
-                      hover: { fill: "#c2b59b", outline: "none", cursor: "crosshair" },
-                      pressed: { fill: "#a3967d", outline: "none" },
-                    }}
-                  />
-                ));
+          <g transform={`translate(${MAP_WIDTH / 2}, ${MAP_HEIGHT / 2}) scale(${zoom}) translate(${translate[0] - MAP_WIDTH / 2}, ${translate[1] - MAP_HEIGHT / 2})`}>
+            {/* Country shapes */}
+            {geographies.map((geo, i) => {
+              const d = pathGenerator(geo as any) || "";
+              const isHovered = hoveredGeo === `geo-${i}`;
+              return (
+                <path
+                  key={`shape-${i}`}
+                  d={d}
+                  fill={isHovered ? "#c2b59b" : "#d6cbb6"}
+                  stroke="#8a7e68"
+                  strokeWidth={0.3 / zoom}
+                  style={{ cursor: "crosshair", outline: "none" }}
+                  onMouseEnter={() => setHoveredGeo(`geo-${i}`)}
+                  onMouseLeave={() => setHoveredGeo(null)}
+                />
+              );
+            })}
 
-                const labels = geographies.map((geo) => {
-                  const countryName = geo.properties.name;
-                  
-                  const label = showEndonyms 
-                    ? (endonymMap[countryName] || countryName) 
-                    : countryName;
+            {/* Country labels */}
+            {geographies.map((geo, i) => {
+              const countryName = geo.properties.name;
+              const label = showEndonyms
+                ? (endonymMap[countryName] || countryName)
+                : countryName;
 
-                  // Calculate country bounds for dynamic sizing
-                  const bounds = geoBounds(geo);
-                  const countryWidth = Math.abs(bounds[1][0] - bounds[0][0]); // longitude span in degrees
-                  const countryHeight = Math.abs(bounds[1][1] - bounds[0][1]); // latitude span in degrees
-                  
-                  // Estimate character width (rough approximation for monospace)
-                  const labelLength = label.length;
-                  const charWidthRatio = 0.55;
-                  
-                  // Calculate base font size that fits within country dimensions (in map units)
-                  // Scale factor converts degrees to approximate SVG units for this projection
-                  const scaleFactor = 2.5;
-                  const widthBasedSize = (countryWidth * scaleFactor) / (labelLength * charWidthRatio);
-                  const heightBasedSize = (countryHeight * scaleFactor) * 0.5;
-                  
-                  // Use the smaller constraint as base size
-                  const baseSize = Math.min(widthBasedSize, heightBasedSize);
-                  
-                  // Zoom-level minimum font size table for legibility
-                  // At higher zoom levels, we allow smaller minimum fonts since you're zoomed in
-                  const zoomMinFontTable: Record<number, number> = {
-                    1: 1.5,    // At zoom 1, minimum 1.5px
-                    2: 1.2,    // At zoom 2, minimum 1.2px
-                    3: 1.0,    // At zoom 3, minimum 1.0px
-                    4: 0.8,    // At zoom 4, minimum 0.8px
-                    5: 0.7,    // At zoom 5, minimum 0.7px
-                    6: 0.6,    // At zoom 6+, minimum 0.6px
-                  };
-                  
-                  // Get minimum font size for current zoom level
-                  const zoomLevel = Math.min(6, Math.max(1, Math.floor(position.zoom)));
-                  const minFontForZoom = zoomMinFontTable[zoomLevel] || 0.6;
-                  
-                  // Dampen shrinking for smaller countries: use sqrt to slow down shrinking rate
-                  // Smaller baseSize countries shrink less aggressively
-                  const shrinkDamping = Math.sqrt(baseSize / 10); // Normalized dampening factor
-                  const dampedZoom = 1 + (position.zoom - 1) * Math.min(1, shrinkDamping);
-                  
-                  // Scale with damped zoom factor
-                  const fontSize = baseSize / dampedZoom;
-                  
-                  // Clamp to zoom-appropriate minimum and reasonable maximum
-                  const maxFontSize = 25;
-                  const clampedFontSize = Math.max(minFontForZoom, Math.min(maxFontSize, fontSize));
-                  
-                  // Show label if country is large enough to display meaningfully
-                  const isVisible = countryWidth > 0.5;
+              const bounds = geoBounds(geo as any);
+              const countryWidth = Math.abs(bounds[1][0] - bounds[0][0]);
+              const countryHeight = Math.abs(bounds[1][1] - bounds[0][1]);
+              
+              const labelLength = label.length;
+              const charWidthRatio = 0.55;
+              const scaleFactor = 2.5;
+              const widthBasedSize = (countryWidth * scaleFactor) / (labelLength * charWidthRatio);
+              const heightBasedSize = (countryHeight * scaleFactor) * 0.5;
+              const baseSize = Math.min(widthBasedSize, heightBasedSize);
+              
+              const zoomMinFontTable: Record<number, number> = {
+                1: 1.5, 2: 1.2, 3: 1.0, 4: 0.8, 5: 0.7, 6: 0.6,
+              };
+              const zoomLevel = Math.min(6, Math.max(1, Math.floor(zoom)));
+              const minFontForZoom = zoomMinFontTable[zoomLevel] || 0.6;
+              
+              const shrinkDamping = Math.sqrt(baseSize / 10);
+              const dampedZoom = 1 + (zoom - 1) * Math.min(1, shrinkDamping);
+              const fontSize = baseSize / dampedZoom;
+              const maxFontSize = 25;
+              const clampedFontSize = Math.max(minFontForZoom, Math.min(maxFontSize, fontSize));
+              
+              const isVisible = countryWidth > 0.5;
+              if (!isVisible) return null;
 
-                  if (!isVisible) return null;
+              const centroid = projection(geoCentroid(geo as any) as [number, number]);
+              if (!centroid) return null;
 
-                  return (
-                    <Marker key={geo.rsmKey + "-label"} coordinates={geoCentroid(geo)}>
-                      <text
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        transform="rotate(180) scale(-1, -1)"
-                        style={{
-                          fontFamily: '"Courier New", monospace',
-                          fill: showEndonyms ? "#2c2822" : "#555",
-                          fontSize: `${clampedFontSize}px`,
-                          fontWeight: "bold",
-                          pointerEvents: "none",
-                          opacity: 0.85,
-                        }}
-                      >
-                        {label}
-                      </text>
-                    </Marker>
-                  );
-                });
-
-                return (
-                  <>
-                    {shapes}
-                    {labels}
-                  </>
-                );
-              }}
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+              return (
+                <text
+                  key={`label-${i}`}
+                  x={centroid[0]}
+                  y={centroid[1]}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  transform={`rotate(180, ${centroid[0]}, ${centroid[1]}) scale(1, 1)`}
+                  style={{
+                    fontFamily: '"Courier New", monospace',
+                    fill: showEndonyms ? "#2c2822" : "#555",
+                    fontSize: `${clampedFontSize}px`,
+                    fontWeight: "bold",
+                    pointerEvents: "none",
+                    opacity: 0.85,
+                  }}
+                >
+                  {label}
+                </text>
+              );
+            })}
+          </g>
+        </svg>
 
         {/* Legend */}
         <div className="absolute bottom-6 right-6 flex flex-col items-end pointer-events-none opacity-60">
@@ -359,14 +377,14 @@ const BlessedMap = () => {
       {/* Zoom Controls */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4" role="group" aria-label="Map zoom controls">
         <button 
-          onClick={() => setPosition(p => ({ ...p, zoom: p.zoom * 1.5 }))}
+          onClick={() => setZoom(z => Math.min(40, z * 1.5))}
           aria-label="Zoom in"
           className="bg-gray-700 hover:bg-gray-600 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 min-w-[44px] min-h-[44px]"
         >
           (+)
         </button>
         <button 
-          onClick={() => setPosition(p => ({ ...p, zoom: Math.max(1, p.zoom / 1.5) }))}
+          onClick={() => setZoom(z => Math.max(1, z / 1.5))}
           aria-label="Zoom out"
           className="bg-gray-700 hover:bg-gray-600 text-white font-mono px-4 py-2 rounded-sm shadow-lg transition uppercase tracking-widest text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900 min-w-[44px] min-h-[44px]"
         >
