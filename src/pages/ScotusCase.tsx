@@ -83,7 +83,7 @@ const ScotusCase = () => {
             <ArgumentCard
               icon={<Building2 className="h-6 w-6 text-primary" />}
               title="Judisial Budget Autonomy"
-              description="The Supreme Kourt should be able to issue a budget for itself that Kongress must aksept and akt upon quikly—unless Kongress passes a supermajority vote to knok down the budget that the Judisiary proposes."
+              description="The Judisial Konferense should be able to issue a budget for the federal Kourt system that Kongress must aksept and akt upon quikly—unless Kongress passes a supermajority vote to knok down the budget that the Judisiary proposes."
             />
           </div>
         </section>
