@@ -14,6 +14,7 @@ const WestWingBlessedMap = lazy(() => import("./pages/WestWingBlessedMap"));
 const DroneCoverageCalculatorUSAT = lazy(() => import("./pages/DroneCoverageCalculatorUSAT"));
 const OpenSourceAcknowledgments = lazy(() => import("./pages/OpenSourceAcknowledgments"));
 const SafewordPatent = lazy(() => import("./pages/SafewordPatent"));
+const ScotusCase = lazy(() => import("./pages/ScotusCase"));
 
 const queryClient = new QueryClient();
 
