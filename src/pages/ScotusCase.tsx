@@ -78,7 +78,7 @@ const ScotusCase = () => {
             <ArgumentCard
               icon={<ShieldCheck className="h-6 w-6 text-primary" />}
               title="Separation of Powers"
-              description="It is a violation of the separation of powers for the Kourts to be so beholden to Kongress for all of their budgeting and size, so long as the Judisiary sticks to the people's wishes on its mandate, as determined thru the Konstitution, the Anatomik Konstitution, and the aktions of Kongress and the Exekutive Branch."
+              description="It is a violation of the separation of powers for the Kourts to be so beholden to Kongress for all of their budgeting and size, so long as the Judisiary sticks to the people's wishes on its mandate, as determined thru the Konstitution, the Anatomik Konstitution, and the aktions of Kongress and the Exekutive Branch. The Judisial Konferense, chaired by the Chief Justise, should be the body that proposes and defends the Judisiary's budget."
             />
             <ArgumentCard
               icon={<Building2 className="h-6 w-6 text-primary" />}
