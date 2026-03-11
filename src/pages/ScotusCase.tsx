@@ -1,4 +1,4 @@
-import { ExternalLink, Scale, Clock, Users, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import { ExternalLink, Scale, Clock, Users, Building2, ShieldCheck, ArrowRight, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
