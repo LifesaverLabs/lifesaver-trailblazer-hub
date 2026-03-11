@@ -36,22 +36,19 @@ describe("ExternalRedirect", () => {
   };
 
   it("should redirect /scotus02026 to Google Drive", () => {
-    renderWithRoute("/scotus02026", "/scotus02026", GOOGLE_DRIVE_URL);
-    expect(window.location.href).toBe(GOOGLE_DRIVE_URL);
-  });
-
-  it("should redirect /skotusat²02026 (literal superscript) to Google Drive", () => {
-    renderWithRoute("/skotusat%C2%B202026", "/skotusat²02026", GOOGLE_DRIVE_URL);
+    // Note: /scotus02026 now uses ScotusCase page, not ExternalRedirect
+    // This test verifies ExternalRedirect still works generically
+    renderWithRoute("/test-redirect", "/test-redirect", GOOGLE_DRIVE_URL);
     expect(window.location.href).toBe(GOOGLE_DRIVE_URL);
   });
 
   it("should render null (no visible UI)", () => {
-    const { container } = renderWithRoute("/scotus02026", "/scotus02026", GOOGLE_DRIVE_URL);
+    const { container } = renderWithRoute("/test-redirect", "/test-redirect", GOOGLE_DRIVE_URL);
     expect(container.innerHTML).toBe("");
   });
 
   it("should not redirect for unmatched routes", () => {
-    const { getByTestId } = renderWithRoute("/unknown-path", "/scotus02026", GOOGLE_DRIVE_URL);
+    const { getByTestId } = renderWithRoute("/unknown-path", "/test-redirect", GOOGLE_DRIVE_URL);
     expect(getByTestId("not-found")).toBeInTheDocument();
     expect(window.location.href).toBe("");
   });

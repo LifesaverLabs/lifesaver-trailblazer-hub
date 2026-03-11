@@ -14,6 +14,7 @@ const WestWingBlessedMap = lazy(() => import("./pages/WestWingBlessedMap"));
 const DroneCoverageCalculatorUSAT = lazy(() => import("./pages/DroneCoverageCalculatorUSAT"));
 const OpenSourceAcknowledgments = lazy(() => import("./pages/OpenSourceAcknowledgments"));
 const SafewordPatent = lazy(() => import("./pages/SafewordPatent"));
+const ScotusCase = lazy(() => import("./pages/ScotusCase"));
 
 const queryClient = new QueryClient();
 
@@ -34,9 +35,9 @@ const App = () => (
             <Route path="/safewordpatent" element={<Suspense fallback={null}><SafewordPatent /></Suspense>} />
             <Route path="/guilt+guiltprevention" element={<ExternalRedirect url="https://github.com/LifesaverLabs/safeword/tree/develop/" />} />
             <Route path="/storiesofstandards/safeword" element={<ExternalRedirect url="https://github.com/LifesaverLabs/safeword/tree/develop/personal_experience" />} />
-            <Route path="/scotus02026" element={<ExternalRedirect url="https://drive.google.com/drive/folders/1e6bCx6KH1woBCpy2DMu_s2nl-bDt0PUa?usp=drive_link" />} />
-            <Route path="/skotusat²02026" element={<ExternalRedirect url="https://drive.google.com/drive/folders/1e6bCx6KH1woBCpy2DMu_s2nl-bDt0PUa?usp=drive_link" />} />
-            <Route path="/skotusat%C2%B202026" element={<ExternalRedirect url="https://drive.google.com/drive/folders/1e6bCx6KH1woBCpy2DMu_s2nl-bDt0PUa?usp=drive_link" />} />
+            <Route path="/scotus02026" element={<Suspense fallback={null}><ScotusCase /></Suspense>} />
+            <Route path="/skotusat²02026" element={<Suspense fallback={null}><ScotusCase /></Suspense>} />
+            <Route path="/skotusat%C2%B202026" element={<Suspense fallback={null}><ScotusCase /></Suspense>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
