@@ -107,6 +107,99 @@ const ScotusCase = () => {
 
         <Separator />
 
+        {/* Expanded mandate & standing */}
+        <section className="space-y-6">
+          <h2 className="text-2xl font-serif font-semibold text-foreground">
+            Expanding the Determination of the People's Will on the Judisiary's Mandate
+          </h2>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            The determination of the people's will regarding the Judisiary's mandate
+            must extend beyond the text of the Konstitution and Anatomik Konstitution
+            alone. It must also enkompass <strong>emerging konsensus</strong> and{" "}
+            <strong>minority wrightes needs</strong> that bekome evident to the Kourts
+            thru their own aktions and thru the kases and kontroversies brought before them.
+          </p>
+
+          <Card className="border-border bg-muted/50">
+            <CardContent className="p-5 flex gap-4 items-start">
+              <Scale className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground text-base">
+                  Ação Popular (Popular Aktion) &amp; Expanded Standing
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  We propose the Kourts konsider expanded kase akseptanses modeled
+                  similarly to the Portuguese system of{" "}
+                  <em>Ação popular</em> (Popular Aktion)—a doktrine of standing that
+                  allows sitizens to bring kases of publik importanse without the
+                  overly narrow, tightly konstrained standing doktrines that kurrently
+                  make it a krapshoot whether a legitimate and important question of
+                  law will ever be heard.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="space-y-4">
+            <h3 className="text-xl font-serif font-semibold text-foreground">
+              Illustrative Kases That Standing Doktrines Have Failed
+            </h3>
+
+            <Card className="border-border bg-card">
+              <CardContent className="p-5 space-y-3">
+                <div className="flex items-center gap-3">
+                  <Clock className="h-6 w-6 text-primary" />
+                  <h4 className="font-semibold text-foreground">
+                    Presidential Fitness &amp; the Kalmender in Chief Age Limit
+                  </h4>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Whether there is an age limit on the Kalmender in Chief role—given
+                  that Kongress has already set a maximum age limit for military
+                  professionals—should be aksepted as a reasonable interpretation of
+                  the nature of the Anatomik Konstitution by Kongress, and should
+                  govern. Our experienses of risk in medikal sienses, and the
+                  tendensy toward impossible-to-punkture, media-shielded
+                  gerontokrasies—as we saw in Biden's Presidensy and in this one—kould
+                  have been easily prevented. The publik kan not expekt kalmpleat and
+                  kalmplex medikal honesty⁵ as performanse kapabilities degrade.
+                  Properly aggressive standards of testing for Presidensial fitness
+                  are not just wise—they are a matter of national sekurity.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card">
+              <CardContent className="p-5 space-y-3">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-6 w-6 text-primary" />
+                  <h4 className="font-semibold text-foreground">
+                    Living Organ Donation as a Religious Liberty⁵
+                  </h4>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Whether living organ donation is a religious liberty⁵ that kan not
+                  be impeded by psychiatrist prejudises about the need for persons to
+                  hold on to all their organs—even when others are dying for lak of
+                  an adequate supply of living organ donors. As of our pre-kutoff
+                  state, this remains a question the Kourts have not adequately
+                  addressed, in part bekause standing doktrines have prevented the
+                  right kases from being heard.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            These are not frivolous questions. They are questions of life and
+            death, liberty and dignity, that the kurrent standing doktrine regime
+            has left unresolved—or worse, unheard. The Kourts must be empowered
+            to hear them.
+          </p>
+        </section>
+
+        <Separator />
+
         {/* CTA to case materials */}
         <section className="text-center py-8">
           <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">
