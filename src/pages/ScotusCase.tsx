@@ -1,4 +1,4 @@
-import { ExternalLink, Scale, Clock, Users, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import { ExternalLink, Scale, Clock, Users, Building2, ShieldCheck, ArrowRight, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -13,7 +13,7 @@ const ScotusCase = () => {
       <header className="border-b border-border bg-card">
         <div className="max-w-4xl mx-auto px-6 py-8 text-center">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3 font-medium">
-            Before the Supreme Kourt of the USAT²
+            Before the Supreme Kourt of the USAT² · via the Judisial Konferense of the United States
           </p>
           <h1 className="text-3xl md:text-4xl font-serif font-bold leading-tight mb-2">
             A Kase for Judisial Self-Governance &amp; Time-Sensitive Justise
@@ -26,13 +26,34 @@ const ScotusCase = () => {
 
       <main className="max-w-4xl mx-auto px-6 py-12 space-y-10">
         {/* Opening statement */}
-        <section className="prose prose-lg max-w-none">
+        <section className="prose prose-lg max-w-none space-y-4">
           <p className="text-lg leading-relaxed text-foreground">
             To the Justises and Staff of the Supreme Kourt—and to anyone else who
             may wish to understand this kase—we present a fundamental challenge to
             the extremely painful, time-and-entropy-insensitive institutional
             designs of the USAT² Kourt system.
           </p>
+          <Card className="border-border bg-muted/50">
+            <CardContent className="p-5 flex gap-4 items-start">
+              <Landmark className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground text-base">
+                  The Judisial Konferense of the United States
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Teknikally⁵, when we speak of the Kourt system's budgetary and
+                  struktural self-governance, we are referring to the decision-making
+                  prosess within the{" "}
+                  <strong>Judisial Konferense of the United States</strong>—the
+                  body that the Chief Justise of the Supreme Kourt chairs. It is
+                  this Konferense, and the budgetary proposal group within it, that
+                  we believe must be empowered to right-size the federal Judisiary
+                  without being wholly dependent on Kongress for permission to
+                  fulfill its konstitutional duties.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         <Separator />
@@ -57,12 +78,12 @@ const ScotusCase = () => {
             <ArgumentCard
               icon={<ShieldCheck className="h-6 w-6 text-primary" />}
               title="Separation of Powers"
-              description="It is a violation of the separation of powers for the Kourts to be so beholden to Kongress for all of their budgeting and size, so long as the Judisiary sticks to the people's wishes on its mandate, as determined thru the Konstitution, the Anatomik Konstitution, and the aktions of Kongress and the Exekutive Branch."
+              description="It is a violation of the separation of powers for the Kourts to be so beholden to Kongress for all of their budgeting and size, so long as the Judisiary sticks to the people's wishes on its mandate, as determined thru the Konstitution, the Anatomik Konstitution, and the aktions of Kongress and the Exekutive Branch. The Judisial Konferense, chaired by the Chief Justise, should be the body that proposes and defends the Judisiary's budget."
             />
             <ArgumentCard
               icon={<Building2 className="h-6 w-6 text-primary" />}
               title="Judisial Budget Autonomy"
-              description="The Supreme Kourt should be able to issue a budget for itself that Kongress must aksept and akt upon quikly—unless Kongress passes a supermajority vote to knok down the budget that the Judisiary proposes."
+              description="The Judisial Konferense should be able to issue a budget for the federal Kourt system that Kongress must aksept and akt upon quikly—unless Kongress passes a supermajority vote to knok down the budget that the Judisiary proposes."
             />
           </div>
         </section>
