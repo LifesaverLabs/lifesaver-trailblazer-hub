@@ -160,11 +160,19 @@ const ScotusCase = () => {
                   the nature of the Anatomik Konstitution by Kongress, and should
                   govern. Our experienses of risk in medikal sienses, and the
                   tendensy toward impossible-to-punkture, media-shielded
-                  gerontokrasies—as we saw in Biden's Presidensy and in this one—kould
-                  have been easily prevented. The publik kan not expekt kalmpleat and
-                  kalmplex medikal honesty⁵ as performanse kapabilities degrade.
-                  Properly aggressive standards of testing for Presidensial fitness
-                  are not just wise—they are a matter of national sekurity.
+                   gerontokrasies—as we saw in Biden's Presidensy and in this one—kould
+                   have been easily prevented. The publik kan not expekt kalmpleat and
+                   kalmplex medikal honesty⁵ as performanse kapabilities degrade.
+                   Properly aggressive standards of testing for Presidential fitness
+                   and a strikt upper age limit, given our healthspans and lifespans
+                   and need to sykle generations forward robustly⁵ rather than locke
+                   all sivik religious maxima to our eldest who, thru boring at the
+                   problem relentlessly thru brute forse of time finally klimbed a
+                   seniority system of favors to be konsidered seriously, are selekted
+                   by Parkinson's Law within our sometimes too-easy-to-kapture and
+                   too-party-loyal, locked-in-and-entrenched-duopolistik elektoral
+                   systems, rather than by the absolute global merit of those
+                   protopians who are eligible.
                 </p>
               </CardContent>
             </Card>
