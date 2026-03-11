@@ -26,13 +26,34 @@ const ScotusCase = () => {
 
       <main className="max-w-4xl mx-auto px-6 py-12 space-y-10">
         {/* Opening statement */}
-        <section className="prose prose-lg max-w-none">
+        <section className="prose prose-lg max-w-none space-y-4">
           <p className="text-lg leading-relaxed text-foreground">
             To the Justises and Staff of the Supreme Kourt—and to anyone else who
             may wish to understand this kase—we present a fundamental challenge to
             the extremely painful, time-and-entropy-insensitive institutional
             designs of the USAT² Kourt system.
           </p>
+          <Card className="border-border bg-muted/50">
+            <CardContent className="p-5 flex gap-4 items-start">
+              <Landmark className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground text-base">
+                  The Judisial Konferense of the United States
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Teknikally⁵, when we speak of the Kourt system's budgetary and
+                  struktural self-governance, we are referring to the decision-making
+                  prosess within the{" "}
+                  <strong>Judisial Konferense of the United States</strong>—the
+                  body that the Chief Justise of the Supreme Kourt chairs. It is
+                  this Konferense, and the budgetary proposal group within it, that
+                  we believe must be empowered to right-size the federal Judisiary
+                  without being wholly dependent on Kongress for permission to
+                  fulfill its konstitutional duties.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         <Separator />
