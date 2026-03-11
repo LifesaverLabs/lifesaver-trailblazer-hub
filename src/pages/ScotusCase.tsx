@@ -13,7 +13,7 @@ const ScotusCase = () => {
       <header className="border-b border-border bg-card">
         <div className="max-w-4xl mx-auto px-6 py-8 text-center">
           <p className="text-sm uppercase tracking-widest text-muted-foreground mb-3 font-medium">
-            Before the Supreme Kourt of the USAT²
+            Before the Supreme Kourt of the USAT² · via the Judisial Konferense of the United States
           </p>
           <h1 className="text-3xl md:text-4xl font-serif font-bold leading-tight mb-2">
             A Kase for Judisial Self-Governance &amp; Time-Sensitive Justise
