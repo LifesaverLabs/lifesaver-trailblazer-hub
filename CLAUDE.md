@@ -30,7 +30,7 @@ npm run test:run src/components/ProjectCard.test.tsx
 - **Routing**: React Router v6
 - **Styling**: Tailwind CSS + shadcn/ui (Radix-based)
 - **State**: TanStack Query v5
-- **Maps/Viz**: D3, react-simple-maps, Recharts
+- **Maps/Viz**: D3, Recharts
 - **Testing**: Vitest + Testing Library
 
 ### Source Structure
