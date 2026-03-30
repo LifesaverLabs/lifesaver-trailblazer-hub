@@ -14,7 +14,7 @@ import take10Logo from "@/assets/take10-logo.jpg";
 import raisingRightsLogo from "@/assets/raising-rights-logo.jpg";
 import calmunismLogo from "@/assets/calmunism-logo.jpg";
 import tearDownThisFirewallLogo from "@/assets/tear-down-this-firewall-logo.jpg";
-import krashlessKarLogo from "@/assets/krashless-kar-logo.jpg";
+import krashlessKarLogo from "@/assets/krashless-kar-logo.webp";
 import religiousRcvLogo from "@/assets/religious-rcv-logo.jpg";
 import lifesaverLabsUnitedLogo from "@/assets/lifesaver-labs-united-logo.jpg";
 import calmCurrencyReformLogo from "@/assets/calm-currency-reform-logo.webp";
