@@ -34,6 +34,7 @@ const App = () => (
             <Route path="/open-source-acknowledgments" element={<Suspense fallback={null}><OpenSourceAcknowledgments /></Suspense>} />
             <Route path="/safewordpatent" element={<Suspense fallback={null}><SafewordPatent /></Suspense>} />
             <Route path="/guilt+guiltprevention" element={<ExternalRedirect url="https://github.com/LifesaverLabs/safeword/tree/develop/" />} />
+            <Route path="/wrongfuldarvoarrest" element={<ExternalRedirect url="https://www.youtube.com/watch?v=0ObRKAW8vcs&list=PL_QTpj4socfg6A7jcvl5NRw2VEEUgM1W3" />} />
             <Route path="/storiesofstandards/safeword" element={<ExternalRedirect url="https://github.com/LifesaverLabs/safeword/tree/develop/personal_experience" />} />
             <Route path="/scotus02026" element={<Suspense fallback={null}><ScotusCase /></Suspense>} />
             <Route path="/skotusat²02026" element={<Suspense fallback={null}><ScotusCase /></Suspense>} />
