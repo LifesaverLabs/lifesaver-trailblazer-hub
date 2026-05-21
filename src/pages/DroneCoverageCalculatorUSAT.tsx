@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import { geoCylindricalEqualArea } from 'd3-geo-projection';
 import US_GEOJSON from '../assets/usGeoJSON';
 import { getCitiesForZoomLevel } from '../assets/usCitiesData';
+import PageMeta from '@/components/PageMeta';
 
 // ============================================================================
 // TYPES
@@ -1121,6 +1122,22 @@ export default function FloridaCoverageCalculator() {
 
   return (
     <div style={{ fontFamily: 'Inter, system-ui, sans-serif', background: '#0a0e12', color: '#e6edf3', minHeight: '100vh' }}>
+      <PageMeta
+        title="Drone AED Coverage Calculator | Lifesaver Labs"
+        description="Interactive QALY analysis tool for drone-delivered AED coverage across US states and territories—Florida-first vs. soul-count-prioritized deployment."
+        path="/drone-coverage-calculator"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Drone AED Coverage Calculator",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "Web",
+          description:
+            "Interactive QALY analysis tool for drone-delivered AED coverage across US states and territories.",
+          url: "https://lifesaverlabs.org/drone-coverage-calculator",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }}
+      />
       {/* Header */}
       <header style={{ background: '#101418', borderBottom: '1px solid #21262d', padding: '20px 16px', textAlign: 'center' }}>
         <h1 style={{ fontSize: 22, fontWeight: 800, margin: 0, background: 'linear-gradient(135deg, #e6edf3 0%, #00d9ff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
