@@ -254,6 +254,15 @@ const OrganizationTabs = () => {
         "Fighting the loneliness epidemic one table at a time—downloadable table tent designs that invite strangers to become kousins across the Family⁵",
       status: "Alpha",
     },
+    {
+      name: "Bomb This First",
+      logo: "",
+      logoImage: bombThisFirstLogo,
+      url: "https://bombthisfirst.org",
+      description:
+        "A proposed civic protocol where semi-sovereigns pre-register uninhabited or evacuable targets an adversary may strike first—a symbolic crater instead of a coffin, with a 72-hour negotiation window before any second strike. A slower trigger that preserves the option of force without spending a generation of kousins to use it.",
+      status: "Working Paper",
+    },
   ];
 
   return (
