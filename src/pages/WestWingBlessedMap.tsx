@@ -6,6 +6,7 @@ import type { Topology } from 'topojson-specification';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import PageMeta from '@/components/PageMeta';
 
 // --- 1. THE COMPREHENSIVE ENDONYM DATABASE ---
 const endonymMap: Record<string, string> = {
