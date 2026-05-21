@@ -23,6 +23,7 @@ import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
 import innerFriendLogo from "@/assets/inner-friend-logo.webp";
 import safewordMoralMonopolyLogo from "@/assets/safeword-moral-monopoly-logo.webp";
+import bombThisFirstLogo from "@/assets/bomb-this-first-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
