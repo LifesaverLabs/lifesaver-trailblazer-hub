@@ -399,6 +399,11 @@ const BlessedMap = () => {
 const WestWingBlessedMap = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="West Wing Mode: Blesséd Map | Lifesaver Labs"
+        description="A Full-Transitioned Map using Gall-Peters projection, South-up orientation, and endonym labeling—honoring how peoples name themselves."
+        path="/west-wing-blessed-map"
+      />
       {/* Header */}
       <header className="container px-6 py-8">
         <Link to="/">
