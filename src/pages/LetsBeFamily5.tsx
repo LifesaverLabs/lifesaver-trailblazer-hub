@@ -5,10 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import family5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 import tableTentPreview from "@/assets/table-tent-preview.jpg";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 
 const LetsBeFamily5 = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Come Sit, Let's Be Family⁵ | Lifesaver Labs"
+        description="Fighting the loneliness epidemic one table at a time—downloadable table tent designs that invite strangers to become kousins across the Family⁵."
+        path="/letsbeFamily5"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-600 via-orange-500 to-rose-500">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_50%)]" />

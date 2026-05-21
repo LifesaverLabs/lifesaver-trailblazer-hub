@@ -12,6 +12,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { useState } from "react";
+import PageMeta from "@/components/PageMeta";
 
 const SafewordPatent = () => {
   const { t } = useDialect();
@@ -19,6 +20,11 @@ const SafewordPatent = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <PageMeta
+        title="Safeword Patent & Ethics Licensing | Lifesaver Labs"
+        description="Understanding the protections, purpose, and licensing philosophy behind the Safeword patent and Copilot Studies model."
+        path="/safewordpatent"
+      />
       <div className="max-w-3xl mx-auto px-6 py-16 space-y-10">
         <header className="space-y-4">
           <h1 className="text-4xl font-serif font-bold tracking-tight">

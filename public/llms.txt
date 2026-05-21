@@ -1,0 +1,15 @@
+# Lifesaver Labs
+
+> A coalition, PBC, and civic-reform lab building life-saving tools, emergency response systems, and democratic protocols.
+
+Lifesaver Labs spans three coordinated divisions—a nonprofit Coalition, a Public Benefit Corporation (PBC), and a US civic-reform & internationalization arm—pursuing public health innovation, emergency response, ethical relationships, and democratic reform.
+
+## Pages
+
+- [Home](/): Overview of all Lifesaver Labs projects across Coalition, PBC, and US civics divisions.
+- [Drone AED Coverage Calculator](/drone-coverage-calculator): Interactive QALY analysis tool for drone-delivered AED coverage across US states and territories.
+- [West Wing Mode: Blesséd Map](/west-wing-blessed-map): Gall-Peters equal-area, South-up world map with endonym labeling.
+- [Come Sit, Let's Be Family⁵](/letsbeFamily5): Downloadable table tent designs fighting the loneliness epidemic one table at a time.
+- [Safeword Patent & Ethics Licensing](/safewordpatent): The protections, purpose, and licensing philosophy behind the Safeword patent.
+- [SCOTUS Case 02026](/scotus02026): A case for judicial self-governance and time-sensitive justice before the Supreme Kourt USAT².
+- [Open Source Acknowledgments](/open-source-acknowledgments): Credits for open source software used by Lifesaver Labs.
