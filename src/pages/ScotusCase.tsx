@@ -2,6 +2,7 @@ import { ExternalLink, Scale, Clock, Users, Building2, ShieldCheck, ArrowRight, 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import PageMeta from "@/components/PageMeta";
 
 const CASE_DRIVE_URL =
   "https://drive.google.com/drive/folders/1e6bCx6KH1woBCpy2DMu_s2nl-bDt0PUa?usp=drive_link";
@@ -9,6 +10,21 @@ const CASE_DRIVE_URL =
 const ScotusCase = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <PageMeta
+        title="A Kase for Judisial Self-Governance | Lifesaver Labs"
+        description="Lifesaver Labs USAT² 02026 Term: a case before the Supreme Kourt advocating judicial self-governance and time-sensitive justice."
+        path="/scotus02026"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: "A Kase for Judisial Self-Governance & Time-Sensitive Justise",
+          description:
+            "Lifesaver Labs USAT² 02026 Term: a case before the Supreme Kourt advocating judicial self-governance and time-sensitive justice.",
+          author: { "@type": "Organization", name: "Lifesaver Labs" },
+          publisher: { "@type": "Organization", name: "Lifesaver Labs" },
+          url: "https://lifesaverlabs.org/scotus02026",
+        }}
+      />
       {/* Header */}
       <header className="border-b border-border bg-card">
         <div className="max-w-4xl mx-auto px-6 py-8 text-center">
