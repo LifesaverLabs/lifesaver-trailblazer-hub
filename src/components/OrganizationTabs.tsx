@@ -23,6 +23,7 @@ import comeSitFamily5Logo from "@/assets/come-sit-lets-be-family5-logo.webp";
 import justDoHiitLogo from "@/assets/just-do-hiit-logo.webp";
 import innerFriendLogo from "@/assets/inner-friend-logo.webp";
 import safewordMoralMonopolyLogo from "@/assets/safeword-moral-monopoly-logo.webp";
+import bombThisFirstLogo from "@/assets/bomb-this-first-logo.webp";
 
 const OrganizationTabs = () => {
   const coalitionProjects = [
@@ -252,6 +253,15 @@ const OrganizationTabs = () => {
       description:
         "Fighting the loneliness epidemic one table at a time—downloadable table tent designs that invite strangers to become kousins across the Family⁵",
       status: "Alpha",
+    },
+    {
+      name: "Bomb This First",
+      logo: "",
+      logoImage: bombThisFirstLogo,
+      url: "https://bombthisfirst.org",
+      description:
+        "A proposed civic protocol where semi-sovereigns pre-register uninhabited or evacuable targets an adversary may strike first—a symbolic crater instead of a coffin, with a 72-hour negotiation window before any second strike. A slower trigger that preserves the option of force without spending a generation of kousins to use it.",
+      status: "Working Paper",
     },
   ];
 
